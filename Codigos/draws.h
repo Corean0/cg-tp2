@@ -5,7 +5,11 @@ void desenhaMinhaCena()
     
     if(tela == 0)
     {
-        drawObject(wallpaper);
+        drawObject(wallpaper_menu);
+        drawObject(jogar);
+        drawObject(controles);
+        drawObject(creditos);
+        drawObject(sair);
     }
     
     glutSwapBuffers();

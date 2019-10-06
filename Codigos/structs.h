@@ -6,12 +6,12 @@ typedef struct vetorR2
 
 } vetorR2;
 
-// Objetos n√£o animados
+// Objetos n„o animados
 typedef struct spriteObject
 {
     vetorR2 posicao;
     vetorR2 dimensoes;
-    int textura;
+    GLuint textura;
 
 } spriteObject;
 
@@ -23,7 +23,7 @@ typedef struct Objeto_Animado
 	vetorR2 movimento;
 	float frequencia_atual;
 	float frequencia_animacao;
-	int textura;
+	GLuint textura;
 	double proporcaoSprite;
 
 } spriteOb_Animado_s;

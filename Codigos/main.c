@@ -1,3 +1,4 @@
+ 
 #include <SOIL/SOIL.h>
 #include <GL/glew.h>
 #include <GL/freeglut.h>
@@ -17,7 +18,7 @@
 #define FPS 17.0
 
 // Variaveis globais
-spriteObject wallpaper,jogar, opcoes, creditos, sair, mouse;
+spriteObject wallpaper_menu,jogar, controles, creditos, sair, mouse;
 int        keyboard[256], tela = 0;
 Mix_Chunk  *som1, *som2, *som3, *som4;
 
@@ -45,19 +46,19 @@ void main(int argc, char** argv)
     // Callbacks
     glutDisplayFunc(desenhaMinhaCena);
     glutReshapeFunc(redimensionada);
-    //glutKeyboardFunc(teclaPressionada);
-    //glutKeyboardUpFunc(teclaSegurada);
-    //glutPassiveMotionFunc(mouseMove);
-    //glutMouseFunc(mouseClick);
+    glutKeyboardFunc(teclaPressionada);
+    glutKeyboardUpFunc(teclaSegurada);
+    glutPassiveMotionFunc(mouseMove);
+    glutMouseFunc(mouseClick);
     glutTimerFunc(FPS,refresh,FPS);
 
     //Loop
     glutMainLoop();
 }
 
+#include "refresh.h"
 #include "draws.h"
 #include "setup.h"
 #include "keyboard.h"
 #include "mouse.h"
-#include "refresh.h"
 #include "musicas.h"
