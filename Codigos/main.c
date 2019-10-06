@@ -10,38 +10,31 @@
 #include <SDL/SDL_mixer.h>
 
 // Constantes globais
+#define largura 900.0
+#define altura 600
+#define FPS 17.0
 
-// Variavéis objetos, ASCII, constante de velocidade, pause, pontuação
-
-spriteObject 	    
-
-spriteScore 	  
-
-spriteOb_Animado_s 	
-
-int 			   
-
-double 			    
-
-
+// Variaveis globais
+spriteObject wallpaper,jogar, opcoes, creditos, sair, mouse;
+int        keyboard[256], tela = 0;
+Mix_Chunk  *som1, *som2, *som3, *som4;
 
 void main(int argc, char** argv)
 {
-
-    //Inicialização
+    //Inicializaï¿½ï¿½o
     glutInit(&argc, argv);
 
-    //Definindo versão do GLUT
+    //Definindo versï¿½o do GLUT
     glutInitContextVersion(1, 1);
     glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
 
-    //Configurações iniciais da janela GLUT
+    //Configuraï¿½ï¿½es iniciais da janela GLUT
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
     glutInitWindowSize(largura, altura);
     glutInitWindowPosition(100, 100);
 
     //Inicializando a Janela
-    glutCreateWindow("Mario Pong");
+    glutCreateWindow("Lego Park");
 
     //Seta valores iniciais
     setup();
@@ -56,19 +49,6 @@ void main(int argc, char** argv)
     glutMouseFunc(mouseClick);
     glutTimerFunc(FPS,refresh,FPS);
 
-
     //Loop
     glutMainLoop();
 }
-
-#include "draws.h"
-#include "setup.h"
-#include "keyboard.h"
-#include "mouse.h"
-#include "movimentos.h"
-#include "refresh.h"
-#include "pontuacao.h"
-#include "resets.h"
-#include "sides.h"
-#include "events.h"
-#include "musicas.h"

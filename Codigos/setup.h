@@ -13,4 +13,13 @@ void setup()
 
     // Desativando a opção de repetir uma tecla quando ela é continua apertada
     glutSetKeyRepeat(0);
+
+    // Maquinas de estado
+    tela = 0;
+
+    wallPaper.dimensoes.x = largura;
+    wallPaper.dimensoes.y = altura;
+    wallPaper.posicao.x = largura/2;
+    wallPaper.posicao.y = altura/2;
+    wallPaper.textura = loadTexture("../Imagens/wallpaper.png");
 }

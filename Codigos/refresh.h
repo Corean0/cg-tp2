@@ -11,7 +11,6 @@ GLuint loadTexture(const char* arquivo)
     return idTextura;
 }
 
-
 // Reshape
 void redimensionada(int width, int height)
 {
