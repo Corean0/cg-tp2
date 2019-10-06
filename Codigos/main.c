@@ -55,9 +55,9 @@ void main(int argc, char** argv)
     glutMainLoop();
 }
 
+#include "refresh.h"
 #include "draws.h"
 #include "setup.h"
 #include "keyboard.h"
 #include "mouse.h"
-#include "refresh.h"
 #include "musicas.h"
