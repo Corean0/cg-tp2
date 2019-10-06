@@ -11,22 +11,6 @@ void teclaPressionada(unsigned char key, int x, int y)
                 exit(0);
             }
 
-            // Tela do Jogo
-            if(tela == 1)
-            {
-                sair = 1;
-
-                if(pause % 2 == 0)
-                {
-                    pause++;
-                }
-            }
-
-            if(tela == 2 || tela == 3)
-            {
-                tela = 0;
-            }
-
         break;
     }   
 }

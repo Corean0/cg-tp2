@@ -3,8 +3,12 @@ void desenhaMinhaCena()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     
-    drawObject(wallpaper);
-
+    if(tela == 0)
+    {
+        drawObject(wallpaper);
+    }
+    
+    glutSwapBuffers();
 }
 
 //Desenha os objetos e imagens

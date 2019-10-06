@@ -11,7 +11,6 @@ typedef struct spriteObject
 {
     vetorR2 posicao;
     vetorR2 dimensoes;
-    vetorR2 movimento;
     int textura;
 
 } spriteObject;

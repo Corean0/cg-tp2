@@ -8,6 +8,8 @@
 #include <time.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_mixer.h>
+#include "structs.h"
+#include "cabecalho.h"
 
 // Constantes globais
 #define largura 900.0
@@ -21,14 +23,14 @@ Mix_Chunk  *som1, *som2, *som3, *som4;
 
 void main(int argc, char** argv)
 {
-    //Inicializa��o
+    //Inicializacao
     glutInit(&argc, argv);
 
-    //Definindo vers�o do GLUT
+    //Definindo versao do GLUT
     glutInitContextVersion(1, 1);
     glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
 
-    //Configura��es iniciais da janela GLUT
+    //Configuracoeses iniciais da janela GLUT
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
     glutInitWindowSize(largura, altura);
     glutInitWindowPosition(100, 100);
@@ -43,12 +45,19 @@ void main(int argc, char** argv)
     // Callbacks
     glutDisplayFunc(desenhaMinhaCena);
     glutReshapeFunc(redimensionada);
-    glutKeyboardFunc(teclaPressionada);
-    glutKeyboardUpFunc(teclaSegurada);
-    glutPassiveMotionFunc(mouseMove);
-    glutMouseFunc(mouseClick);
+    //glutKeyboardFunc(teclaPressionada);
+    //glutKeyboardUpFunc(teclaSegurada);
+    //glutPassiveMotionFunc(mouseMove);
+    //glutMouseFunc(mouseClick);
     glutTimerFunc(FPS,refresh,FPS);
 
     //Loop
     glutMainLoop();
 }
+
+#include "draws.h"
+#include "setup.h"
+#include "keyboard.h"
+#include "mouse.h"
+#include "refresh.h"
+#include "musicas.h"

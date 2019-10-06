@@ -17,9 +17,9 @@ void setup()
     // Maquinas de estado
     tela = 0;
 
-    wallPaper.dimensoes.x = largura;
-    wallPaper.dimensoes.y = altura;
-    wallPaper.posicao.x = largura/2;
-    wallPaper.posicao.y = altura/2;
-    wallPaper.textura = loadTexture("../Imagens/wallpaper.png");
+    wallpaper.dimensoes.x = largura;
+    wallpaper.dimensoes.y = altura;
+    wallpaper.posicao.x = largura/2;
+    wallpaper.posicao.y = altura/2;
+    wallpaper.textura = loadTexture("../Imagens/wallpaper.png");
 }
