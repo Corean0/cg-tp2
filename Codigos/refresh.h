@@ -12,14 +12,16 @@ GLuint loadTexture(const char* arquivo)
 }
 
 // Reshape
-void redimensionada(int width, int height)
+void redimensiona(int w, int h)
 {
-    glViewport(0, 0, width, height);
+    largura = w;
+    altura = h;
 
+    glDisable(GL_DEPTH_TEST);
+    glViewport(0, 0, w, h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0.0, largura, 0.0, altura, 1.0, -1.0);
-
+    glOrtho(0, w, 0, h, -1, 1);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }

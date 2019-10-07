@@ -13,14 +13,13 @@
 #include "cabecalho.h"
 
 // Constantes globais
-#define largura 900.0
-#define altura 600
 #define FPS 17.0
 #define CARRINHOS 6.0
 
 // Variaveis globais
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair, mouse;
 int             keyboard[256], tela = 0;
+double          altura = 600, largura = 900;
 Mix_Chunk       *som1, *som2, *som3, *som4;
 
 void main(int argc, char** argv)
@@ -34,7 +33,8 @@ void main(int argc, char** argv)
 
     //Configuracoeses iniciais da janela GLUT
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
-    glutInitWindowPosition(0, 0);
+    glutInitWindowSize(largura, altura);
+    glutInitWindowPosition (0, 0);
 
     //Inicializando a Janela
     glutCreateWindow("Lego Park");
@@ -47,7 +47,7 @@ void main(int argc, char** argv)
 
     // Callbacks
     glutDisplayFunc(desenhaMinhaCena);
-    glutReshapeFunc(redimensionada);
+    glutReshapeFunc(redimensiona);
     glutKeyboardFunc(teclaPressionada);
     glutKeyboardUpFunc(teclaSegurada);
     glutPassiveMotionFunc(mouseMove);

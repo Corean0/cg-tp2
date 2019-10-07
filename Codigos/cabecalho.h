@@ -1,6 +1,6 @@
 void setup();
 GLuint loadTexture(const char* arquivo);
-void redimensionada(int weidth, int height);
+void redimensiona(int weidth, int height);
 void refresh(int delay);
 void desenhaMinhaCena();
 void drawObject(spriteObject objeto);
