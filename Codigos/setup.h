@@ -47,4 +47,10 @@ void setup()
     sair.posicao.x = largura/2 + largura/3 - largura/20;
     sair.posicao.y = altura/4;
     sair.textura = loadTexture("../Imagens/sair_branco.png");
+
+    wallpaper_creditos.dimensoes.x = largura;
+    wallpaper_creditos.dimensoes.y = altura;
+    wallpaper_creditos.posicao.x = largura/2;
+    wallpaper_creditos.posicao.y = altura/2;
+    wallpaper_creditos.textura = loadTexture("../Imagens/wallpaper_creditos.png");
 }

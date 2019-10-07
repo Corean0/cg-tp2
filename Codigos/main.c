@@ -18,7 +18,7 @@
 #define FPS 17.0
 
 // Variaveis globais
-spriteObject wallpaper_menu,jogar, controles, creditos, sair, mouse;
+spriteObject wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair, mouse;
 int        keyboard[256], tela = 0;
 Mix_Chunk  *som1, *som2, *som3, *som4;
 

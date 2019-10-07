@@ -10,6 +10,10 @@ void teclaPressionada(unsigned char key, int x, int y)
             {
                 exit(0);
             }
+            if(tela == 3)
+            {
+                tela = 0;
+            }
 
         break;
     }   

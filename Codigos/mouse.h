@@ -48,7 +48,18 @@ void mouseMove(int x, int y)
 			sair.textura = loadTexture("../Imagens/sair_cinza.png");
 		}
 	}
-	
+
+	// Efeito hover nos creditos
+	if(tela == 3)
+	{
+		sair.textura = loadTexture("../Imagens/sair_branco.png");
+		
+		if(mouse.posicao.x < sair.posicao.x + sair.dimensoes.x/2 && mouse.posicao.x > sair.posicao.x - sair.dimensoes.x/2 &&
+		   mouse.posicao.y < sair.posicao.y + sair.dimensoes.y/2 && mouse.posicao.y > sair.posicao.y - sair.dimensoes.y/2)
+		{
+			sair.textura = loadTexture("../Imagens/sair_cinza.png");
+		}
+	}	
 }
 
 // Clique do mouse
@@ -87,6 +98,17 @@ void mouseClick(int botao, int estado, int x, int y)
 				   mouse.posicao.y < sair.posicao.y + sair.dimensoes.y/2 && mouse.posicao.y > sair.posicao.y - sair.dimensoes.y/2)
 				{
 					exit(0);
+				}
+			}
+
+			// Creditos
+			if(tela == 3)
+			{
+				// Clicando "Sair"
+				if(mouse.posicao.x < sair.posicao.x + sair.dimensoes.x/2 && mouse.posicao.x > sair.posicao.x - sair.dimensoes.x/2 &&
+				   mouse.posicao.y < sair.posicao.y + sair.dimensoes.y/2 && mouse.posicao.y > sair.posicao.y - sair.dimensoes.y/2)
+				{
+					tela = 0;
 				}
 			}			
 	}
