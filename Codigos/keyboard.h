@@ -14,6 +14,8 @@ void teclaPressionada(unsigned char key, int x, int y)
             {
                 tela = 0;
             }
+
+            //trava pra conseguir sair aonde quer q esteja
             else
                 exit(0);
 

@@ -32,19 +32,17 @@ void main(int argc, char** argv)
     glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
 
     //Configuracoeses iniciais da janela GLUT
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
-    glutInitWindowSize(largura, altura);
-    glutInitWindowPosition(100, 100);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
+    glutInitWindowPosition(0, 0);
 
     //Inicializando a Janela
     glutCreateWindow("Lego Park");
 
-    //Deixa fullscreen mas não funciona ainda, NÃO DESCOMENTE ISSO POR FAVOR
-    //glutEnterGameMode();
+    //Deixa fullscreen mas não funciona ainda
+    glutEnterGameMode();
 
     //Seta valores iniciais
     setup();
-    srand(time(0));
 
     // Callbacks
     glutDisplayFunc(desenhaMinhaCena);
