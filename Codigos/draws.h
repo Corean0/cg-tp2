@@ -63,3 +63,22 @@ void drawObject(spriteObject objeto)
     glPopMatrix();
     glDisable(GL_TEXTURE_2D);
 }
+
+/*
+void desenhaRodaGigante(){
+    int i;
+    float angulo = 360/CARRINHOS;
+    glPushMatrix();
+    glTranslatef(rodaGigante.posicao.x, rodaGigante.posicao.y, rodaGigante.posicao.z);
+    //desenha o aro e base da roda gigante
+    for(i=0, i<qtdeCarrinhos, i++){
+        int aux = i+1;
+        glPushMatrix();
+        glTranslatef(rodaGigante.raio*cos(angulo)*aux, rodaGigante.raio*sin(angulo)*aux, rodaGigante.posicao.z);
+        //desenha carrinho
+        glPopMatrix();
+    }
+    glPopMatrix();
+}
+
+*/

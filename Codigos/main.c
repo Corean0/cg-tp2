@@ -16,6 +16,7 @@
 #define largura 900.0
 #define altura 600
 #define FPS 17.0
+#define CARRINHOS 6.0
 
 // Variaveis globais
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair, mouse;

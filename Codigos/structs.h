@@ -27,3 +27,11 @@ typedef struct Objeto_Animado
 	double proporcaoSprite;
 
 } spriteOb_Animado_s;
+
+typedef struct Roda_GG
+{
+	vetorR2 dimensoes;
+	vetorR2 posicao;
+	float raio;
+	//sla oq mais bicho me mata
+} Roda_GG;
