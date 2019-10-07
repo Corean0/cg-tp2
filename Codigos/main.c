@@ -39,6 +39,9 @@ void main(int argc, char** argv)
     //Inicializando a Janela
     glutCreateWindow("Lego Park");
 
+    //Deixa fullscreen mas não funciona ainda, NÃO DESCOMENTE ISSO POR FAVOR
+    //glutEnterGameMode();
+
     //Seta valores iniciais
     setup();
     srand(time(0));
