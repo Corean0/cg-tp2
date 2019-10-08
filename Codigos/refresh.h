@@ -24,27 +24,31 @@ void redimensiona(int w, int h)
         case 3:
 
             glDisable(GL_DEPTH_TEST);
-            glViewport(0, 0, w, h);
             glMatrixMode(GL_PROJECTION);
             glLoadIdentity();
-            glOrtho(0, w, 0, h, -1, 1);
+            glOrtho(0, w, 0, h, 0, 1);
             glMatrixMode(GL_MODELVIEW);
             glLoadIdentity();
+            glViewport(0, 0, w, h);
             break;
 
         case 1:
-
-            glEnable(GL_DEPTH_TEST);
+	
+	    glEnable(GL_DEPTH_TEST);
             glViewport (0, 0, w, h);
             glMatrixMode (GL_PROJECTION);
             glLoadIdentity();
             gluPerspective(60.0, (float)w/(float)h, 0.2, 400.0);     //colocar fovy entre 45.0 e 60.0
             glMatrixMode(GL_MODELVIEW);
-            //begin3d();
+            begin3d();
+	    glLoadIdentity();
             break;
     }
 
+    glutPostRedisplay();
+
 }
+
 // Atualiza a cena
 void refresh(int delay)
 {
@@ -55,7 +59,7 @@ void refresh(int delay)
     glutPostRedisplay();
 
     // Registra a callback novamente
-    glutTimerFunc(delay, refresh, 10);
+    glutTimerFunc(delay, refresh, delay);
 }
 
 void begin3d()

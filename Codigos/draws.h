@@ -1,6 +1,7 @@
 ﻿// Desenho do jogo
 void desenhaMinhaCena()
 {
+    glColor4f(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     if(tela == 0)
@@ -12,7 +13,7 @@ void desenhaMinhaCena()
         drawObject(sair_menu);
     }
 
-    if(tela == 1)
+    else if(tela == 1)
     {
         movimentacao();
 
