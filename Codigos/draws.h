@@ -48,7 +48,8 @@ void desenhaMinhaCena()
         // INICIO DO TESTE
 
         glColor4f(0, 0, 0, 1);//começa a desenhar com a cor preta
-        desenhaObj(modelo);  //desenha uma jarra em preto
+	glScalef(5,5,5);
+        desenhaObj(modelo);  //desenha um obj
 
         glPushMatrix();
         glColor4f(0.5, 0.5, 0.5, 1); //começa a desenhar com a cor cinza

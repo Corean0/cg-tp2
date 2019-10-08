@@ -3,6 +3,10 @@ void setup()
 {
     // Cor do fundo
     glClearColor(1.0, 1.0, 1.0, 1.0);
+    
+    //Habilita anti-alising
+    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
+    glEnable(GL_LINE_SMOOTH);
 
     // Habilita a utilização de texturas
     glEnable(GL_BLEND);
@@ -20,7 +24,7 @@ void setup()
     cursor.y = 0;
     cursor.z = 0;
 
-    modelo = carregaModelo("cubo.obj");
+    modelo = carregaModelo("../pontos_obj/cubo.obj");
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");
