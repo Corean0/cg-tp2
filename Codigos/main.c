@@ -10,6 +10,7 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_mixer.h>
 #include "structs.h"
+#include "modelo.h"
 #include "cabecalho.h"
 
 // Constantes globais
@@ -17,6 +18,7 @@
 #define CARRINHOS 6.0
 
 // Variaveis globais
+struct modelo   *modelo;
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera;
 int             keyboard[256], tela = 0, light = 0, xMouse = 0, yMouse = 0, xCursor, yCursor, zCursor, modoCamera = 1;
