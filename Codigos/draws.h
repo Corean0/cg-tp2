@@ -35,13 +35,13 @@ void desenhaMinhaCena()
             // Camera primeira pessoa
             case 2:
 
-                gluLookAt(cursor.x + 0, 0, cursor.z + 0, cursor.x + camera.x, camera.y, cursor.z + camera.z, 0, 1, 0);
+                gluLookAt(cursor.x + 0,cursor.y + 0, cursor.z + 0, cursor.x + camera.x,cursor.y + camera.y, cursor.z + camera.z, 0, 1, 0);
                 break;
 
             // Camera terceira pessoa
             case 3:
 
-                gluLookAt(cursor.x + camera.x, camera.y, cursor.z + camera.z, cursor.x + 0, 0, cursor.z + 0, 0, 1, 0);
+                gluLookAt(cursor.x + camera.x,cursor.y + camera.y, cursor.z + camera.z, cursor.x + 0,cursor.y + 0, cursor.z + 0, 0, 1, 0);
                 break;
         }
 
