@@ -1,5 +1,5 @@
 CC=gcc
-OPCOES_COMPILADOR= -lglut -lGL -lSOIL -lGLEW -lGLU -lSDL -lSDL_mixer -lm
+OPCOES_COMPILADOR= -lglut -lGL -lSOIL -lGLEW -lGLU -lSDL -lSDL_mixer -lm -std=gnu11 -Wall
 TODOS_ARQUIVOS_PONTOH =  
 TODOS_ARQUIVOS_OBJ = main.o
 
