@@ -48,6 +48,9 @@ void redimensiona(int w, int h)
 // Atualiza a cena
 void refresh(int delay)
 {
+    // Atualiza as posições
+    attPosicao();
+    
     // Redesenha
     glutPostRedisplay();
 
