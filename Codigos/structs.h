@@ -16,19 +16,6 @@ typedef struct spriteObject
 
 } spriteObject;
 
-// Objetos animados
-typedef struct Objeto_Animado
-{
-	vetorR3 posicao;
-	vetorR3 dimensoes;
-	vetorR3 movimento;
-	float frequencia_atual;
-	float frequencia_animacao;
-	GLuint textura;
-	double proporcaoSprite;
-
-} spriteOb_Animado_s;
-
 typedef struct Roda_GG
 {
 	vetorR3 dimensoes;
@@ -36,3 +23,64 @@ typedef struct Roda_GG
 	float raio;
 	//sla oq mais bicho me mata
 } Roda_GG;
+
+// p/ carregar .obj
+typedef struct coords {
+    float v[4];
+} ponto, vetor, cor;
+
+struct material {
+    char nome[100];
+    cor ambiente;
+    cor difusa;
+    cor especular;
+    cor emissiva;
+    float expoenteEspecularidade;
+    float opacidade;
+}
+
+struct grupo {
+    char* nome;
+    struct material* material;
+    listaEncadeada faces;
+};
+
+struct modelo {
+    struct malha malha;
+    listaEncadeada materiais;
+    listaEncadeada grupos;
+
+    int listaVisualizacao;
+};
+
+struct no {
+    void *conteudo;
+    struct no *proximo;
+};
+
+struct lista {
+    struct no *primeiro, *ultimo;
+    int tamanho;
+}listaEncadeada;
+
+struct vertice {
+    ponto *coordenada;
+    ponto *coordenadaTextura;
+    vetor *normal;
+};
+
+struct face {
+    // no: (struct vertice)
+    listaEncadeada vertices;
+};
+
+struct malha {
+    // no: (struct face)
+    listaEncadeada faces;
+    // no: (struct ponto)
+    listaEncadeada coordenadas;
+    // no: (struct ponto)
+    listaEncadeada coordenadasTextura;
+    // no: (struct vetor)
+    listaEncadeada normais;
+};
