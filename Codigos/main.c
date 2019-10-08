@@ -5,12 +5,12 @@
 #include <GL/glut.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <math.h>
 #include <time.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_mixer.h>
 #include "structs.h"
-#include "modelo.h"
 #include "cabecalho.h"
 
 // Constantes globais
@@ -62,6 +62,10 @@ void main(int argc, char** argv)
     glutMainLoop();
 }
 
+#include "lista.h"
+#include "modelo.h"
+#include "toksplit.h"
+#include "malha.h"
 #include "refresh.h"
 #include "draws.h"
 #include "setup.h"
