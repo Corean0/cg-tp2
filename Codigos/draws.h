@@ -24,19 +24,19 @@ void desenhaMinhaCena()
         switch(modoCamera)
         {
             // Camera simples
-            case '1':
+            case 1:
 
                 gluLookAt(0, 0, 200, 0, 0, 0, 0, 1, 0);
                 break;
 
             // Camera primeira pessoa
-            case '2':
+            case 2:
 
                 gluLookAt(xCursor + 0, 0, zCursor + 0, xCursor + camera.x, camera.y, zCursor + camera.z, 0, 1, 0);
                 break;
 
             // Camera terceira pessoa
-            case '3':
+            case 3:
 
                 gluLookAt(xCursor + camera.x, camera.y, zCursor + camera.z, xCursor + 0, 0, zCursor + 0, 0, 1, 0);
                 break;
@@ -45,14 +45,14 @@ void desenhaMinhaCena()
         // INICIO DO TESTE
 
         glColor4f(0, 0, 0, 1);//começa a desenhar com a cor preta
-        glutWireTeapot(500);  //desenha uma jarra em preto
+        glutWireTeapot(50);  //desenha uma jarra em preto
 
         glPushMatrix();
         glColor4f(0.5, 0.5, 0.5, 1); //começa a desenhar com a cor cinza
-        glTranslatef(0, -1000, 0);   //desenha no ponto Y=-100 para parecer uma mesa para a jarra
-        glutSolidCube(1000);        //desenha um cubo no ponto (0, -100, 0)
+        glTranslatef(0, -100, 0);   //desenha no ponto Y=-100 para parecer uma mesa para a jarra
+        glutSolidCube(100);        //desenha um cubo no ponto (0, -100, 0)
         glColor4f(0, 0, 0, 1);    //começa a desenhar com a cor preta
-        glutWireCube(1050);       //desenha bordas de um cubo levemente maior
+        glutWireCube(105);       //desenha bordas de um cubo levemente maior
         glPopMatrix();
 
         // FIM DO TESTE
