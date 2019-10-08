@@ -1,8 +1,34 @@
 // Registrando a posicao atual do mouse
 void mouseMove(int x, int y)
 {
+	// Vetor 2D de movimento
+	vetorR3 changes;
+
+	// Salvando as alteracoes realizadas na camera do jogador
+	// xMouse e yMouse são valores do ultimo frame do mouse
+	changes.x = x - xMouse;
+	changes.y = y - yMouse;
+
+	// Posicao atual do mouse
     mouse.posicao.x = x;
    	mouse.posicao.y = altura - y;
+
+   	// Regulando os angulos em coordenadas esfericas 2D -> 3D
+   	pi = pi - changes.y/150;
+   	theta = theta + changes.x/150;
+
+   	// Limitando os valores do angulo
+   	if(pi >= 180)
+   	{
+   		pi = 180;
+   	}
+
+   	// Atualizando o ultimo valor de frame do mouse
+   	xMouse = x;
+   	yMouse = y;
+
+   	// Evitar lags
+   	glutPostRedisplay();
 
     // Realizando o efeito hover no menu
     if(tela == 0)

@@ -1,16 +1,17 @@
 // Struct de x e y
-typedef struct vetorR2
+typedef struct vetorR3
 {
     float x;
     float y;
+    float z;
 
-} vetorR2;
+} vetorR3;
 
 // Objetos não animados
 typedef struct spriteObject
 {
-    vetorR2 posicao;
-    vetorR2 dimensoes;
+    vetorR3 posicao;
+    vetorR3 dimensoes;
     GLuint textura;
 
 } spriteObject;
@@ -18,9 +19,9 @@ typedef struct spriteObject
 // Objetos animados
 typedef struct Objeto_Animado
 {
-	vetorR2 posicao;
-	vetorR2 dimensoes;
-	vetorR2 movimento;
+	vetorR3 posicao;
+	vetorR3 dimensoes;
+	vetorR3 movimento;
 	float frequencia_atual;
 	float frequencia_animacao;
 	GLuint textura;
@@ -30,8 +31,8 @@ typedef struct Objeto_Animado
 
 typedef struct Roda_GG
 {
-	vetorR2 dimensoes;
-	vetorR2 posicao;
+	vetorR3 dimensoes;
+	vetorR3 posicao;
 	float raio;
 	//sla oq mais bicho me mata
 } Roda_GG;

@@ -1,7 +1,7 @@
 ﻿// Desenho do jogo
 void desenhaMinhaCena()
 {
-    glClear(GL_COLOR_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     if(tela == 0)
     {
@@ -14,7 +14,48 @@ void desenhaMinhaCena()
 
     if(tela == 1)
     {
+        // Coordenadas da camera em coordenadas esfericas
+        camera.x = 100*sin(pi)*cos(theta);
+        camera.y = 100*cos(pi);
+        camera.z = 100*sin(pi)*sin(theta);
 
+        glLoadIdentity();
+
+        switch(modoCamera)
+        {
+            // Camera simples
+            case '1':
+
+                gluLookAt(0, 0, 200, 0, 0, 0, 0, 1, 0);
+                break;
+
+            // Camera primeira pessoa
+            case '2':
+
+                gluLookAt(xCursor + 0, 0, zCursor + 0, xCursor + camera.x, camera.y, zCursor + camera.z, 0, 1, 0);
+                break;
+
+            // Camera terceira pessoa
+            case '3':
+
+                gluLookAt(xCursor + camera.x, camera.y, zCursor + camera.z, xCursor + 0, 0, zCursor + 0, 0, 1, 0);
+                break;
+        }
+
+        // INICIO DO TESTE
+
+        glColor4f(0, 0, 0, 1);//começa a desenhar com a cor preta
+        glutWireTeapot(500);  //desenha uma jarra em preto
+
+        glPushMatrix();
+        glColor4f(0.5, 0.5, 0.5, 1); //começa a desenhar com a cor cinza
+        glTranslatef(0, -1000, 0);   //desenha no ponto Y=-100 para parecer uma mesa para a jarra
+        glutSolidCube(1000);        //desenha um cubo no ponto (0, -100, 0)
+        glColor4f(0, 0, 0, 1);    //começa a desenhar com a cor preta
+        glutWireCube(1050);       //desenha bordas de um cubo levemente maior
+        glPopMatrix();
+
+        // FIM DO TESTE
     }
 
     if(tela == 2)
