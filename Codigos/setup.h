@@ -24,7 +24,7 @@ void setup()
     cursor.y = 0;
     cursor.z = 0;
 
-    modelo = carregaModelo("../pontos_obj/cubo.obj");
+    modelo = carregaModelo("arvore.obj");
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");

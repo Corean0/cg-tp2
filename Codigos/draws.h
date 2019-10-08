@@ -49,7 +49,7 @@ void desenhaMinhaCena()
 
         glColor4f(0, 0, 0, 1);//começa a desenhar com a cor preta
 	glPushMatrix();
-	glScalef(5,5,5);
+	glScalef(10,10,10);
         desenhaObj(modelo);  //desenha um obj
 	glPopMatrix();
 
@@ -110,6 +110,7 @@ void drawObject(spriteObject objeto)
 void desenhaInterface(){	
         //perguntar como fazer isso
 }
+
 /*
 void desenhaRodaGigante(){
     int i;
