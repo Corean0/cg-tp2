@@ -59,14 +59,16 @@ void desenhaMinhaCena()
         glPopMatrix();
 
         // FIM DO TESTE
+
+	desenhaInterface();
     }
 
-    if(tela == 2)
+    else if(tela == 2)
     {
 
     }
 
-    if(tela == 3)
+    else if(tela == 3)
     {
         drawObject(wallpaper_creditos);
         drawObject(sair_creditos);
@@ -102,6 +104,9 @@ void drawObject(spriteObject objeto)
     glDisable(GL_TEXTURE_2D);
 }
 
+void desenhaInterface(){	
+        //perguntar como fazer isso
+}
 /*
 void desenhaRodaGigante(){
     int i;

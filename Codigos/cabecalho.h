@@ -14,6 +14,7 @@ void paraMusica(int channel);
 void attPosicao();
 void begin3d();
 void movimentacao();
+void desenhaInterface();
 
 // p/ carregar .obj
 struct modelo *carregaModelo(char *);
