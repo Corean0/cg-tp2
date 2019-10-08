@@ -47,11 +47,15 @@ void desenhaMinhaCena()
 
         // INICIO DO TESTE
 
-        glColor4f(0, 0, 0, 1);//começa a desenhar com a cor preta
+    glColor4f(1, 1, 0, 1);
 	glPushMatrix();
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    glEnable(GL_LIGHTING);
 	glScalef(10,10,10);
         desenhaObj(modelo);  //desenha um obj
-	glPopMatrix();
+	glDisable(GL_LIGHTING);
+    glPopMatrix();
+
 
         glPushMatrix();
         glColor4f(0.5, 0.5, 0.5, 1); //começa a desenhar com a cor cinza
