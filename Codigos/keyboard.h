@@ -7,43 +7,37 @@ void teclaPressionada(unsigned char key, int x, int y)
         case 'S':
         case 's':
 
-            if(tela == 1)
-               keyboard[83] = 1;    
+            keyboard[83] = 1;    
             break;
 
         case 'W':
         case 'w':
 
-            if(tela == 1)
-                keyboard[87] = 1;         
+            keyboard[87] = 1;         
             break;
 
         case 'A':
         case 'a':
 
-            if(tela == 1)
-                keyboard[65] = 1;                
+            keyboard[65] = 1;                
             break;
 
         case 'D':
         case 'd':
 
-            if(tela == 1)
-                keyboard[68] = 1;  
+            keyboard[68] = 1;  
             break;
 
 	case 'Q':
 	case 'q':
 
-		if(tela==1)
-			keyboard[81] = 1;
+		keyboard[81] = 1;
 		break;
 
 	case 'E':
 	case 'e':
 
-		if(tela==1)
-			keyboard[69] = 1;
+		keyboard[69] = 1;
 		break;
 
         // As três cameras
@@ -79,7 +73,7 @@ void teclaPressionada(unsigned char key, int x, int y)
             else if(tela == 3|| tela == 1)
             {
                 tela = 0;
-		glutReshapeWindow(largura,altura);
+		        glutReshapeWindow(largura,altura);
             }
 
             else
@@ -97,72 +91,66 @@ void teclaSegurada(unsigned char key, int x, int y)
         case 'S':
         case 's':
 
-            if(tela == 1)
-               keyboard[83] = 0;
+            keyboard[83] = 0;
             break;
 
         case 'W':
         case 'w':
 
-            if(tela == 1)
-                keyboard[87] = 0;
+            keyboard[87] = 0;
             break;
 
         case 'A':
         case 'a':
 
-            if(tela == 1)
-                keyboard[65] = 0;
+            keyboard[65] = 0;
             break;
 
         case 'D':
         case 'd':
 
-            if(tela == 1)
-                keyboard[68] = 0;
+            keyboard[68] = 0;
             break;
 
 	case 'Q':
 	case 'q':
 
-		if(tela==1)
-			keyboard[81] = 0;
+		keyboard[81] = 0;
 		break;
 
 	case 'E':
 	case 'e':
 
-		if(tela==1)
-			keyboard[69] = 0;
+		keyboard[69] = 0;
 		break;
     }
 }
 
 void movimentacao()
 {
-        // Tecla w/W        
-        if(keyboard[87] == 1) 
-        {
-            cursor.x--;
-        }
+    // Tecla w/W        
+    if(keyboard[87] == 1) 
+    {
+        cursor.x--;
+    }
 
-        // Tecla s/S
-        if(keyboard[83] == 1)  
-        {
-            cursor.x++;
-        }
+    // Tecla s/S
+    if(keyboard[83] == 1)  
+    {
+        cursor.x++;
+    }
 
-        // Tecla a/A
-        if(keyboard[65] == 1)  
-        {
-            cursor.z++;
-        }
+    // Tecla a/A
+    if(keyboard[65] == 1)  
+    {
+        cursor.z++;
+    }
 
-        // Tecla d/D
-        if(keyboard[68] == 1)  
-        {
-            cursor.z--;
-        }
+    // Tecla d/D
+    if(keyboard[68] == 1)  
+    {
+        cursor.z--;
+    }
 
 	if(keyboard[69] == 1)
 	{

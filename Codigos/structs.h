@@ -21,15 +21,17 @@ typedef struct Roda_GG
 	vetorR3 dimensoes;
 	vetorR3 posicao;
 	float raio;
-	//sla oq mais bicho me mata
+
 } Roda_GG;
 
 // p/ carregar .obj
-typedef struct coords {
+typedef struct coords
+{
     float v[4];
 } ponto, vetor, cor;
 
-struct material {
+struct material
+{
     char nome[100];
     cor ambiente;
     cor difusa;
@@ -39,28 +41,33 @@ struct material {
     float opacidade;
 };
 
-struct no {
+struct no
+{
     void *conteudo;
     struct no *proximo;
 };
 
-typedef struct lista {
+typedef struct lista
+{
     struct no *primeiro, *ultimo;
     int tamanho;
 }listaEncadeada;
 
-struct vertice {
+struct vertice
+{
     ponto *coordenada;
     ponto *coordenadaTextura;
     vetor *normal;
 };
 
-struct face {
+struct face
+{
     // no: (struct vertice)
     listaEncadeada vertices;
 };
 
-struct malha {
+struct malha
+{
     // no: (struct face)
     listaEncadeada faces;
     // no: (struct ponto)
@@ -71,7 +78,8 @@ struct malha {
     listaEncadeada normais;
 };
 
-struct modelo {
+struct modelo
+{
     struct malha malha;
     listaEncadeada materiais;
     listaEncadeada grupos;
@@ -79,7 +87,8 @@ struct modelo {
     int listaVisualizacao;
 };
 
-struct grupo {
+struct grupo
+{
     char* nome;
     struct material* material;
     listaEncadeada faces;

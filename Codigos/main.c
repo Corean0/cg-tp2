@@ -33,7 +33,7 @@ void main(int argc, char** argv)
     glutInit(&argc, argv);
 
     // Definindo versao do GLUT
-    glutInitContextVersion(1, 1);
+    glutInitContextVersion(1,1);
     glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
 
     // Configuracoeses iniciais da janela GLUT
