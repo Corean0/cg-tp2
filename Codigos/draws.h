@@ -9,10 +9,7 @@ void desenhaMinhaCena()
         drawObject(jogar);
         drawObject(controles);
         drawObject(creditos);
-
-        sair.posicao.x = largura/2 + largura/3 - largura/20;
-        sair.posicao.y = altura/4;
-        drawObject(sair);
+        drawObject(sair_menu);
     }
 
     if(tela == 1)
@@ -28,10 +25,7 @@ void desenhaMinhaCena()
     if(tela == 3)
     {
         drawObject(wallpaper_creditos);
-
-        sair.posicao.x = largura/2 + largura/3;
-        sair.posicao.y = altura/4;
-        drawObject(sair);
+        drawObject(sair_creditos);
     }
     
     glutSwapBuffers();

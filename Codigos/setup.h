@@ -42,15 +42,43 @@ void setup()
     creditos.posicao.y = altura/2 - altura/50;
     creditos.textura = loadTexture("../Imagens/creditos_branco.png");
 
-    sair.dimensoes.x = largura/8;
-    sair.dimensoes.y = altura/12;
-    sair.posicao.x = largura/2 + largura/3 - largura/20;
-    sair.posicao.y = altura/4;
-    sair.textura = loadTexture("../Imagens/sair_branco.png");
+    sair_menu.dimensoes.x = largura/8;
+    sair_menu.dimensoes.y = altura/12;
+    sair_menu.posicao.x = largura/2 + largura/3 - largura/20;
+    sair_menu.posicao.y = altura/4;
+    sair_menu.textura = loadTexture("../Imagens/sair_branco.png");
+
+    sair_creditos.dimensoes.x = largura/8;
+    sair_creditos.dimensoes.y = altura/12;
+    sair_creditos.posicao.x = largura/2 + largura/3;
+    sair_creditos.posicao.y = altura/4;
+    sair_creditos.textura = loadTexture("../Imagens/sair_branco.png");
 
     wallpaper_creditos.dimensoes.x = largura;
     wallpaper_creditos.dimensoes.y = altura;
     wallpaper_creditos.posicao.x = largura/2;
     wallpaper_creditos.posicao.y = altura/2;
     wallpaper_creditos.textura = loadTexture("../Imagens/wallpaper_creditos.png");
+
+    GLfloat lPos[4]={0.00, 0.00, 0.00, 1.00 };
+    GLfloat lKa[4]={0.00, 0.5, 0.00, 1.00};
+    GLfloat lKd[4]={0.5, 0.5, 0.5, 1.00};
+    GLfloat lKs[4]={1.00, 1.00, 1.00, 1.00};
+    GLfloat mKd[4]={0,0,0,1};
+    GLfloat mKs[4]={0,0,0,1};
+    GLfloat mKe[4]={0,0,0,1};
+
+    GLfloat lKa1[4]={1.0, 1.0, 1.0, 1.00};       // cor ambiente (basta mudar as 3 para escolher a cor da luz)
+    GLfloat lKd1[4]={1.0, 1.0, 1.0, 1.00};       // cor difusa
+    GLfloat lKs1[4]={1.00, 1.00, 1.00, 1.00};    // cor especular
+
+    GLfloat lPos1[4]={7.00, -31.2, -45.9, 1.00 };
+    GLfloat lPos2[4]={7.00, -31.2, -70.7, 1.00 };
+    GLfloat lPos3[4]={7.00, -31.2, -96.6, 1.00 };
+    GLfloat lPos4[4]={-16.7, -31.2, -16.8, 1.00 };
+    GLfloat lPos5[4]={-133.3, -31.2, 37.2, 1.00 };
+
+    float matAmbAndDif[4] = {1.0, 1.0, 1.0, 1.0};    // vetor cor ambiente e difusa: branca
+    float matShine[] = {5};                          // expoente especular (shininess)
+    int light = 0;
 }

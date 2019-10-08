@@ -17,44 +17,46 @@
 #define CARRINHOS 6.0
 
 // Variaveis globais
-spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair, mouse;
-int             keyboard[256], tela = 0;
-double          altura = 600, largura = 900;
+spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
+int             keyboard[256], tela = 0, light = 0;
+float           matAmbAndDif[4], matShine[], altura = 770, largura = 1380;
 Mix_Chunk       *som1, *som2, *som3, *som4;
+GLfloat         lpos[4], lKa[4], lKd[4], lKs[4], mKd[4], mKs[4], mKe[4], lKa1[4], lKd1[4], lKs1[4], lPos1[4],
+                lPos2[4], lPos3[4], lPos4[4], lPos5[4]; 
 
 void main(int argc, char** argv)
 {
-    //Inicializacao
+    // Inicializacao
     glutInit(&argc, argv);
 
-    //Definindo versao do GLUT
+    // Definindo versao do GLUT
     glutInitContextVersion(1, 1);
     glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE);
 
-    //Configuracoeses iniciais da janela GLUT
+    // Configuracoeses iniciais da janela GLUT
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutInitWindowSize(largura, altura);
     glutInitWindowPosition (0, 0);
 
-    //Inicializando a Janela
+    // Inicializando a Janela
     glutCreateWindow("Lego Park");
 
-    //Deixa fullscreen mas não funciona ainda
+    // Deixa fullscreen mas não funciona ainda
     glutEnterGameMode();
-
-    //Seta valores iniciais
-    setup();
 
     // Callbacks
     glutDisplayFunc(desenhaMinhaCena);
     glutReshapeFunc(redimensiona);
+    glutTimerFunc(FPS,refresh,FPS);
     glutKeyboardFunc(teclaPressionada);
     glutKeyboardUpFunc(teclaSegurada);
     glutPassiveMotionFunc(mouseMove);
     glutMouseFunc(mouseClick);
-    glutTimerFunc(FPS,refresh,FPS);
 
-    //Loop
+    // Seta valores iniciais
+    setup();
+
+    // Loop
     glutMainLoop();
 }
 

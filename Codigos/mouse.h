@@ -32,25 +32,25 @@ void mouseMove(int x, int y)
 		else
 			creditos.textura = loadTexture("../Imagens/creditos_branco.png");
 		
-		if(mouse.posicao.x < sair.posicao.x + sair.dimensoes.x/2 && mouse.posicao.x > sair.posicao.x - sair.dimensoes.x/2 &&
-		   mouse.posicao.y < sair.posicao.y + sair.dimensoes.y/2 && mouse.posicao.y > sair.posicao.y - sair.dimensoes.y/2)
+		if(mouse.posicao.x < sair_menu.posicao.x + sair_menu.dimensoes.x/2 && mouse.posicao.x > sair_menu.posicao.x - sair_menu.dimensoes.x/2 &&
+		   mouse.posicao.y < sair_menu.posicao.y + sair_menu.dimensoes.y/2 && mouse.posicao.y > sair_menu.posicao.y - sair_menu.dimensoes.y/2)
 		{
-			sair.textura = loadTexture("../Imagens/sair_cinza.png");
+			sair_menu.textura = loadTexture("../Imagens/sair_cinza.png");
 		}
 		else
-			sair.textura = loadTexture("../Imagens/sair_branco.png");
+			sair_menu.textura = loadTexture("../Imagens/sair_branco.png");
 	}
 
 	// Efeito hover nos creditos
 	if(tela == 3)
 	{		
-		if(mouse.posicao.x < sair.posicao.x + sair.dimensoes.x/2 && mouse.posicao.x > sair.posicao.x - sair.dimensoes.x/2 &&
-		   mouse.posicao.y < sair.posicao.y + sair.dimensoes.y/2 && mouse.posicao.y > sair.posicao.y - sair.dimensoes.y/2)
+		if(mouse.posicao.x < sair_creditos.posicao.x + sair_creditos.dimensoes.x/2 && mouse.posicao.x > sair_creditos.posicao.x - sair_creditos.dimensoes.x/2 &&
+		   mouse.posicao.y < sair_creditos.posicao.y + sair_creditos.dimensoes.y/2 && mouse.posicao.y > sair_creditos.posicao.y - sair_creditos.dimensoes.y/2)
 		{
-			sair.textura = loadTexture("../Imagens/sair_cinza.png");
+			sair_creditos.textura = loadTexture("../Imagens/sair_cinza.png");
 		}
 		else
-			sair.textura = loadTexture("../Imagens/sair_branco.png");
+			sair_creditos.textura = loadTexture("../Imagens/sair_branco.png");
 		
 	}	
 }
@@ -87,8 +87,8 @@ void mouseClick(int botao, int estado, int x, int y)
 				}
 
 				// Clicando "Sair"
-				if(mouse.posicao.x < sair.posicao.x + sair.dimensoes.x/2 && mouse.posicao.x > sair.posicao.x - sair.dimensoes.x/2 &&
-				   mouse.posicao.y < sair.posicao.y + sair.dimensoes.y/2 && mouse.posicao.y > sair.posicao.y - sair.dimensoes.y/2)
+				if(mouse.posicao.x < sair_menu.posicao.x + sair_menu.dimensoes.x/2 && mouse.posicao.x > sair_menu.posicao.x - sair_menu.dimensoes.x/2 &&
+				   mouse.posicao.y < sair_menu.posicao.y + sair_menu.dimensoes.y/2 && mouse.posicao.y > sair_menu.posicao.y - sair_menu.dimensoes.y/2)
 				{
 					exit(0);
 				}
@@ -98,8 +98,8 @@ void mouseClick(int botao, int estado, int x, int y)
 			if(tela == 3)
 			{
 				// Clicando "Sair"
-				if(mouse.posicao.x < sair.posicao.x + sair.dimensoes.x/2 && mouse.posicao.x > sair.posicao.x - sair.dimensoes.x/2 &&
-				   mouse.posicao.y < sair.posicao.y + sair.dimensoes.y/2 && mouse.posicao.y > sair.posicao.y - sair.dimensoes.y/2)
+				if(mouse.posicao.x < sair_creditos.posicao.x + sair_creditos.dimensoes.x/2 && mouse.posicao.x > sair_creditos.posicao.x - sair_creditos.dimensoes.x/2 &&
+				   mouse.posicao.y < sair_creditos.posicao.y + sair_creditos.dimensoes.y/2 && mouse.posicao.y > sair_creditos.posicao.y - sair_creditos.dimensoes.y/2)
 				{
 					tela = 0;
 				}
