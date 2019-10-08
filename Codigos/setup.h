@@ -19,6 +19,8 @@ void setup()
     cursor.x = 0;
     cursor.y = 0;
     cursor.z = 0;
+
+    modelo = carregaModelo("cubo.obj");
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");

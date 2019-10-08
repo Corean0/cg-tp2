@@ -48,7 +48,7 @@ void desenhaMinhaCena()
         // INICIO DO TESTE
 
         glColor4f(0, 0, 0, 1);//começa a desenhar com a cor preta
-        glutWireTeapot(50);  //desenha uma jarra em preto
+        desenhaObj(modelo);  //desenha uma jarra em preto
 
         glPushMatrix();
         glColor4f(0.5, 0.5, 0.5, 1); //começa a desenhar com a cor cinza
