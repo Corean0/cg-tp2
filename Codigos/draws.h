@@ -14,6 +14,8 @@ void desenhaMinhaCena()
 
     if(tela == 1)
     {
+        movimentacao();
+
         // Coordenadas da camera em coordenadas esfericas
         camera.x = 100*sin(pi)*cos(theta);
         camera.y = 100*cos(pi);
@@ -24,7 +26,7 @@ void desenhaMinhaCena()
         switch(modoCamera)
         {
             // Camera simples
-            case 1:
+            default:
 
                 gluLookAt(0, 0, 200, 0, 0, 0, 0, 1, 0);
                 break;
@@ -32,13 +34,13 @@ void desenhaMinhaCena()
             // Camera primeira pessoa
             case 2:
 
-                gluLookAt(xCursor + 0, 0, zCursor + 0, xCursor + camera.x, camera.y, zCursor + camera.z, 0, 1, 0);
+                gluLookAt(cursor.x + 0, 0, cursor.z + 0, cursor.x + camera.x, camera.y, cursor.z + camera.z, 0, 1, 0);
                 break;
 
             // Camera terceira pessoa
             case 3:
 
-                gluLookAt(xCursor + camera.x, camera.y, zCursor + camera.z, xCursor + 0, 0, zCursor + 0, 0, 1, 0);
+                gluLookAt(cursor.x + camera.x, camera.y, cursor.z + camera.z, cursor.x + 0, 0, cursor.z + 0, 0, 1, 0);
                 break;
         }
 

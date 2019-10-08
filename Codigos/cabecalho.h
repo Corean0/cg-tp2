@@ -13,3 +13,4 @@ void comecaMusica(Mix_Chunk * musica, int channel, int loop);
 void paraMusica(int channel);
 void attPosicao();
 void begin3d();
+void movimentacao();

@@ -16,9 +16,9 @@ void setup()
 
     // Maquinas de estado
     tela = 0;
-    xCursor = 0;
-    yCursor = 0;
-    zCursor = 0;
+    cursor.x = 0;
+    cursor.y = 0;
+    cursor.z = 0;
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");

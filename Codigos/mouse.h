@@ -2,22 +2,22 @@
 void mouseMove(int x, int y)
 {
 	// Vetor 2D de movimento
-	vetorR3 changes;
-
-	// Salvando as alteracoes realizadas na camera do jogador
-	// xMouse e yMouse são valores do ultimo frame do mouse
-	changes.x = x - xMouse;
-	changes.y = y - yMouse;
+	double xChange, yChange;
 
 	// Posicao atual do mouse
     mouse.posicao.x = x;
    	mouse.posicao.y = altura - y;
 
-   	// Regulando os angulos em coordenadas esfericas 2D -> 3D
-   	pi = pi - changes.y/150;
-   	theta = theta + changes.x/150;
+   	// Salvando as alteracoes realizadas na camera do jogador
+	// xMouse e yMouse são valores do ultimo frame do mouse
+	xChange = x - xMouse;
+	yChange = y - yMouse;
 
-   	// Limitando os valores do angulo
+   	// Regulando os angulos em coordenadas esfericas 2D -> 3D
+   	pi = pi - yChange/150;
+   	theta = theta + xChange/150;
+
+   	// Limitando o valor do angulo
    	if(pi >= 180)
    	{
    		pi = 180;

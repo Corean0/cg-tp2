@@ -20,8 +20,8 @@
 // Variaveis globais
 struct modelo   *modelo;
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
-vetorR3         camera;
-int             keyboard[256], tela = 0, light = 0, xMouse = 0, yMouse = 0, xCursor, yCursor, zCursor, modoCamera = 1;
+vetorR3         camera, cursor;
+int             keyboard[256], tela = 0, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3;
 float           matAmbAndDif[4], /*matShine[],*/ altura = 720, largura = 1280, pi = 90, theta = 0;
 Mix_Chunk       *som1, *som2, *som3, *som4;
 GLfloat         lpos[4], lKa[4], lKd[4], lKs[4], mKd[4], mKs[4], mKe[4], lKa1[4], lKd1[4], lKs1[4], lPos1[4],
