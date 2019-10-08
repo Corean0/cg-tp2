@@ -24,7 +24,8 @@ void setup()
     cursor.y = 0;
     cursor.z = 0;
 
-    modelo = carregaModelo("arvore.obj");
+    glColor4f(1, 1, 1, 1);
+    modelo = carregaModelo("../pontos_obj/arvore.obj");
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");
