@@ -37,20 +37,6 @@ struct material {
     cor emissiva;
     float expoenteEspecularidade;
     float opacidade;
-}
-
-struct grupo {
-    char* nome;
-    struct material* material;
-    listaEncadeada faces;
-};
-
-struct modelo {
-    struct malha malha;
-    listaEncadeada materiais;
-    listaEncadeada grupos;
-
-    int listaVisualizacao;
 };
 
 struct no {
@@ -58,7 +44,7 @@ struct no {
     struct no *proximo;
 };
 
-struct lista {
+typedef struct lista {
     struct no *primeiro, *ultimo;
     int tamanho;
 }listaEncadeada;
@@ -83,4 +69,18 @@ struct malha {
     listaEncadeada coordenadasTextura;
     // no: (struct vetor)
     listaEncadeada normais;
+};
+
+struct modelo {
+    struct malha malha;
+    listaEncadeada materiais;
+    listaEncadeada grupos;
+
+    int listaVisualizacao;
+};
+
+struct grupo {
+    char* nome;
+    struct material* material;
+    listaEncadeada faces;
 };

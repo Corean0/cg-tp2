@@ -175,7 +175,6 @@ struct modelo *carregaModelo(char *nome) {
     }
     fclose(arquivo);
 
-    imprimeMalha(&modelo->malha);
     preparaListaVisualizacao(modelo);
 
     return modelo;

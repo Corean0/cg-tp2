@@ -13,6 +13,7 @@ void comecaMusica(Mix_Chunk * musica, int channel, int loop);
 void paraMusica(int channel);
 void attPosicao();
 void begin3d();
+void movimentacao();
 
 // p/ carregar .obj
 struct modelo *carregaModelo(char *);
@@ -32,4 +33,3 @@ void adicionaCoordenadaTexturaMalha(struct malha*, ponto*);
 void adicionaNormalMalha(struct malha*, vetor*);
 struct face *novaFaceMalha(struct malha *);
 void adicionaVerticeFace(struct malha*, struct face*, int, int, int);
-void imprimeMalha(struct malha*);
