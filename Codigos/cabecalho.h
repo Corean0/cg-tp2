@@ -11,3 +11,5 @@ void mouseClick(int botao, int estado, int x, int y);
 Mix_Chunk * carregaMusica(char const file[40]);
 void comecaMusica(Mix_Chunk * musica, int channel, int loop);
 void paraMusica(int channel);
+void attPosicao();
+void begin3d();

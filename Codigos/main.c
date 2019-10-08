@@ -19,7 +19,7 @@
 // Variaveis globais
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 int             keyboard[256], tela = 0, light = 0;
-float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280;
+float           matAmbAndDif[4], /*matShine[],*/ altura = 720, largura = 1280;
 Mix_Chunk       *som1, *som2, *som3, *som4;
 GLfloat         lpos[4], lKa[4], lKd[4], lKs[4], mKd[4], mKs[4], mKe[4], lKa1[4], lKd1[4], lKs1[4], lPos1[4],
                 lPos2[4], lPos3[4], lPos4[4], lPos5[4]; 
@@ -41,7 +41,6 @@ void main(int argc, char** argv)
     // Inicializando a Janela
     glutCreateWindow("Lego Park");
 
-    // Deixa fullscreen mas não funciona ainda
     glutEnterGameMode();
 
     // Callbacks
