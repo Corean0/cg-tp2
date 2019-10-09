@@ -4,28 +4,12 @@ void setup()
     // Cor do fundo
     glClearColor(1.0, 1.0, 1.0, 0.0);
 
-    glCullFace(GL_BACK);
-    
-    //Habilita anti-alising
-    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
-    glEnable(GL_LINE_SMOOTH);
-
     // Habilita a utilização de texturas
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     // Limpa a tela
     glClear(GL_COLOR_BUFFER_BIT);
-
-    // modelo de iluminação
-    glEnable(GL_LIGHT0);
-    vetor direcaoLuz[] = { -1.0, 2.0, 2.0, 0.0 };
-    glLightfv(GL_LIGHT0, GL_POSITION, direcaoLuz);
-    glEnable(GL_LIGHT1);
-    vetor direcaoLuz2[] = { 2.0, 4.0, -2.0, 0.0 };
-    glLightfv(GL_LIGHT1, GL_POSITION, direcaoLuz2);
-
-    glShadeModel(GL_FLAT);
 
     // Desativando a opção de repetir uma tecla quando ela é continua apertada
     glutSetKeyRepeat(0);
@@ -36,7 +20,6 @@ void setup()
     cursor.y = 0;
     cursor.z = 0;
 
-    glColor4f(1, 1, 1, 1);
 	if(!teste){
     		teste = glmReadOBJ("../pontos_obj/arvore.obj");
 		glmUnitize(teste);
