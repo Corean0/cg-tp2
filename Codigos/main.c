@@ -46,7 +46,6 @@ void main(int argc, char** argv)
     glutCreateWindow("Lego Park");
 
     glutEnterGameMode();
-    glutSetCursor(GLUT_CURSOR_NONE);
  
     // Callbacks
     glutDisplayFunc(desenhaMinhaCena);
