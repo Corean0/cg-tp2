@@ -2,7 +2,9 @@
 void setup()
 {
     // Cor do fundo
-    glClearColor(1.0, 1.0, 1.0, 1.0);
+    glClearColor(1.0, 1.0, 1.0, 0.0);
+
+    glCullFace(GL_BACK);
     
     //Habilita anti-alising
     glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
@@ -15,6 +17,16 @@ void setup()
     // Limpa a tela
     glClear(GL_COLOR_BUFFER_BIT);
 
+    // modelo de iluminação
+    glEnable(GL_LIGHT0);
+    vetor direcaoLuz[] = { -1.0, 2.0, 2.0, 0.0 };
+    glLightfv(GL_LIGHT0, GL_POSITION, direcaoLuz);
+    glEnable(GL_LIGHT1);
+    vetor direcaoLuz2[] = { 2.0, 4.0, -2.0, 0.0 };
+    glLightfv(GL_LIGHT1, GL_POSITION, direcaoLuz2);
+
+    glShadeModel(GL_FLAT);
+
     // Desativando a opção de repetir uma tecla quando ela é continua apertada
     glutSetKeyRepeat(0);
 
@@ -25,7 +37,13 @@ void setup()
     cursor.z = 0;
 
     glColor4f(1, 1, 1, 1);
-    modelo = carregaModelo("../pontos_obj/arvore.obj");
+	if(!teste){
+    		teste = glmReadOBJ("../pontos_obj/arvore.obj");
+		glmUnitize(teste);
+		glmScale(teste, 50.0);
+		glmFacetNormals(teste);
+		glmVertexNormals(teste, 90.0, 1);
+	}
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");

@@ -11,6 +11,7 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_mixer.h>
 #include "structs.h"
+#include "glm.h"
 #include "cabecalho.h"
 
 // Constantes globais
@@ -18,7 +19,7 @@
 #define CARRINHOS 6.0
 
 // Variaveis globais
-struct modelo   *modelo;
+GLMmodel	*teste = NULL;
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera, cursor;
 int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3;
@@ -63,10 +64,10 @@ void main(int argc, char** argv)
     glutMainLoop();
 }
 
-#include "lista.h"
+/*#include "lista.h"
 #include "modelo.h"
 #include "toksplit.h"
-#include "malha.h"
+#include "malha.h"*/
 #include "refresh.h"
 #include "draws.h"
 #include "setup.h"
