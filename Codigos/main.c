@@ -19,7 +19,7 @@
 #define CARRINHOS 6.0
 
 // Variaveis globais
-GLMmodel	*teste = NULL;
+GLMmodel	    *teste = NULL, *terreno = NULL;
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera, cursor;
 int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3;

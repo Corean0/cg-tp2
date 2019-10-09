@@ -20,12 +20,22 @@ void setup()
     cursor.y = 0;
     cursor.z = 0;
 
-	if(!teste){
-    		teste = glmReadOBJ("../pontos_obj/arvore.obj");
+	if(!teste)
+	{
+    	teste = glmReadOBJ("../pontos_obj/arvore.obj");
 		glmUnitize(teste);
 		glmScale(teste, 50.0);
 		glmFacetNormals(teste);
 		glmVertexNormals(teste, 90.0, 1);
+	}
+
+	if(!terreno)
+	{
+    	terreno = glmReadOBJ("../pontos_obj/flooor.obj");
+		glmUnitize(terreno);
+		glmScale(terreno, 50.0);
+		glmFacetNormals(terreno);
+		glmVertexNormals(terreno, 90.0, 1);
 	}
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");

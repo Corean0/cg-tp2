@@ -1,6 +1,7 @@
-﻿// Desenho do jogo
+// Desenho do jogo
 void desenhaMinhaCena()
 {
+    glColor4f(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     if(tela == 0)
@@ -46,14 +47,20 @@ void desenhaMinhaCena()
 
         // INICIO DO TESTE
 
-   	glClearColor(1,1,1,0);
-	glPushMatrix();
-	    	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-	    	glEnable(GL_LIGHTING);
+        glClearColor(1,1,1,1);
+
+		glPushMatrix();
+	    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	    glEnable(GL_LIGHTING);
 		glmDraw(teste, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
 		glDisable(GL_LIGHTING);
-   	glPopMatrix();
+   		glPopMatrix();
 
+		glPushMatrix();
+	    glEnable(GL_LIGHTING);
+		glmDraw(terreno, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
+		glDisable(GL_LIGHTING);
+   		glPopMatrix();
 
         glPushMatrix();
 		glColor4f(0.5, 0.5, 0.5, 1); //começa a desenhar com a cor cinza
@@ -65,7 +72,7 @@ void desenhaMinhaCena()
 
         // FIM DO TESTE
 
-	desenhaInterface();
+		desenhaInterface();
     }
 
     else if(tela == 2)

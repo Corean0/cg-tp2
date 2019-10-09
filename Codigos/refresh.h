@@ -34,14 +34,14 @@ void redimensiona(int w, int h)
 
         case 1:
 	
-	    glEnable(GL_DEPTH_TEST);
+	    	glEnable(GL_DEPTH_TEST);
             glViewport (0, 0, w, h);
             glMatrixMode (GL_PROJECTION);
             glLoadIdentity();
             gluPerspective(60.0, (float)w/(float)h, 0.2, 400.0);     //colocar fovy entre 45.0 e 60.0
             glMatrixMode(GL_MODELVIEW);
             begin3d();
-	    glLoadIdentity();
+	    	glLoadIdentity();
             break;
     }
 
