@@ -21,7 +21,7 @@ void setup()
     cursor.z = 0;
 
     // carregando objetos	
-    testeOBJ = glmReadOBJ("../pontos_obj/tree.obj");	
+    testeOBJ = glmReadOBJ("../pontos_obj/arvore_1.obj");	
     carregaOBJ(teste, testeOBJ);
     terrenoOBJ = glmReadOBJ("../pontos_obj/terreno.obj");
     carregaOBJ(terreno, terrenoOBJ);
