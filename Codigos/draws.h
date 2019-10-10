@@ -1,6 +1,7 @@
 // Desenho do jogo
 void desenhaMinhaCena()
 {
+    glMatrixMode(GL_MODELVIEW);
     glColor4f(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
@@ -49,34 +50,28 @@ void desenhaMinhaCena()
 
         glClearColor(1,1,1,1);
 		
-		if (isLightingOn) {
-        glEnable(GL_LIGHTING);
-    	}
+	if (isLightingOn) {
+        	glEnable(GL_LIGHTING);
+    	}else
+		glDisable(GL_LIGHTING);
 
 		glPushMatrix();
-	    	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);		
-		glScalef(50,50,50);
-		glmDraw(teste, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
+		    	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);		
+			glScalef(50,50,50); // semelhante à fzr glmScale(50); na setup
+			glmDraw(teste, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
    		glPopMatrix();
 
+		//teoricamente desenha terreno com cubo em baixo porem o cubo ficou plano no meu
 		glPushMatrix();
-		glTranslatef( 1, -50, 1);		
-		glScalef(10,0,10);
-		glColor4f(0, 1, 0, 1);
-		glmDraw(terreno, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
-   		glPopMatrix();
+			glTranslatef( 0, -50, 0);		
+			glScalef(10,0,10);
+			glmDraw(terreno, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
+			glColor4f(0, 1, 0, 1);       //começa a desenhar com a cor verde
+			glutSolidCube(100);        //desenha um cubo no ponto (0, -100, 0)
+			glColor4f(0, 0, 0, 1);    //começa a desenhar com a cor preta
+			glutWireCube(105);       //desenha bordas de um cubo levemente maior
+        	glPopMatrix();
 
-        /*glPushMatrix();
-		glColor4f(0, 1, 0, 1);       //começa a desenhar com a cor verde
-		glTranslatef(0, -100, 0);   //desenha no ponto Y=-100 para parecer uma mesa para a jarra
-		glutSolidCube(100);        //desenha um cubo no ponto (0, -100, 0)
-		glColor4f(0, 0, 0, 1);    //começa a desenhar com a cor preta
-		glutWireCube(105);       //desenha bordas de um cubo levemente maior
-        glPopMatrix();*/
-
-		if (isLightingOn) {
-        glDisable(GL_LIGHTING);
-    	}
         // FIM DO TESTE
 
 		desenhaInterface();
