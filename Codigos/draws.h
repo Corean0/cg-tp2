@@ -55,19 +55,20 @@ void desenhaMinhaCena()
     	glDisable(GL_LIGHTING);
     }
 		// INICIO DO TESTE
+	    	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-		glClearColor(1,1,1,1);		
-		glScalef(50,50,50);
+		glClearColor(1,1,1,1);
 
 		// Teste de Arvore
 		glPushMatrix();
-	    	//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-		glCallList(teste.listaVisualizacao);				
+			glScalef(50,50,50);
+	    		//glCallList(teste.listaVisualizacao);
+			glmDraw(testeOBJ, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
 	   	glPopMatrix();
 
-		// Teste de Terreno (Lagando)
-		/*glPushMatrix();
-		glTranslatef( 0, -50, 0);
+		// Teste de Terreno com lista
+		glPushMatrix();
+		glTranslatef(0,-50,0);
 		for(int random = -1, auxrandom, random1, auxrandom1 ; random <= 1 ;random++)
 		{
 			auxrandom = random*50;
@@ -75,12 +76,14 @@ void desenhaMinhaCena()
 			{
 				auxrandom1 = random1*50;
 				glPushMatrix();
-				glTranslatef(auxrandom,0,auxrandom1);
-    				glCallList(terreno.listaVisualizacao);
+					glTranslatef(auxrandom,0,auxrandom1);
+					glScalef(50,50,50);
+	    				//glCallList(terreno.listaVisualizacao);
+					glmDraw(terrenoOBJ, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
 				glPopMatrix();
 			}
 		}
-		glPopMatrix();*/
+		glPopMatrix();
 
 		// FIM DO TESTE
 	//desenhando e rotacionando roda gigante

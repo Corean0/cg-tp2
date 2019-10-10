@@ -48,6 +48,9 @@ void main(int argc, char** argv)
     glutCreateWindow("Lego Park");
 
     glutEnterGameMode();
+
+    // Seta valores iniciais
+    setup();
  
     // Callbacks
     glutDisplayFunc(desenhaMinhaCena);
@@ -57,9 +60,6 @@ void main(int argc, char** argv)
     glutKeyboardUpFunc(teclaSegurada);
     glutPassiveMotionFunc(mouseMove);
     glutMouseFunc(mouseClick);
-
-    // Seta valores iniciais
-    setup();
 
     // Loop
     glutMainLoop();
