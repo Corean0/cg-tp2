@@ -8,5 +8,5 @@ void carregaOBJ(Objeto3D objeto, GLMmodel* model){
 	objeto.dimensoes.x = dimensions[0];
 	objeto.dimensoes.y = dimensions[1];
 	objeto.dimensoes.z = dimensions[2];
-	glmList(model, GLM_SMOOTH | GLM_TEXTURE);
+	objeto.listaVisualizacao = glmList(model, GLM_SMOOTH | GLM_TEXTURE);
 }
