@@ -68,7 +68,7 @@ void begin3d()
     glMaterialfv(GL_FRONT, GL_DIFFUSE, mKd);
     glMaterialfv(GL_FRONT, GL_SPECULAR, mKs);
     glMaterialfv(GL_FRONT, GL_EMISSION, mKe);
-    //glMaterialfv(GL_FRONT, GL_SHININESS, matShine);
+    glMaterialfv(GL_FRONT, GL_SHININESS, matShine);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 }

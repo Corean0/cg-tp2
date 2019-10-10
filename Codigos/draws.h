@@ -46,36 +46,41 @@ void desenhaMinhaCena()
                 break;
         }
 		
-	if (isLightingOn) {
-        	glEnable(GL_LIGHTING);
-    	}else
-		glDisable(GL_LIGHTING);
-	
+	if (isLightingOn)
+	{
+        glEnable(GL_LIGHTING);
+    }
+    else
+    {
+    	glDisable(GL_LIGHTING);
+    }
 		// INICIO DO TESTE
 
 		glClearColor(1,1,1,1);
 
-			glPushMatrix();
-			    	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);		
-				glScalef(50,50,50); // semelhante à fzr glmScale(50); na setup
-				glmDraw(teste, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);				
-	   		glPopMatrix();
+		// Teste de Arvore
+		glPushMatrix();
+	    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);		
+		glScalef(50,50,50); // semelhante à fzr glmScale(50); na setup
+		glmDraw(teste, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);				
+	   	glPopMatrix();
 
-			//começa a lagar se desenha um chão grande, tem q ver com coutinho formas de resolver
-			glPushMatrix();
-				glTranslatef( 0, -50, 0);
-				int random, auxrandom, random1, auxrandom1;
-				for(random=-1;random<=1;random++){
-					auxrandom = random*50;
-					for(random1=-1;random1<=1;random1++){
-						auxrandom1 = random1*50;
-						glPushMatrix();
-						glTranslatef(auxrandom,0,auxrandom1);
-						glmDraw(terreno, GLM_SMOOTH |GLM_TEXTURE | GLM_COLOR);
-						glPopMatrix();
-					}
-				}
-			glPopMatrix();
+		// Teste de Terreno (Lagando)
+		glPushMatrix();
+		glTranslatef( 0, -50, 0);
+		for(int random = -1, auxrandom, random1, auxrandom1 ; random <= 1 ;random++)
+		{
+			auxrandom = random*50;
+			for(random1 = -1 ;random1 <= 1; random1++)
+			{
+				auxrandom1 = random1*50;
+				glPushMatrix();
+				glTranslatef(auxrandom,0,auxrandom1);
+				glmDraw(terreno, GLM_SMOOTH |GLM_TEXTURE | GLM_COLOR);
+				glPopMatrix();
+			}
+		}
+		glPopMatrix();
 
 		// FIM DO TESTE
 	
