@@ -30,7 +30,7 @@ void setup()
 
 	if(!terreno)
 	{
-    	terreno = glmReadOBJ("../pontos_obj/terreno.obj");
+    		terreno = glmReadOBJ("../pontos_obj/terreno.obj");
 		glmUnitize(terreno);
 		glmScale(terreno, 50.0);
 		glmFacetNormals(terreno);

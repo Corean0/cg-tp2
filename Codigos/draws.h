@@ -45,36 +45,46 @@ void desenhaMinhaCena()
                 gluLookAt(cursor.x + camera.x,cursor.y + camera.y, cursor.z + camera.z, cursor.x + 0,cursor.y + 0, cursor.z + 0, 0, 1, 0);
                 break;
         }
-
-        // INICIO DO TESTE
-
-        glClearColor(1,1,1,1);
 		
 	if (isLightingOn) {
         	glEnable(GL_LIGHTING);
     	}else
 		glDisable(GL_LIGHTING);
+	
+		// INICIO DO TESTE
 
-		glPushMatrix();
-		    	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);		
-			glScalef(50,50,50); // semelhante à fzr glmScale(50); na setup
-			glmDraw(teste, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
-   		glPopMatrix();
+		glClearColor(1,1,1,1);
 
-		//teoricamente desenha terreno com cubo em baixo porem o cubo ficou plano no meu
-		glPushMatrix();
-			glTranslatef( 0, -50, 0);		
-			glScalef(10,0,10);
-			glmDraw(terreno, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
-			glColor4f(0, 1, 0, 1);       //começa a desenhar com a cor verde
-			glutSolidCube(100);        //desenha um cubo no ponto (0, -100, 0)
-			glColor4f(0, 0, 0, 1);    //começa a desenhar com a cor preta
-			glutWireCube(105);       //desenha bordas de um cubo levemente maior
-        	glPopMatrix();
+			glPushMatrix();
+			    	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);		
+				glScalef(50,50,50); // semelhante à fzr glmScale(50); na setup
+				glmDraw(teste, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);				
+	   		glPopMatrix();
 
-        // FIM DO TESTE
+			//começa a lagar se desenha um chão grande, tem q ver com coutinho formas de resolver
+			glPushMatrix();
+				glTranslatef( 0, -50, 0);
+				int random, auxrandom, random1, auxrandom1;
+				for(random=-1;random<=1;random++){
+					auxrandom = random*50;
+					for(random1=-1;random1<=1;random1++){
+						auxrandom1 = random1*50;
+						glPushMatrix();
+						glTranslatef(auxrandom,0,auxrandom1);
+						glmDraw(terreno, GLM_SMOOTH |GLM_TEXTURE | GLM_COLOR);
+						glPopMatrix();
+					}
+				}
+			glPopMatrix();
 
-		desenhaInterface();
+		// FIM DO TESTE
+	
+	anguloRotacao+=1;
+	/*glPushMatrix();
+		glRotate(anguloRotacao,0,0,1);
+		desenhaRodaGigante();
+	glPopMatrix();
+	desenhaInterface();*/
     }
 
     else if(tela == 2)
@@ -127,16 +137,14 @@ void desenhaRodaGigante(){
     int i;
     float angulo = 360/CARRINHOS;
     glPushMatrix();
-    glTranslatef(rodaGigante.posicao.x, rodaGigante.posicao.y, rodaGigante.posicao.z);
-    //desenha o aro e base da roda gigante
-    for(i=0, i<qtdeCarrinhos, i++){
-        int aux = i+1;
-        glPushMatrix();
-        glTranslatef(rodaGigante.raio*cos(angulo)*aux, rodaGigante.raio*sin(angulo)*aux, rodaGigante.posicao.z);
-        //desenha carrinho
-        glPopMatrix();
-    }
+	    glTranslatef(rodaGigante.posicao.x, rodaGigante.posicao.y, rodaGigante.posicao.z);
+	    //desenha o aro e base da roda gigante
+	    for(i=0, i<qtdeCarrinhos, i++){
+		int aux = i+1;
+		glPushMatrix();
+		glTranslatef(rodaGigante.raio*cos(angulo)*aux, rodaGigante.raio*sin(angulo)*aux, rodaGigante.posicao.z);
+		//desenha carrinho
+		glPopMatrix();
+	    }
     glPopMatrix();
-}
-
-*/
+}*/
