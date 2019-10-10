@@ -27,6 +27,7 @@ float           matAmbAndDif[4], /*matShine[],*/ altura = 720, largura = 1280, p
 Mix_Chunk       *som1, *som2, *som3, *som4;
 GLfloat         lpos[4], lKa[4], lKd[4], lKs[4], mKd[4], mKs[4], mKe[4], lKa1[4], lKd1[4], lKs1[4], lPos1[4],
                 lPos2[4], lPos3[4], lPos4[4], lPos5[4]; 
+int isLightingOn = 0;
 
 void main(int argc, char** argv)
 {

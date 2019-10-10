@@ -31,11 +31,11 @@ void setup()
 
 	if(!terreno)
 	{
-    	terreno = glmReadOBJ("../pontos_obj/flooor.obj");
+    	terreno = glmReadOBJ("../pontos_obj/floor.obj");
 		glmUnitize(terreno);
 		glmScale(terreno, 50.0);
 		glmFacetNormals(terreno);
-		glmVertexNormals(terreno, 90.0, 1);
+		glmVertexNormals(terreno, 90.0, 0);
 	}
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");

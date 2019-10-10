@@ -96,6 +96,7 @@ void mouseClick(int botao, int estado, int x, int y)
 				   mouse.posicao.y < jogar.posicao.y + jogar.dimensoes.y/2 && mouse.posicao.y > jogar.posicao.y - jogar.dimensoes.y/2)
 				{
 					tela = 1;
+					glutSetCursor(GLUT_CURSOR_NONE);
 					glutReshapeWindow(largura,altura);
 				}
 

@@ -40,6 +40,16 @@ void teclaPressionada(unsigned char key, int x, int y)
 		keyboard[69] = 1;
 		break;
 
+		case 'l':
+    	case 'L':
+        	if(isLightingOn==0){
+				isLightingOn=1;
+			}
+			else{
+				isLightingOn=0;
+			}
+        break;
+
         // As três cameras
         // Camera perspectiva
         case '1':
@@ -73,6 +83,7 @@ void teclaPressionada(unsigned char key, int x, int y)
             else if(tela == 3|| tela == 1)
             {
                 tela = 0;
+				glutSetCursor(GLUT_CURSOR_INHERIT);
 		        glutReshapeWindow(largura,altura);
             }
 

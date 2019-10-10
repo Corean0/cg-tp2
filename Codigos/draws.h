@@ -48,28 +48,33 @@ void desenhaMinhaCena()
         // INICIO DO TESTE
 
         glClearColor(1,1,1,1);
+		
+		if (isLightingOn) {
+        glEnable(GL_LIGHTING);
+    	}
 
 		glPushMatrix();
 	    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-	    glEnable(GL_LIGHTING);
 		glmDraw(teste, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
-		glDisable(GL_LIGHTING);
    		glPopMatrix();
 
 		glPushMatrix();
-	    glEnable(GL_LIGHTING);
+		glTranslatef( 1, -50, 1);
+		glColor4f(0, 1, 0, 1);
 		glmDraw(terreno, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
-		glDisable(GL_LIGHTING);
    		glPopMatrix();
 
         glPushMatrix();
-		glColor4f(0.5, 0.5, 0.5, 1); //começa a desenhar com a cor cinza
+		glColor4f(0, 1, 0, 1);       //começa a desenhar com a cor verde
 		glTranslatef(0, -100, 0);   //desenha no ponto Y=-100 para parecer uma mesa para a jarra
 		glutSolidCube(100);        //desenha um cubo no ponto (0, -100, 0)
 		glColor4f(0, 0, 0, 1);    //começa a desenhar com a cor preta
 		glutWireCube(105);       //desenha bordas de um cubo levemente maior
         glPopMatrix();
 
+		if (isLightingOn) {
+        glDisable(GL_LIGHTING);
+    	}
         // FIM DO TESTE
 
 		desenhaInterface();
