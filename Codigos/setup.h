@@ -24,14 +24,13 @@ void setup()
 	{
     	teste = glmReadOBJ("../pontos_obj/arvore.obj");
 		glmUnitize(teste);
-		glmScale(teste, 50.0);
 		glmFacetNormals(teste);
 		glmVertexNormals(teste, 90.0, 1);
 	}
 
 	if(!terreno)
 	{
-    	terreno = glmReadOBJ("../pontos_obj/floor.obj");
+    	terreno = glmReadOBJ("../pontos_obj/terreno.obj");
 		glmUnitize(terreno);
 		glmScale(terreno, 50.0);
 		glmFacetNormals(terreno);
