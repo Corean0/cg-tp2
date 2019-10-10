@@ -47,6 +47,7 @@
 #define T(x) (model->triangles[(x)])
 
 
+
 /* _GLMnode: general purpose node */
 typedef struct _GLMnode {
     GLuint         index;
@@ -1019,7 +1020,7 @@ glmUnitize(GLMmodel* model)
  * dimensions - array of 3 GLfloats (GLfloat dimensions[3])
  */
 GLvoid
-glmDimensions(GLMmodel* model, GLfloat* dimensions)
+glmDimensions(GLMmodel* model, GLfloat dimensions[3])
 {
     GLuint i;
     GLfloat maxx, minx, maxy, miny, maxz, minz;

@@ -15,3 +15,5 @@ void attPosicao();
 void begin3d();
 void movimentacao();
 void desenhaInterface();
+void desenhaRodaGigante();
+void carregOBJ(Objeto3D objeto, GLMmodel* model);

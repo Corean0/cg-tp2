@@ -139,6 +139,8 @@ typedef struct _GLMmodel {
 
   GLfloat position[3];          /* position of the model */
 
+  //int listaVisualizacao		/* n funionou */
+
 } GLMmodel;
 
 
@@ -162,7 +164,7 @@ glmUnitize(GLMmodel* model);
  * dimensions - array of 3 GLfloats (GLfloat dimensions[3])
  */
 GLvoid
-glmDimensions(GLMmodel* model, GLfloat* dimensions);
+glmDimensions(GLMmodel* model, GLfloat dimensions[3]);
 
 /* glmScale: Scales a model by a given amount.
  * 

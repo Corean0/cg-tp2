@@ -56,17 +56,17 @@ void desenhaMinhaCena()
     }
 		// INICIO DO TESTE
 
-		glClearColor(1,1,1,1);
+		glClearColor(1,1,1,1);		
+		glScalef(50,50,50);
 
 		// Teste de Arvore
 		glPushMatrix();
-	    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);		
-		glScalef(50,50,50); // semelhante à fzr glmScale(50); na setup
-		glmDraw(teste, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);				
+	    	//glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+		glCallList(teste.listaVisualizacao);				
 	   	glPopMatrix();
 
 		// Teste de Terreno (Lagando)
-		glPushMatrix();
+		/*glPushMatrix();
 		glTranslatef( 0, -50, 0);
 		for(int random = -1, auxrandom, random1, auxrandom1 ; random <= 1 ;random++)
 		{
@@ -76,20 +76,22 @@ void desenhaMinhaCena()
 				auxrandom1 = random1*50;
 				glPushMatrix();
 				glTranslatef(auxrandom,0,auxrandom1);
-				glmDraw(terreno, GLM_SMOOTH |GLM_TEXTURE | GLM_COLOR);
+    				glCallList(terreno.listaVisualizacao);
 				glPopMatrix();
 			}
 		}
-		glPopMatrix();
+		glPopMatrix();*/
 
 		// FIM DO TESTE
-	
-	anguloRotacao+=1;
-	/*glPushMatrix();
-		glRotate(anguloRotacao,0,0,1);
+	//desenhando e rotacionando roda gigante
+	/*
+	auxRotacao+=1;
+	glPushMatrix();
+		glRotate(auxRotacao,0,0,1);
 		desenhaRodaGigante();
 	glPopMatrix();
-	desenhaInterface();*/
+	*/
+	desenhaInterface();
     }
 
     else if(tela == 2)
@@ -137,19 +139,19 @@ void desenhaInterface(){
         //perguntar como fazer isso
 }
 
-/*
+
 void desenhaRodaGigante(){
     int i;
     float angulo = 360/CARRINHOS;
+    float raio = rodaGigante.dimensoes.y/2;
     glPushMatrix();
 	    glTranslatef(rodaGigante.posicao.x, rodaGigante.posicao.y, rodaGigante.posicao.z);
 	    //desenha o aro e base da roda gigante
-	    for(i=0, i<qtdeCarrinhos, i++){
-		int aux = i+1;
+	    for(i=0; i<CARRINHOS; i++){
 		glPushMatrix();
-		glTranslatef(rodaGigante.raio*cos(angulo)*aux, rodaGigante.raio*sin(angulo)*aux, rodaGigante.posicao.z);
+		glTranslatef(raio*cos(angulo)*i, raio*sin(angulo)*i, 0);
 		//desenha carrinho
 		glPopMatrix();
 	    }
     glPopMatrix();
-}*/
+}

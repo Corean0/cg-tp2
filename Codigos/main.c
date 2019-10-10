@@ -10,8 +10,8 @@
 #include <time.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_mixer.h>
-#include "structs.h"
 #include "glm.h"
+#include "structs.h"
 #include "cabecalho.h"
 
 // Constantes globais
@@ -19,11 +19,12 @@
 #define CARRINHOS 6.0
 
 // Variaveis globais
-GLMmodel	    *teste = NULL, *terreno = NULL;
+GLMmodel 	*testeOBJ=NULL, *terrenoOBJ=NULL;
+Objeto3D	rodaGigante, teste, terreno;
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera, cursor;
-int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, anguloRotacao = 0, isLightingOn = 0;
-float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0;
+int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 0;
+float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0, auxRotacao = 0;
 Mix_Chunk       *som1, *som2, *som3, *som4;
 GLfloat         lpos[4], lKa[4], lKd[4], lKs[4], mKd[4], mKs[4], mKe[4], lKa1[4], lKd1[4], lKs1[4], lPos1[4],
                 lPos2[4], lPos3[4], lPos4[4], lPos5[4]; 
@@ -64,6 +65,7 @@ void main(int argc, char** argv)
     glutMainLoop();
 }
 
+#include "cod_aux.h"
 #include "refresh.h"
 #include "draws.h"
 #include "setup.h"

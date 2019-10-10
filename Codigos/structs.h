@@ -1,9 +1,9 @@
 // Struct de x e y
 typedef struct vetorR3
 {
-    float x;
-    float y;
-    float z;
+    GLfloat x;
+    GLfloat y;
+    GLfloat z;
 
 } vetorR3;
 
@@ -16,10 +16,10 @@ typedef struct spriteObject
 
 } spriteObject;
 
-typedef struct Roda_GG
+typedef struct Objeto3D
 {
-	vetorR3 dimensoes;
 	vetorR3 posicao;
-	float raio;
-
-} Roda_GG;
+	vetorR3 dimensoes;
+	//GLMmodel *objeto;
+	GLuint listaVisualizacao;
+} Objeto3D;

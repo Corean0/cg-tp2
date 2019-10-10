@@ -20,22 +20,12 @@ void setup()
     cursor.y = 0;
     cursor.z = 0;
 
-	if(!teste)
-	{
-    	teste = glmReadOBJ("../pontos_obj/tree.obj");
-		glmUnitize(teste);
-		glmFacetNormals(teste);
-		glmVertexNormals(teste, 90.0, 1);
-	}
-
-	if(!terreno)
-	{
-    	terreno = glmReadOBJ("../pontos_obj/terreno.obj");
-		glmUnitize(terreno);
-		glmScale(terreno, 50.0);
-		glmFacetNormals(terreno);
-		glmVertexNormals(terreno, 90.0, 0);
-	}
+    // carregando objetos	
+    testeOBJ = glmReadOBJ("../pontos_obj/tree.obj");	
+    carregaOBJ(teste, testeOBJ);
+    terrenoOBJ = glmReadOBJ("../pontos_obj/terreno.obj");
+    carregaOBJ(terreno, terrenoOBJ);
+    //carregaOBJ(rodaGigante);
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");
