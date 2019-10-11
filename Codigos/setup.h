@@ -23,13 +23,23 @@ void setup()
     // carregando objetos	
     testeOBJ = glmReadOBJ("../pontos_obj/arvore_1.obj");
     terrenoOBJ = glmReadOBJ("../pontos_obj/terreno.obj");
-	pedraOBJ = glmReadOBJ("../pontos_obj/pedra_1.obj");
+    pedraOBJ = glmReadOBJ("../pontos_obj/pedra_1.obj");
 
     // carregando listas (não carrega nada na lista (??) );	
-    carregaOBJ(teste, testeOBJ);
-    carregaOBJ(terreno, terrenoOBJ);
-	carregaOBJ(pedra, pedraOBJ);
+    carregaOBJ(&teste, testeOBJ);
+    carregaOBJ(&terreno, terrenoOBJ);
+    carregaOBJ(&pedra, pedraOBJ);
     //carregaOBJ(rodaGigante);
+
+   //setando valores para os objetos
+   setPosicao(&teste,-20,0,0);
+   aumentoProporcional(&teste, 50);
+
+   setPosicao(&terreno, 0,0,0);
+   aumentoProporcional(&terreno,50);
+
+   setPosicao(&pedra,40,-30,0);
+   aumentoProporcional(&pedra,20);
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");

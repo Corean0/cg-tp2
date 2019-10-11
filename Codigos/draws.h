@@ -65,20 +65,10 @@ void desenhaMinhaCena()
 		glClearColor(1,1,1,1);
 
 		// Teste de Arvore
-		glPushMatrix();
-			glTranslatef(-20,0,0);
-			glScalef(50,50,50);
-	    		//glCallList(teste.listaVisualizacao);
-			glmDraw(testeOBJ, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
-	   	glPopMatrix();
+		desenhaOBJ(teste, testeOBJ);
 
 		// Teste de pedra
-		glPushMatrix();
-			glTranslatef(40,-30,0);
-			glScalef(20,20,20);
-	    		//glCallList(pedra.listaVisualizacao);
-			glmDraw(pedraOBJ, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
-	   	glPopMatrix();
+		desenhaOBJ(pedra, pedraOBJ);
 
 		// Teste de Terreno com lista
 		glPushMatrix();
@@ -91,9 +81,7 @@ void desenhaMinhaCena()
 				auxrandom1 = random1*50;
 				glPushMatrix();
 					glTranslatef(auxrandom,0,auxrandom1);
-					glScalef(50,50,50);
-	    				//glCallList(terreno.listaVisualizacao);
-					glmDraw(terrenoOBJ, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
+					desenhaOBJ(terreno,terrenoOBJ);
 				glPopMatrix();
 			}
 		}
@@ -176,4 +164,13 @@ void desenhaRodaGigante(){
 		glPopMatrix();
 	    }
     glPopMatrix();
+}
+
+void desenhaOBJ(Objeto3D objeto, GLMmodel *model){
+	glPushMatrix();
+		glTranslatef(objeto.posicao.x,objeto.posicao.y,objeto.posicao.z);
+		glScalef(objeto.aumento.x,objeto.aumento.y,objeto.aumento.z);
+	    	//glCallList(teste.listaVisualizacao);
+		glmDraw(model, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
+	glPopMatrix();
 }

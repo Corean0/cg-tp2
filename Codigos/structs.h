@@ -20,6 +20,7 @@ typedef struct Objeto3D
 {
 	vetorR3 posicao;
 	vetorR3 dimensoes;
+	vetorR3 aumento;
 	//GLMmodel *objeto;
 	GLuint listaVisualizacao;
 } Objeto3D;
