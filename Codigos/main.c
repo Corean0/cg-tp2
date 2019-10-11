@@ -19,15 +19,24 @@
 #define CARRINHOS 6.0
 
 // Variaveis globais
-GLMmodel 	*testeOBJ=NULL, *terrenoOBJ=NULL;
-Objeto3D	rodaGigante, teste, terreno;
+GLMmodel 	*testeOBJ=NULL, *terrenoOBJ=NULL, *pedraOBJ=NULL;
+Objeto3D	rodaGigante, teste, terreno, pedra;
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera, cursor;
 int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 0;
 float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0, auxRotacao = 0;
 Mix_Chunk       *som1, *som2, *som3, *som4;
-GLfloat         lpos[4], lKa[4], lKd[4], lKs[4], mKd[4], mKs[4], mKe[4], lKa1[4], lKd1[4], lKs1[4], lPos1[4],
-                lPos2[4], lPos3[4], lPos4[4], lPos5[4]; 
+// configura alguns parâmetros do modelo de iluminação: FONTE DE LUZ
+const GLfloat light_ambient[]  = { 0.5f, 0.5f, 0.5f, 1.0f };
+const GLfloat light_diffuse[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
+const GLfloat light_specular[] = { 0.5f, 0.5f, 0.5f, 1.0f };
+const GLfloat light_position[] = { 20.0f, 50.0f, 50.0f, 0.0f };
+
+// configura alguns parâmetros do modelo de iluminação: MATERIAL
+const GLfloat mat_ambient[]    = { 0.7f, 0.7f, 0.7f, 1.0f };
+const GLfloat mat_diffuse[]    = { 0.8f, 0.8f, 0.8f, 1.0f };
+const GLfloat mat_specular[]   = { 1.0f, 1.0f, 1.0f, 1.0f };
+const GLfloat high_shininess[] = { 100.0f };
 
 void main(int argc, char** argv)
 {
@@ -60,6 +69,15 @@ void main(int argc, char** argv)
     glutKeyboardUpFunc(teclaSegurada);
     glutPassiveMotionFunc(mouseMove);
     glutMouseFunc(mouseClick);
+
+	glEnable(GL_LIGHT0);
+    glEnable(GL_NORMALIZE);
+    glEnable(GL_COLOR_MATERIAL);
+
+    glLightfv(GL_LIGHT0, GL_AMBIENT,  light_ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE,  light_diffuse);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 
     // Loop
     glutMainLoop();

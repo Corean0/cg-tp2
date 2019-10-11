@@ -45,15 +45,20 @@ void desenhaMinhaCena()
                 gluLookAt(cursor.x + camera.x,cursor.y + camera.y, cursor.z + camera.z, cursor.x + 0,cursor.y + 0, cursor.z + 0, 0, 1, 0);
                 break;
         }
+
+    // Esfera indicativa de onde está a luz
+/*	glPushMatrix();
+        glTranslatef(20.0, 50.0, 50.0);
+        glColor3f(0, 0, 0);
+        glutWireSphere(2, 8, 8); 
+    glPopMatrix();
+*/
 		
 	if (isLightingOn)
 	{
         glEnable(GL_LIGHTING);
     }
-    else
-    {
-    	glDisable(GL_LIGHTING);
-    }
+    
 		// INICIO DO TESTE
 	    	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
@@ -61,9 +66,18 @@ void desenhaMinhaCena()
 
 		// Teste de Arvore
 		glPushMatrix();
+			glTranslatef(-20,0,0);
 			glScalef(50,50,50);
 	    		//glCallList(teste.listaVisualizacao);
 			glmDraw(testeOBJ, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
+	   	glPopMatrix();
+
+		// Teste de pedra
+		glPushMatrix();
+			glTranslatef(40,-30,0);
+			glScalef(20,20,20);
+	    		//glCallList(pedra.listaVisualizacao);
+			glmDraw(pedraOBJ, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
 	   	glPopMatrix();
 
 		// Teste de Terreno com lista
@@ -84,6 +98,11 @@ void desenhaMinhaCena()
 			}
 		}
 		glPopMatrix();
+
+	if (isLightingOn)
+    {
+    	glDisable(GL_LIGHTING);
+    }
 
 		// FIM DO TESTE
 	//desenhando e rotacionando roda gigante

@@ -64,11 +64,9 @@ void refresh(int delay)
 
 void begin3d()
 {
-    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, matAmbAndDif);
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, mKd);
-    glMaterialfv(GL_FRONT, GL_SPECULAR, mKs);
-    glMaterialfv(GL_FRONT, GL_EMISSION, mKe);
-    glMaterialfv(GL_FRONT, GL_SHININESS, matShine);
+	glMaterialfv(GL_FRONT, GL_AMBIENT,   mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE,   mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, high_shininess);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 }
