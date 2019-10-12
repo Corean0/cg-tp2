@@ -20,26 +20,42 @@ void setup()
     cursor.y = 0;
     cursor.z = 0;
 
-    // carregando objetos	
-    testeOBJ = glmReadOBJ("../pontos_obj/arvore_1.obj");
-    terrenoOBJ = glmReadOBJ("../pontos_obj/terreno.obj");
-    pedraOBJ = glmReadOBJ("../pontos_obj/pedra_1.obj");
-
-    // carregando listas (não carrega nada na lista (??) );	
+    // carregando objetos
+    // faz nessa ordem que vai setando NULL no GLMmodel pra reutilizar	
+    testeOBJ = glmReadOBJ("../pontos_obj/arvore_1.obj");	
     carregaOBJ(&teste, testeOBJ);
-    carregaOBJ(&terreno, terrenoOBJ);
-    carregaOBJ(&pedra, pedraOBJ);
-    //carregaOBJ(rodaGigante);
+
+    testeOBJ = glmReadOBJ("../pontos_obj/terreno.obj");
+    carregaOBJ(&terreno, testeOBJ);
+
+    testeOBJ = glmReadOBJ("../pontos_obj/pedra_1.obj");
+    carregaOBJ(&pedra, testeOBJ);
+
+    rodaGGOBJ = glmReadOBJ("../pontos_obj/base_roda_gigante.obj");
+    carregaOBJ(&rodaGG_base, rodaGGOBJ);
+    rodaGGOBJ = glmReadOBJ("../pontos_obj/aro_roda_gigante.obj");
+    carregaOBJ(&rodaGG_aro, rodaGGOBJ);
+    rodaGGOBJ = glmReadOBJ("../pontos_obj/carrinho_vermelho.obj");
+    carregaOBJ(&rodaGG_carro, rodaGGOBJ);
 
    //setando valores para os objetos
    setPosicao(&teste,-20,0,0);
-   aumentoProporcional(&teste, 50);
+   setDimensoesProp(&teste, 50);
 
    setPosicao(&terreno, 0,0,0);
-   aumentoProporcional(&terreno,50);
+   setDimensoesProp(&terreno,50);
 
    setPosicao(&pedra,40,-30,0);
-   aumentoProporcional(&pedra,20);
+   setDimensoesProp(&pedra,20);
+
+   setPosicao(&rodaGG_base,0,0,0);
+   setDimensoesProp(&rodaGG_base,50);
+
+   setPosicao(&rodaGG_aro,0,0,0);
+   setDimensoesProp(&rodaGG_aro,50);
+
+   setPosicao(&rodaGG_carro,0,0,0);
+   setDimensoesProp(&rodaGG_carro,5);
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");

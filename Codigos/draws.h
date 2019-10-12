@@ -1,3 +1,5 @@
+void cenarioTeste();
+
 // Desenho do jogo
 void desenhaMinhaCena()
 {
@@ -64,44 +66,24 @@ void desenhaMinhaCena()
 
 		glClearColor(1,1,1,1);
 
-		// Teste de Arvore
-		desenhaOBJ(teste, testeOBJ);
+		//cenarioTeste();
 
-		// Teste de pedra
-		desenhaOBJ(pedra, pedraOBJ);
 
-		// Teste de Terreno com lista
-		glPushMatrix();
-		glTranslatef(0,-50,0);
-		for(int random = -1, auxrandom, random1, auxrandom1 ; random <= 1 ;random++)
-		{
-			auxrandom = random*50;
-			for(random1 = -1 ;random1 <= 1; random1++)
-			{
-				auxrandom1 = random1*50;
-				glPushMatrix();
-					glTranslatef(auxrandom,0,auxrandom1);
-					desenhaOBJ(terreno,terrenoOBJ);
-				glPopMatrix();
-			}
-		}
-		glPopMatrix();
+		// FIM DO TESTE
+	//desenhando e rotacionando roda gigante
+	auxRotacao+=1;
+	glPushMatrix();
+		//desenhaOBJ(rodaGG_base);
+		glRotatef(auxRotacao,1,0,0);
+		desenhaRodaGigante();
+	glPopMatrix();
+	desenhaInterface();
 
 	if (isLightingOn)
     {
     	glDisable(GL_LIGHTING);
     }
 
-		// FIM DO TESTE
-	//desenhando e rotacionando roda gigante
-	/*
-	auxRotacao+=1;
-	glPushMatrix();
-		glRotate(auxRotacao,0,0,1);
-		desenhaRodaGigante();
-	glPopMatrix();
-	*/
-	desenhaInterface();
     }
 
     else if(tela == 2)
@@ -153,24 +135,53 @@ void desenhaInterface(){
 void desenhaRodaGigante(){
     int i;
     float angulo = 360/CARRINHOS;
-    float raio = rodaGigante.dimensoes.y/2;
+    float raio = rodaGG_aro.dimensoes.y/2;
     glPushMatrix();
-	    glTranslatef(rodaGigante.posicao.x, rodaGigante.posicao.y, rodaGigante.posicao.z);
-	    //desenha o aro e base da roda gigante
+	    glTranslatef(rodaGG_aro.posicao.x, rodaGG_aro.posicao.y, rodaGG_aro.posicao.z);
+	    glPushMatrix();
+		    glScalef(rodaGG_aro.dimensoes.x,rodaGG_aro.dimensoes.y,rodaGG_aro.dimensoes.z);
+		    glCallList(rodaGG_aro.listaVisualizacao);
+	    glPopMatrix();
 	    for(i=0; i<CARRINHOS; i++){
 		glPushMatrix();
-		glTranslatef(raio*cos(angulo)*i, raio*sin(angulo)*i, 0);
-		//desenha carrinho
+			glTranslatef(raio*cos(angulo)*i, 0, raio*sin(angulo)*i);
+			//printf("\n%f %f\n",raio,angulo); //retorna valores corretos
+			glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);
+		    	glCallList(rodaGG_carro.listaVisualizacao);
 		glPopMatrix();
 	    }
     glPopMatrix();
 }
 
-void desenhaOBJ(Objeto3D objeto, GLMmodel *model){
+void desenhaOBJ(Objeto3D objeto){
 	glPushMatrix();
 		glTranslatef(objeto.posicao.x,objeto.posicao.y,objeto.posicao.z);
-		glScalef(objeto.aumento.x,objeto.aumento.y,objeto.aumento.z);
-	    	//glCallList(teste.listaVisualizacao);
-		glmDraw(model, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
+		glScalef(objeto.dimensoes.x,objeto.dimensoes.y,objeto.dimensoes.z);
+	    	glCallList(objeto.listaVisualizacao);
 	glPopMatrix();
+}
+
+void cenarioTeste(){
+		// Teste de Arvore
+		desenhaOBJ(teste);
+
+		// Teste de pedra
+		desenhaOBJ(pedra);
+
+		// Teste de Terreno com lista
+		glPushMatrix();
+		glTranslatef(0,-50,0);
+		for(int random = -QTDECHAO, auxrandom, random1, auxrandom1 ; random <= QTDECHAO ;random++)
+		{
+			auxrandom = random*50;
+			for(random1 = -QTDECHAO ;random1 <= QTDECHAO; random1++)
+			{
+				auxrandom1 = random1*50;
+				glPushMatrix();
+					glTranslatef(auxrandom,0,auxrandom1);
+					desenhaOBJ(terreno);
+				glPopMatrix();
+			}
+		}
+		glPopMatrix();
 }

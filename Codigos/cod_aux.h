@@ -3,24 +3,20 @@ void carregaOBJ(Objeto3D *objeto, GLMmodel* model){
 	glmUnitize(model);
 	glmFacetNormals(model);
 	glmVertexNormals(model, 90.0, 1);
-	float dimensions[3];
-	glmDimensions(model, dimensions);
-	objeto->dimensoes.x = dimensions[0];
-	objeto->dimensoes.y = dimensions[1];
-	objeto->dimensoes.z = dimensions[2];
-	objeto->listaVisualizacao = glmList(model, GLM_SMOOTH | GLM_TEXTURE);
+	objeto->listaVisualizacao = glmList(model, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
+	model = NULL;
 }
 
-void aumentoProporcional(Objeto3D *objeto,float aumento){
-	objeto->aumento.x = aumento;
-	objeto->aumento.y = aumento;
-	objeto->aumento.z = aumento;
+void setDimensoesProp(Objeto3D *objeto,float aumento){
+	objeto->dimensoes.x = aumento;
+	objeto->dimensoes.y = aumento;
+	objeto->dimensoes.z = aumento;
 }
 
-void aumentoDesproporcional(Objeto3D *objeto, float x, float y, float z){
-	objeto->aumento.x = x;
-	objeto->aumento.y = y;
-	objeto->aumento.z = z;
+void setDimensoesDesprop(Objeto3D *objeto, float x, float y, float z){
+	objeto->dimensoes.x = x;
+	objeto->dimensoes.y = y;
+	objeto->dimensoes.z = z;
 }
 
 void setPosicao(Objeto3D *objeto,float x, float y, float z){

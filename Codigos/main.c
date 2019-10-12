@@ -17,15 +17,18 @@
 // Constantes globais
 #define FPS 17.0
 #define CARRINHOS 6.0
+#define QTDECHAO 3.0
 
 // Variaveis globais
-GLMmodel 	*testeOBJ=NULL, *terrenoOBJ=NULL, *pedraOBJ=NULL;
-Objeto3D	rodaGigante, teste, terreno, pedra;
+GLMmodel 	*testeOBJ=NULL, *rodaGGOBJ=NULL;
+Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, teste, terreno, pedra;
+
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera, cursor;
 int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 0;
 float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0, auxRotacao = 0;
 Mix_Chunk       *som1, *som2, *som3, *som4;
+
 // configura alguns parâmetros do modelo de iluminação: FONTE DE LUZ
 const GLfloat light_ambient[]  = { 0.5f, 0.5f, 0.5f, 1.0f };
 const GLfloat light_diffuse[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
