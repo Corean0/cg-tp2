@@ -20,8 +20,8 @@
 #define QTDECHAO 3.0
 
 // Variaveis globais
-GLMmodel 	*testeOBJ=NULL, *rodaGGOBJ=NULL;
-Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, teste, terreno, pedra;
+GLMmodel 	*OBJ=NULL, *rodaGGOBJ=NULL;
+Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, arvore_1, terreno, pedra;
 
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera, cursor;
@@ -29,13 +29,13 @@ int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modo
 float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0, auxRotacao = 0;
 Mix_Chunk       *som1, *som2, *som3, *som4;
 
-// configura alguns parâmetros do modelo de iluminação: FONTE DE LUZ
+// Parâmetros do modelo de iluminação: FONTE DE LUZ
 const GLfloat light_ambient[]  = { 0.5f, 0.5f, 0.5f, 1.0f };
 const GLfloat light_diffuse[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
 const GLfloat light_specular[] = { 0.5f, 0.5f, 0.5f, 1.0f };
 const GLfloat light_position[] = { 20.0f, 50.0f, 50.0f, 0.0f };
 
-// configura alguns parâmetros do modelo de iluminação: MATERIAL
+// Parâmetros do modelo de iluminação: MATERIAL
 const GLfloat mat_ambient[]    = { 0.7f, 0.7f, 0.7f, 1.0f };
 const GLfloat mat_diffuse[]    = { 0.8f, 0.8f, 0.8f, 1.0f };
 const GLfloat mat_specular[]   = { 1.0f, 1.0f, 1.0f, 1.0f };

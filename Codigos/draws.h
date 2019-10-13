@@ -1,4 +1,4 @@
-void cenarioTeste();
+void cenario();
 
 // Desenho do jogo
 void desenhaMinhaCena()
@@ -49,27 +49,22 @@ void desenhaMinhaCena()
         }
 
     // Esfera indicativa de onde está a luz
-/*	glPushMatrix();
+	/*	
+		glPushMatrix();
         glTranslatef(20.0, 50.0, 50.0);
         glColor3f(0, 0, 0);
         glutWireSphere(2, 8, 8); 
-    glPopMatrix();
-*/
+    	glPopMatrix();
+	*/
 		
 	if (isLightingOn)
 	{
         glEnable(GL_LIGHTING);
     }
     
-		// INICIO DO TESTE
-	    	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-
-		glClearColor(1,1,1,1);
-
-		//cenarioTeste();
-
+	glClearColor(1,1,1,1);
+	cenario();
 	desenhaRodaGigante();
-
 	desenhaInterface();
 
 	if (isLightingOn)
@@ -150,35 +145,31 @@ void desenhaRodaGigante(){
 
 		for(i=0; i<CARRINHOS; i++){
 			glPushMatrix();
-		    		//glRotatef(-auxRotacao,1,0,0); //só para teste, faz os carrinhos não girarem
-				glTranslatef(0, raio*cos(angulo*i),raio*sin(angulo*i)); //ta dando algum problema aqui pra transladar os acrrinhos
-				//printf("\n%f %f %f\n",raio,angulo,angulo*i); //retorna valores corretos
-		    		glRotatef(-auxRotacao,1,0,0);
-				glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);
-			    	glCallList(rodaGG_carro.listaVisualizacao);
+		    //glRotatef(-auxRotacao,1,0,0); //só para teste, faz os carrinhos não girarem
+			glTranslatef(0, raio*cos(angulo*i),raio*sin(angulo*i)); //ta dando algum problema aqui pra transladar os acrrinhos
+			//printf("\n%f %f %f\n",raio,angulo,angulo*i); //retorna valores corretos
+		    glRotatef(-auxRotacao,1,0,0);
+			glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);
+			glCallList(rodaGG_carro.listaVisualizacao);
 			glPopMatrix();
 		}
     glPopMatrix();
 }
 
-void desenhaOBJ(Objeto3D objeto){
+void desenhaOBJ(Objeto3D objeto)
+{
 	glPushMatrix();
-		glTranslatef(objeto.posicao.x,objeto.posicao.y,objeto.posicao.z);
-		glScalef(objeto.dimensoes.x,objeto.dimensoes.y,objeto.dimensoes.z);
-	    	glCallList(objeto.listaVisualizacao);
+	glTranslatef(objeto.posicao.x,objeto.posicao.y,objeto.posicao.z);
+	glScalef(objeto.dimensoes.x,objeto.dimensoes.y,objeto.dimensoes.z);
+	glCallList(objeto.listaVisualizacao);
 	glPopMatrix();
 }
 
-void cenarioTeste(){
-		// Teste de Arvore
-		desenhaOBJ(teste);
-
-		// Teste de pedra
-		desenhaOBJ(pedra);
-
-		// Teste de Terreno com lista
+void cenario()
+{
+		// Terreno
 		glPushMatrix();
-		glTranslatef(0,-50,0);
+		glTranslatef(0,-100,0);
 		for(int random = -QTDECHAO, auxrandom, random1, auxrandom1 ; random <= QTDECHAO ;random++)
 		{
 			auxrandom = random*50;
@@ -186,10 +177,10 @@ void cenarioTeste(){
 			{
 				auxrandom1 = random1*50;
 				glPushMatrix();
-					glTranslatef(auxrandom,0,auxrandom1);
-					desenhaOBJ(terreno);
+				glTranslatef(auxrandom,0,auxrandom1);
+				desenhaOBJ(terreno);
 				glPopMatrix();
 			}
-		}
+		}		
 		glPopMatrix();
 }
