@@ -55,7 +55,7 @@ void setup()
    setDimensoesProp(&rodaGG_aro,50);
 
    setPosicao(&rodaGG_carro,0,0,0);
-   setDimensoesProp(&rodaGG_carro,5);
+   setDimensoesProp(&rodaGG_carro,rodaGG_aro.dimensoes.x/10);
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");

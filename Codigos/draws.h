@@ -68,15 +68,8 @@ void desenhaMinhaCena()
 
 		//cenarioTeste();
 
+	desenhaRodaGigante();
 
-		// FIM DO TESTE
-	//desenhando e rotacionando roda gigante
-	auxRotacao+=1;
-	glPushMatrix();
-		//desenhaOBJ(rodaGG_base);
-		glRotatef(auxRotacao,1,0,0);
-		desenhaRodaGigante();
-	glPopMatrix();
 	desenhaInterface();
 
 	if (isLightingOn)
@@ -134,22 +127,37 @@ void desenhaInterface(){
 
 void desenhaRodaGigante(){
     int i;
-    float angulo = 360/CARRINHOS;
-    float raio = rodaGG_aro.dimensoes.y/2;
+    const float angulo = 360/CARRINHOS;
+    const float raio = rodaGG_aro.dimensoes.y/*-(ERRO VISUAL)*/;//tem que arrumar isso daqui ainda
+    auxRotacao+=1;
+    
+    //desenhando a base
     glPushMatrix();
-	    glTranslatef(rodaGG_aro.posicao.x, rodaGG_aro.posicao.y, rodaGG_aro.posicao.z);
-	    glPushMatrix();
-		    glScalef(rodaGG_aro.dimensoes.x,rodaGG_aro.dimensoes.y,rodaGG_aro.dimensoes.z);
-		    glCallList(rodaGG_aro.listaVisualizacao);
-	    glPopMatrix();
-	    for(i=0; i<CARRINHOS; i++){
+	glTranslatef(rodaGG_aro.posicao.x,rodaGG_aro.posicao.y-rodaGG_aro.dimensoes.y,rodaGG_aro.posicao.z);
+	glScalef(rodaGG_base.dimensoes.x,rodaGG_base.dimensoes.y,rodaGG_base.dimensoes.z);
+    	glCallList(rodaGG_base.listaVisualizacao);
+    glPopMatrix();
+    
+    glPushMatrix();
+		glRotatef(auxRotacao,1,0,0);
+	    	glTranslatef(rodaGG_aro.posicao.x, rodaGG_aro.posicao.y, rodaGG_aro.posicao.z);
+
+		//desenhando o aro
 		glPushMatrix();
-			glTranslatef(raio*cos(angulo)*i, 0, raio*sin(angulo)*i);
-			//printf("\n%f %f\n",raio,angulo); //retorna valores corretos
-			glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);
-		    	glCallList(rodaGG_carro.listaVisualizacao);
+			    glScalef(rodaGG_aro.dimensoes.x,rodaGG_aro.dimensoes.y,rodaGG_aro.dimensoes.z);
+			    glCallList(rodaGG_aro.listaVisualizacao);
 		glPopMatrix();
-	    }
+
+		for(i=0; i<CARRINHOS; i++){
+			glPushMatrix();
+		    		//glRotatef(-auxRotacao,1,0,0); //só para teste, faz os carrinhos não girarem
+				glTranslatef(0, raio*cos(angulo*i),raio*sin(angulo*i)); //ta dando algum problema aqui pra transladar os acrrinhos
+				//printf("\n%f %f %f\n",raio,angulo,angulo*i); //retorna valores corretos
+		    		glRotatef(-auxRotacao,1,0,0);
+				glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);
+			    	glCallList(rodaGG_carro.listaVisualizacao);
+			glPopMatrix();
+		}
     glPopMatrix();
 }
 
