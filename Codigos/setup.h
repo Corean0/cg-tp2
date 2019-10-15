@@ -20,16 +20,17 @@ void setup()
     cursor.y = 0;
     cursor.z = 0;
 
-    // carregando objetos
-    // faz nessa ordem que vai setando NULL no GLMmodel pra reutilizar	
-    testeOBJ = glmReadOBJ("../pontos_obj/arvore_1.obj");	
-    carregaOBJ(&teste, testeOBJ);
+    // Carregando objetos
+    // Nessa ordem
 
-    testeOBJ = glmReadOBJ("../pontos_obj/terreno.obj");
-    carregaOBJ(&terreno, testeOBJ);
+    OBJ = glmReadOBJ("../pontos_obj/arvore_1.obj");	
+    carregaOBJ(&arvore_1, OBJ);
 
-    testeOBJ = glmReadOBJ("../pontos_obj/pedra_1.obj");
-    carregaOBJ(&pedra, testeOBJ);
+    OBJ = glmReadOBJ("../pontos_obj/terreno.obj");
+    carregaOBJ(&terreno, OBJ);
+
+    OBJ = glmReadOBJ("../pontos_obj/pedra_1.obj");
+    carregaOBJ(&pedra, OBJ);
 
     rodaGGOBJ = glmReadOBJ("../pontos_obj/base_roda_gigante.obj");
     carregaOBJ(&rodaGG_base, rodaGGOBJ);
@@ -39,8 +40,8 @@ void setup()
     carregaOBJ(&rodaGG_carro, rodaGGOBJ);
 
    //setando valores para os objetos
-   setPosicao(&teste,-20,0,0);
-   setDimensoesProp(&teste, 50);
+   setPosicao(&arvore_1,-20,0,0);
+   setDimensoesProp(&arvore_1, 50);
 
    setPosicao(&terreno, 0,0,0);
    setDimensoesProp(&terreno,50);
