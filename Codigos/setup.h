@@ -26,7 +26,7 @@ void setup()
     OBJ = glmReadOBJ("../pontos_obj/arvore_1.obj");	
     carregaOBJ(&arvore_1, OBJ);
 
-    OBJ = glmReadOBJ("../pontos_obj/terreno.obj");
+    OBJ = glmReadOBJ("../pontos_obj/aa.obj");
     carregaOBJ(&terreno, OBJ);
 
     OBJ = glmReadOBJ("../pontos_obj/pedra_1.obj");
@@ -83,6 +83,7 @@ void attPosicao()
     jogar.dimensoes.y = altura/12;
     jogar.posicao.x = largura/5;
     jogar.posicao.y = altura/2 - altura/50;
+    jogar.posicao.z = 0;
 
     controles.dimensoes.x = largura/4 - largura/50;
     controles.dimensoes.y = altura/12;

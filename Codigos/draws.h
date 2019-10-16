@@ -117,14 +117,29 @@ void drawObject(spriteObject objeto)
 
 void desenhaInterface(){	
         //perguntar como fazer isso
+		//configurar glortho para fzr (PUTA MERDA) e dps reconfigurar persperctive pra quando rodar lá n zuar nd
+	glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        glOrtho(0, largura, 0, altura, 0, 1);
+
+    glMatrixMode(GL_MODELVIEW);
+        drawObject(jogar);
+        drawObject(controles);
+
+    glMatrixMode (GL_PROJECTION);
+        glLoadIdentity();
+        gluPerspective(60.0, (float)largura/(float)altura, 0.2, 400.0);     //colocar fovy entre 45.0 e 60.0
 }
 
 
 void desenhaRodaGigante(){
     int i;
-    const float angulo = 360/CARRINHOS;
-    const float raio = rodaGG_aro.dimensoes.y/*-(ERRO VISUAL)*/;//tem que arrumar isso daqui ainda
+    const float angulo = (M_PI*2)/CARRINHOS;
+    const float raiocima = rodaGG_aro.dimensoes.y-20/*-(ERRO VISUAL)*/;//tem que arrumar isso daqui ainda
+    const float raiobaixo = rodaGG_aro.dimensoes.y;
     auxRotacao+=1;
+    if(auxRotacao==360)
+    	auxRotacao=0;
     
     //desenhando a base
     glPushMatrix();
@@ -146,8 +161,11 @@ void desenhaRodaGigante(){
 		for(i=0; i<CARRINHOS; i++){
 			glPushMatrix();
 		    //glRotatef(-auxRotacao,1,0,0); //só para teste, faz os carrinhos não girarem
-			glTranslatef(0, raio*cos(angulo*i),raio*sin(angulo*i)); //ta dando algum problema aqui pra transladar os acrrinhos
-			//printf("\n%f %f %f\n",raio,angulo,angulo*i); //retorna valores corretos
+		    /*if(angulo*i<=M_PI && auxRotacao<180)//isso aq ta uma porra mas a ideia é essa, de alterar o raio se não conseguir arrumar os obj ou sla
+				glTranslatef(0, raiocima*cos(angulo*i),raiocima*sin(angulo*i)); //ta dando algum problema aqui pra transladar os acrrinhos
+			else*/
+				glTranslatef(0, raiobaixo*cos(angulo*i),raiobaixo*sin(angulo*i));
+			//printf("\n%f %f %f\n",raio,cos(3.14),sin(3.14)); //retorna valores certos
 		    glRotatef(-auxRotacao,1,0,0);
 			glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);
 			glCallList(rodaGG_carro.listaVisualizacao);
