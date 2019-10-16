@@ -21,3 +21,6 @@ void desenhaOBJ(Objeto3D objeto);
 void setDimensoesProp(Objeto3D *objeto,float aumento);
 void setDimensoesDesprop(Objeto3D *objeto, float x, float y, float z);
 void setPosicao(Objeto3D *objeto,float x, float y, float z);
+void configura2D();
+void configura3D();
+void setupJogo();

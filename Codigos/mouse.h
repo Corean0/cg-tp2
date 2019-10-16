@@ -5,7 +5,7 @@ void mouseMove(int x, int y)
 	double xChange, yChange;
 
 	// Posicao atual do mouse
-    mouse.posicao.x = x;
+    	mouse.posicao.x = x;
    	mouse.posicao.y = altura - y;
 
    	// Salvando as alteracoes realizadas na camera do jogador
@@ -96,7 +96,10 @@ void mouseClick(int botao, int estado, int x, int y)
 				   mouse.posicao.y < jogar.posicao.y + jogar.dimensoes.y/2 && mouse.posicao.y > jogar.posicao.y - jogar.dimensoes.y/2)
 				{
 					tela = 1;
-					glutSetCursor(GLUT_CURSOR_NONE);
+					if(start==0){
+						setupJogo();
+						start++;
+					}glutSetCursor(GLUT_CURSOR_NONE);
 					glutReshapeWindow(largura,altura);
 				}
 

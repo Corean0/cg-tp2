@@ -84,7 +84,7 @@ void teclaPressionada(unsigned char key, int x, int y)
             {
                 tela = 0;
 				glutSetCursor(GLUT_CURSOR_INHERIT);
-		        glutReshapeWindow(largura,altura);
+		        	glutReshapeWindow(largura,altura);
             }
 
             else

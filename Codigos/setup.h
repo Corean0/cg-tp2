@@ -19,26 +19,7 @@ void setup()
     cursor.x = 0;
     cursor.y = 0;
     cursor.z = 0;
-
-    // Carregando objetos
-    // Nessa ordem
-
-    OBJ = glmReadOBJ("../pontos_obj/arvore_1.obj");	
-    carregaOBJ(&arvore_1, OBJ);
-
-    OBJ = glmReadOBJ("../pontos_obj/aa.obj");
-    carregaOBJ(&terreno, OBJ);
-
-    OBJ = glmReadOBJ("../pontos_obj/pedra_1.obj");
-    carregaOBJ(&pedra, OBJ);
-
-    rodaGGOBJ = glmReadOBJ("../pontos_obj/base_roda_gigante.obj");
-    carregaOBJ(&rodaGG_base, rodaGGOBJ);
-    rodaGGOBJ = glmReadOBJ("../pontos_obj/aro_roda_gigante.obj");
-    carregaOBJ(&rodaGG_aro, rodaGGOBJ);
-    rodaGGOBJ = glmReadOBJ("../pontos_obj/carrinho_vermelho.obj");
-    carregaOBJ(&rodaGG_carro, rodaGGOBJ);
-
+    
    //setando valores para os objetos
    setPosicao(&arvore_1,-20,0,0);
    setDimensoesProp(&arvore_1, 50);
@@ -109,4 +90,25 @@ void attPosicao()
     wallpaper_creditos.dimensoes.y = altura;
     wallpaper_creditos.posicao.x = largura/2;
     wallpaper_creditos.posicao.y = altura/2;
+}
+
+void setupJogo(){
+    // Carregando objetos
+    // Nessa ordem
+
+    OBJ = glmReadOBJ("../pontos_obj/arvore_1.obj");	
+    carregaOBJ(&arvore_1, OBJ);
+
+    OBJ = glmReadOBJ("../pontos_obj/aa.obj");
+    carregaOBJ(&terreno, OBJ);
+
+    OBJ = glmReadOBJ("../pontos_obj/pedra_1.obj");
+    carregaOBJ(&pedra, OBJ);
+
+    rodaGGOBJ = glmReadOBJ("../pontos_obj/base_roda_gigante.obj");
+    carregaOBJ(&rodaGG_base, rodaGGOBJ);
+    rodaGGOBJ = glmReadOBJ("../pontos_obj/aro_roda_gigante.obj");
+    carregaOBJ(&rodaGG_aro, rodaGGOBJ);
+    rodaGGOBJ = glmReadOBJ("../pontos_obj/carrinho_vermelho.obj");
+    carregaOBJ(&rodaGG_carro, rodaGGOBJ);
 }

@@ -9,6 +9,8 @@ void desenhaMinhaCena()
     
     if(tela == 0)
     {
+	//configuras definitivamente não funcionam
+	//configura2D();
         drawObject(wallpaper_menu);
         drawObject(jogar);
         drawObject(controles);
@@ -18,6 +20,8 @@ void desenhaMinhaCena()
 
     else if(tela == 1)
     {
+	//isso aqui n ta "direito"
+	//configura3D();
         movimentacao();
 
         // Coordenadas da camera em coordenadas esfericas
@@ -65,7 +69,8 @@ void desenhaMinhaCena()
 	glClearColor(1,1,1,1);
 	cenario();
 	desenhaRodaGigante();
-	desenhaInterface();
+	//interface com problema tb
+	//desenhaInterface();
 
 	if (isLightingOn)
     {
@@ -91,7 +96,6 @@ void desenhaMinhaCena()
 //Desenha os objetos e imagens
 void drawObject(spriteObject objeto)
 {
-
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, objeto.textura);
 
@@ -117,18 +121,10 @@ void drawObject(spriteObject objeto)
 
 void desenhaInterface(){	
         //perguntar como fazer isso
-		//configurar glortho para fzr (PUTA MERDA) e dps reconfigurar persperctive pra quando rodar lá n zuar nd
-	glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        glOrtho(0, largura, 0, altura, 0, 1);
-
-    glMatrixMode(GL_MODELVIEW);
+	//configurar glortho para fzr (PUTA MERDA) e dps reconfigurar persperctive pra quando rodar lá n zuar nd
+	configura2D();
         drawObject(jogar);
         drawObject(controles);
-
-    glMatrixMode (GL_PROJECTION);
-        glLoadIdentity();
-        gluPerspective(60.0, (float)largura/(float)altura, 0.2, 400.0);     //colocar fovy entre 45.0 e 60.0
 }
 
 
@@ -137,7 +133,7 @@ void desenhaRodaGigante(){
     const float angulo = (M_PI*2)/CARRINHOS;
     const float raiocima = rodaGG_aro.dimensoes.y-20/*-(ERRO VISUAL)*/;//tem que arrumar isso daqui ainda
     const float raiobaixo = rodaGG_aro.dimensoes.y;
-    auxRotacao+=1;
+    auxRotacao+=VELOCIDADE_RODA;
     if(auxRotacao==360)
     	auxRotacao=0;
     
@@ -190,10 +186,10 @@ void cenario()
 		glTranslatef(0,-100,0);
 		for(int random = -QTDECHAO, auxrandom, random1, auxrandom1 ; random <= QTDECHAO ;random++)
 		{
-			auxrandom = random*50;
+			auxrandom = random*100;
 			for(random1 = -QTDECHAO ;random1 <= QTDECHAO; random1++)
 			{
-				auxrandom1 = random1*50;
+				auxrandom1 = random1*100;
 				glPushMatrix();
 				glTranslatef(auxrandom,0,auxrandom1);
 				desenhaOBJ(terreno);

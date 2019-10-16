@@ -18,6 +18,7 @@
 #define FPS 17.0
 #define CARRINHOS 6.0
 #define QTDECHAO 3.0
+#define VELOCIDADE_RODA 0.5
 
 // Variaveis globais
 GLMmodel 	*OBJ=NULL, *rodaGGOBJ=NULL;
@@ -25,7 +26,7 @@ Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, arvore_1, terreno, pedra;
 
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera, cursor;
-int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 0;
+int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 0, start=0;
 float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0, auxRotacao = 0;
 Mix_Chunk       *som1, *som2, *som3, *som4;
 
