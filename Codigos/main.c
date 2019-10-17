@@ -16,7 +16,7 @@
 
 // Constantes globais
 #define FPS 17.0
-#define CARRINHOS 6.0
+#define CARRINHOS 9.0
 #define QTDECHAO 3.0
 #define VELOCIDADE_RODA 0.5
 

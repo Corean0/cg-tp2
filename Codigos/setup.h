@@ -19,25 +19,6 @@ void setup()
     cursor.x = 0;
     cursor.y = 0;
     cursor.z = 0;
-    
-   //setando valores para os objetos
-   setPosicao(&arvore_1,-20,0,0);
-   setDimensoesProp(&arvore_1, 50);
-
-   setPosicao(&terreno, 0,0,0);
-   setDimensoesProp(&terreno,50);
-
-   setPosicao(&pedra,40,-30,0);
-   setDimensoesProp(&pedra,20);
-
-   setPosicao(&rodaGG_base,0,0,0);
-   setDimensoesProp(&rodaGG_base,50);
-
-   setPosicao(&rodaGG_aro,0,0,0);
-   setDimensoesProp(&rodaGG_aro,50);
-
-   setPosicao(&rodaGG_carro,0,0,0);
-   setDimensoesProp(&rodaGG_carro,rodaGG_aro.dimensoes.x/10);
 	
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");
@@ -102,7 +83,7 @@ void setupJogo(){
     OBJ = glmReadOBJ("../pontos_obj/aa.obj");
     carregaOBJ(&terreno, OBJ);
 
-    OBJ = glmReadOBJ("../pontos_obj/pedra_1.obj");
+    OBJ = glmReadOBJ("../pontos_obj/pedra_3.obj");
     carregaOBJ(&pedra, OBJ);
 
     rodaGGOBJ = glmReadOBJ("../pontos_obj/base_roda_gigante.obj");
@@ -111,4 +92,23 @@ void setupJogo(){
     carregaOBJ(&rodaGG_aro, rodaGGOBJ);
     rodaGGOBJ = glmReadOBJ("../pontos_obj/carrinho_vermelho.obj");
     carregaOBJ(&rodaGG_carro, rodaGGOBJ);
+    
+   //setando valores para os objetos
+   setPosicao(&arvore_1,-20,0,0);
+   setDimensoesProp(&arvore_1, 50);
+
+   setPosicao(&terreno, 0,0,0);
+   setDimensoesProp(&terreno,50);
+
+   setPosicao(&pedra,40,-30,0);
+   setDimensoesDesprop(&pedra,100,0,0);
+
+   setPosicao(&rodaGG_base,0,0,0);
+   setDimensoesProp(&rodaGG_base,50);
+
+   setPosicao(&rodaGG_aro,0,0,0);
+   setDimensoesProp(&rodaGG_aro,50);
+
+   setPosicao(&rodaGG_carro,0,0,0);
+   setDimensoesProp(&rodaGG_carro,8);
 }

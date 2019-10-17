@@ -131,8 +131,7 @@ void desenhaInterface(){
 void desenhaRodaGigante(){
     int i;
     const float angulo = (M_PI*2)/CARRINHOS;
-    const float raiocima = rodaGG_aro.dimensoes.y-20/*-(ERRO VISUAL)*/;//tem que arrumar isso daqui ainda
-    const float raiobaixo = rodaGG_aro.dimensoes.y;
+    const float raio = rodaGG_aro.dimensoes.y-3/*-(ERRO VISUAL)*/;//tem que arrumar isso daqui ainda
     auxRotacao+=VELOCIDADE_RODA;
     if(auxRotacao==360)
     	auxRotacao=0;
@@ -141,12 +140,12 @@ void desenhaRodaGigante(){
     glPushMatrix();
 	glTranslatef(rodaGG_aro.posicao.x,rodaGG_aro.posicao.y-rodaGG_aro.dimensoes.y,rodaGG_aro.posicao.z);
 	glScalef(rodaGG_base.dimensoes.x,rodaGG_base.dimensoes.y,rodaGG_base.dimensoes.z);
-    	glCallList(rodaGG_base.listaVisualizacao);
+    	//glCallList(rodaGG_base.listaVisualizacao);
     glPopMatrix();
     
     glPushMatrix();
-		glRotatef(auxRotacao,1,0,0);
-	    	glTranslatef(rodaGG_aro.posicao.x, rodaGG_aro.posicao.y, rodaGG_aro.posicao.z);
+	    glTranslatef(rodaGG_aro.posicao.x, rodaGG_aro.posicao.y, rodaGG_aro.posicao.z);
+        //glRotatef(auxRotacao,1,0,0);
 
 		//desenhando o aro
 		glPushMatrix();
@@ -154,19 +153,24 @@ void desenhaRodaGigante(){
 			    glCallList(rodaGG_aro.listaVisualizacao);
 		glPopMatrix();
 
-		for(i=0; i<CARRINHOS; i++){
-			glPushMatrix();
-		    //glRotatef(-auxRotacao,1,0,0); //só para teste, faz os carrinhos não girarem
-		    /*if(angulo*i<=M_PI && auxRotacao<180)//isso aq ta uma porra mas a ideia é essa, de alterar o raio se não conseguir arrumar os obj ou sla
-				glTranslatef(0, raiocima*cos(angulo*i),raiocima*sin(angulo*i)); //ta dando algum problema aqui pra transladar os acrrinhos
-			else*/
-				glTranslatef(0, raiobaixo*cos(angulo*i),raiobaixo*sin(angulo*i));
-			//printf("\n%f %f %f\n",raio,cos(3.14),sin(3.14)); //retorna valores certos
-		    glRotatef(-auxRotacao,1,0,0);
-			glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);
-			glCallList(rodaGG_carro.listaVisualizacao);
-			glPopMatrix();
-		}
+        glPushMatrix();
+            glPushMatrix();
+                glScalef(100,1,1);
+                glCallList(pedra.listaVisualizacao);
+            glPopMatrix();
+    		for(i=0; i<CARRINHOS; i++){
+    			glPushMatrix();
+    		    //glRotatef(-auxRotacao,1,0,0); //só para teste, faz os carrinhos não girarem
+                glTranslatef(0, raio*cos(angulo*i),raio*sin(angulo*i));
+                glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);                
+                glTranslatef(0,-rodaGG_carro.dimensoes.y/(2*rodaGG_carro.dimensoes.y),0);
+                //glRotatef(-auxRotacao,1,0,0);
+    			glCallList(rodaGG_carro.listaVisualizacao);
+                //glScalef(100,1,1);
+                //glCallList(pedra.listaVisualizacao);
+    			glPopMatrix();
+    		}
+        glPopMatrix();
     glPopMatrix();
 }
 
