@@ -145,7 +145,7 @@ void desenhaRodaGigante(){
     
     glPushMatrix();
 	    glTranslatef(rodaGG_aro.posicao.x, rodaGG_aro.posicao.y, rodaGG_aro.posicao.z);
-        //glRotatef(auxRotacao,1,0,0);
+        glRotatef(auxRotacao,1,0,0);
 
 		//desenhando o aro
 		glPushMatrix();
@@ -162,9 +162,9 @@ void desenhaRodaGigante(){
     			glPushMatrix();
     		    //glRotatef(-auxRotacao,1,0,0); //só para teste, faz os carrinhos não girarem
                 glTranslatef(0, raio*cos(angulo*i),raio*sin(angulo*i));
-                glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);                
-                glTranslatef(0,-rodaGG_carro.dimensoes.y/(2*rodaGG_carro.dimensoes.y),0);
-                //glRotatef(-auxRotacao,1,0,0);
+                //glTranslatef(0,-rodaGG_carro.dimensoes.y/2,0);
+                glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);
+                glRotatef(-auxRotacao,1,0,0);
     			glCallList(rodaGG_carro.listaVisualizacao);
                 //glScalef(100,1,1);
                 //glCallList(pedra.listaVisualizacao);
