@@ -84,20 +84,20 @@ void setupJogo(){
     */
 
     carregaOBJ(&terreno, glmReadOBJ("../pontos_obj/terreno.obj"));
-    setDimensoesProp(&terreno,TAMANHO);
+    setDimensoesProp(&terreno,TAMANHO*3);
     setPosicao(&terreno, 0,0,0);
 
     carregaOBJ(&fonte, glmReadOBJ("../pontos_obj/fonte.obj"));
-    setDimensoesProp(&fonte, TAMANHO);
+    setDimensoesProp(&fonte, TAMANHO+TAMANHO/3);
     setPosicao(&fonte,0,0,0);
 
     carregaOBJ(&pipoca, glmReadOBJ("../pontos_obj/pipoca.obj"));
     setDimensoesProp(&pipoca, TAMANHO/3);
-    setPosicao(&pipoca, -40, 0,-25);
+    setPosicao(&pipoca, -90, 0,-30);
 
     carregaOBJ(&pipoca1, glmReadOBJ("../pontos_obj/pipoca.obj"));
     setDimensoesProp(&pipoca1, TAMANHO/3);
-    setPosicao(&pipoca1, -40, 0,25);
+    setPosicao(&pipoca1, -90, 0,30);
   
     carregaOBJ(&banco, glmReadOBJ("../pontos_obj/banco.obj"));
     setPosicao(&banco, 35,0,20);
@@ -109,7 +109,7 @@ void setupJogo(){
 
     carregaOBJ(&terreno_rua, glmReadOBJ("../pontos_obj/terreno_rua_quadrado.obj"));
     setPosicao(&terreno_rua, 0,0,0);
-    setDimensoesProp(&terreno_rua,TAMANHO*1.2/3);
+    setDimensoesProp(&terreno_rua,TAMANHO/2);
 
     carregaOBJ(&cerca, glmReadOBJ("../pontos_obj/cerca.obj"));
     setPosicao(&cerca,-100,0,0);

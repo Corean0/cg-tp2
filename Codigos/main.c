@@ -17,9 +17,9 @@
 // Constantes globais
 #define FPS 17.0
 #define CARRINHOS 9.0
-#define QTDECHAO 3.0
+#define QTDECHAO 5.0
 #define VELOCIDADE_RODA 0.5
-#define TAMANHO 30
+#define TAMANHO 10
 
 // Variaveis globais
 
@@ -65,7 +65,7 @@ void main(int argc, char** argv)
     glutEnterGameMode();
 
     // Seta valores iniciais
-    setup();
+    setupJogo();
  
     // Callbacks
     glutDisplayFunc(desenhaMinhaCena);

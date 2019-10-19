@@ -75,6 +75,7 @@ void teclaPressionada(unsigned char key, int x, int y)
         //ESC
         case 27 : 
 
+            exit(0);/*
             // Menu
             if(tela == 0)
             {
@@ -88,7 +89,7 @@ void teclaPressionada(unsigned char key, int x, int y)
             }
 
             else
-                exit(0);
+                exit(0);*/
 
             break;
     }   

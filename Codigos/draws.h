@@ -1,6 +1,6 @@
 void chao();
 void desenhaCentro();
-void rua();
+void ruas();
 void pipocas();
 
 // Desenho do jogo
@@ -76,7 +76,7 @@ void desenhaMinhaCena()
     	desenhaOBJ(cerca,0);
 	desenhaOBJ(banco,90);
 	desenhaOBJ(banco2,90);
-	rua();
+	ruas();
 	chao();
 	//desenhaRodaGigante();
 	//interface com problema de não saber configurar 2/3D
@@ -215,30 +215,44 @@ void chao()
 		glPopMatrix();
 }
 
-void aux_rua(int constante, float centrox, float centroz, int direcao){
+//direcao == 1: eixo z, senão eixo x
+//tem q passar o centrox e centroy
+void aux_rua(int qtdeQDD, float centrox, float centroz, int direcao){
 	if(direcao==1){
-		for(int random = -constante; random<=constante ; random++){
+		for(int random = 0; random<qtdeQDD ; random++){
 			glPushMatrix();
 				glTranslatef(centrox,0,centroz);
-				glTranslatef(terreno_rua.dimensoes.x*constante/2,0,0);
+				glTranslatef(terreno_rua.dimensoes.z*random,0,0);
 				desenhaOBJ(terreno_rua,0);
 			glPopMatrix();
 		}
 	}else{
-		for(int random = -constante; random<=constante ; random++){
+		for(int random = 0; random<qtdeQDD ; random++){
 			glPushMatrix();
 				glTranslatef(centrox,0,centroz);
-				glTranslatef(0,0,terreno_rua.dimensoes.z*constante/2);
+				glTranslatef(0,0,terreno_rua.dimensoes.x*random);
 				desenhaOBJ(terreno_rua,0);
 			glPopMatrix();
 		}
 	}
 }
 
-void rua(){
+void ruas(){
 	glPushMatrix();
 		glTranslatef(0,terreno.dimensoes.y/2,0);
-		aux_rua(2,fonte.dimensoes.x,0,0);
+		//ruas em torno da fonte e alongando pros extremos laterais
+		aux_rua(13,terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*6,0);
+		aux_rua(13,-terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*6,0);
+		aux_rua(5,-terreno_rua.dimensoes.x*2,terreno_rua.dimensoes.x*2.5,1);
+		aux_rua(5,-terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*2.5,1);
+
+		//ruas em torno das pipocas
+		aux_rua(5,-terreno_rua.dimensoes.x*4,-terreno_rua.dimensoes.x*2,0);
+		aux_rua(3,-terreno_rua.dimensoes.x*4,terreno_rua.dimensoes.x*2.5,1);
+		aux_rua(3,-terreno_rua.dimensoes.x*4,-terreno_rua.dimensoes.x*2.5,1);
+/*
+		aux_rua(5,-terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*2.5,1);
+		aux_rua(5,-terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*2.5,1);*/
 	glPopMatrix();
 }
 
