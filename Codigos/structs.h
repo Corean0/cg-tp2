@@ -20,6 +20,6 @@ typedef struct Objeto3D
 {
 	vetorR3 posicao;
 	vetorR3 dimensoes;
-	//GLMmodel *objeto; //tem como fazer isso funcionar?
+	vetorR3 aumento;
 	GLuint listaVisualizacao;
 } Objeto3D;

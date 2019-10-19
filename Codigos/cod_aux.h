@@ -1,22 +1,31 @@
+void attDimensoes(Objeto3D *objeto);
 
 void carregaOBJ(Objeto3D *objeto, GLMmodel* model){
 	glmUnitize(model);
 	glmFacetNormals(model);
 	glmVertexNormals(model, 90.0, 1);
 	objeto->listaVisualizacao = glmList(model, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
+	float aux[3];
+	glmDimensions(model, aux);
+	objeto->dimensoes.x = aux[0];
+	objeto->dimensoes.y = aux[1];
+	objeto->dimensoes.z = aux[2];
+	//printf("%f %f %f\n\n",aux[0],aux[1],aux[2]);
 	free(model);
 }
 
 void setDimensoesProp(Objeto3D *objeto,float aumento){
-	objeto->dimensoes.x = aumento;
-	objeto->dimensoes.y = aumento;
-	objeto->dimensoes.z = aumento;
+	objeto->aumento.x = aumento;
+	objeto->aumento.y = aumento;
+	objeto->aumento.z = aumento;
+	attDimensoes(objeto);
 }
 
 void setDimensoesDesprop(Objeto3D *objeto, float x, float y, float z){
-	objeto->dimensoes.x = x;
-	objeto->dimensoes.y = y;
-	objeto->dimensoes.z = z;
+	objeto->aumento.x = x;
+	objeto->aumento.y = y;
+	objeto->aumento.z = z;
+	attDimensoes(objeto);
 }
 
 void setPosicao(Objeto3D *objeto,float x, float y, float z){
@@ -45,4 +54,10 @@ void configura2D(){
         glLoadIdentity();
         glOrtho(0, largura, 0, altura, 0, 1);
         glMatrixMode(GL_MODELVIEW);
+}
+
+void attDimensoes(Objeto3D *objeto){
+	objeto->dimensoes.x=objeto->dimensoes.x*objeto->aumento.x;
+	objeto->dimensoes.y=objeto->dimensoes.y*objeto->aumento.y;
+	objeto->dimensoes.z=objeto->dimensoes.z*objeto->aumento.z;
 }

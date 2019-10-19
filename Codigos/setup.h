@@ -91,9 +91,9 @@ void setupJogo(){
     setDimensoesProp(&terreno,TAMANHO);
     setPosicao(&terreno, 0,0,0);
 
-    carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_3.obj"));
-    setPosicao(&pedra_3,40,-30,0);
-    setDimensoesDesprop(&pedra_3,100,0,0);
+    carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_1.obj"));
+    setPosicao(&pedra_3,0,0,0);
+    setDimensoesProp(&pedra_3,10);
 
     carregaOBJ(&fonte, glmReadOBJ("../pontos_obj/fonte.obj"));
     setDimensoesProp(&fonte, TAMANHO);
