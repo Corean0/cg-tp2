@@ -84,7 +84,7 @@ void setupJogo(){
     */
 
     carregaOBJ(&terreno, glmReadOBJ("../pontos_obj/terreno.obj"));
-    setDimensoesProp(&terreno,TAMANHO*3);
+    setDimensoesDesprop(&terreno,TAMANHO*3,TAMANHO,TAMANHO*3);
     setPosicao(&terreno, 0,0,0);
 
     carregaOBJ(&fonte, glmReadOBJ("../pontos_obj/fonte.obj"));
