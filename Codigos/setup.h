@@ -76,39 +76,45 @@ void attPosicao()
 void setupJogo(){
     // Carregando objetos
     // Nessa ordem
+    // TAMANHO é a variavel global de parametrização de tamanho para as coisas
+    /* Para dar ctrl C    
+    carregaOBJ(, glmReadOBJ("../pontos_obj/.obj"));
+    setPosicao();
+    setDimensoesProp();
+    */
 
-    OBJ = glmReadOBJ("../pontos_obj/arvore_1.obj");	
-    carregaOBJ(&arvore_1, OBJ);
+    carregaOBJ(&arvore_1, glmReadOBJ("../pontos_obj/arvore_1.obj"));
+    setPosicao(&arvore_1,-20,0,0);
+    setDimensoesProp(&arvore_1, 50);
 
-    OBJ = glmReadOBJ("../pontos_obj/aa.obj");
-    carregaOBJ(&terreno, OBJ);
+    carregaOBJ(&terreno, glmReadOBJ("../pontos_obj/terreno.obj"));
+    setDimensoesProp(&terreno,TAMANHO);
+    setPosicao(&terreno, 0,0,0);
 
-    OBJ = glmReadOBJ("../pontos_obj/pedra_3.obj");
-    carregaOBJ(&pedra, OBJ);
+    carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_3.obj"));
+    setPosicao(&pedra_3,40,-30,0);
+    setDimensoesDesprop(&pedra_3,100,0,0);
 
-    rodaGGOBJ = glmReadOBJ("../pontos_obj/base_roda_gigante.obj");
-    carregaOBJ(&rodaGG_base, rodaGGOBJ);
-    rodaGGOBJ = glmReadOBJ("../pontos_obj/aro_roda_gigante.obj");
-    carregaOBJ(&rodaGG_aro, rodaGGOBJ);
-    rodaGGOBJ = glmReadOBJ("../pontos_obj/carrinho_vermelho.obj");
-    carregaOBJ(&rodaGG_carro, rodaGGOBJ);
-    
-   //setando valores para os objetos
-   setPosicao(&arvore_1,-20,0,0);
-   setDimensoesProp(&arvore_1, 50);
+    carregaOBJ(&fonte, glmReadOBJ("../pontos_obj/fonte.obj"));
+    setDimensoesProp(&fonte, TAMANHO);
+    setPosicao(&fonte,0,0,0);
 
-   setPosicao(&terreno, 0,0,0);
-   setDimensoesProp(&terreno,50);
+    carregaOBJ(&pipoca, glmReadOBJ("../pontos_obj/pipoca.obj"));
+    setDimensoesProp(&pipoca, TAMANHO/3);
+    setPosicao(&pipoca, -TAMANHO-10, 0,0);
 
-   setPosicao(&pedra,40,-30,0);
-   setDimensoesDesprop(&pedra,100,0,0);
+    carregaOBJ(&cerca, glmReadOBJ("../pontos_obj/cerca.obj"));
+    setPosicao(&cerca,-100,0,0);
+    setDimensoesProp(&cerca, 10);
 
-   setPosicao(&rodaGG_base,0,0,0);
-   setDimensoesProp(&rodaGG_base,50);
+    carregaOBJ(&rodaGG_base, glmReadOBJ("../pontos_obj/base_roda_gigante.obj"));
+    setPosicao(&rodaGG_base,0,0,0);
+    setDimensoesProp(&rodaGG_base,50);
+    carregaOBJ(&rodaGG_aro, glmReadOBJ("../pontos_obj/aro_roda_gigante.obj"));
+    setPosicao(&rodaGG_aro,0,0,0);
+    setDimensoesProp(&rodaGG_aro,50);
+    carregaOBJ(&rodaGG_carro, glmReadOBJ("../pontos_obj/carrinho_vermelho.obj"));
+    setPosicao(&rodaGG_carro,0,0,0);
+    setDimensoesProp(&rodaGG_carro,7);
 
-   setPosicao(&rodaGG_aro,0,0,0);
-   setDimensoesProp(&rodaGG_aro,50);
-
-   setPosicao(&rodaGG_carro,0,0,0);
-   setDimensoesProp(&rodaGG_carro,8);
 }

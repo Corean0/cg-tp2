@@ -19,10 +19,11 @@
 #define CARRINHOS 9.0
 #define QTDECHAO 3.0
 #define VELOCIDADE_RODA 0.5
+#define TAMANHO 30
 
 // Variaveis globais
-GLMmodel 	*OBJ=NULL, *rodaGGOBJ=NULL;
-Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, arvore_1, terreno, pedra;
+
+Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, arvore_1, terreno, pedra_3,cerca, fonte, pipoca;
 
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera, cursor;

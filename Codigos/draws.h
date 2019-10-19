@@ -1,4 +1,4 @@
-void cenario();
+void chao();
 
 // Desenho do jogo
 void desenhaMinhaCena()
@@ -67,8 +67,11 @@ void desenhaMinhaCena()
     }
     
 	glClearColor(1,1,1,1);
-	cenario();
-	desenhaRodaGigante();
+    desenhaOBJ(fonte);
+    desenhaOBJ(pipoca);
+    //desenhaOBJ(cerca);
+	chao();
+	//desenhaRodaGigante();
 	//interface com problema tb
 	//desenhaInterface();
 
@@ -138,14 +141,14 @@ void desenhaRodaGigante(){
     
     //desenhando a base
     glPushMatrix();
-	glTranslatef(rodaGG_aro.posicao.x,rodaGG_aro.posicao.y-rodaGG_aro.dimensoes.y,rodaGG_aro.posicao.z);
-	glScalef(rodaGG_base.dimensoes.x,rodaGG_base.dimensoes.y,rodaGG_base.dimensoes.z);
-    	//glCallList(rodaGG_base.listaVisualizacao);
+    	glTranslatef(rodaGG_aro.posicao.x,rodaGG_aro.posicao.y-rodaGG_aro.dimensoes.y,rodaGG_aro.posicao.z);
+    	glScalef(rodaGG_base.dimensoes.x,rodaGG_base.dimensoes.y,rodaGG_base.dimensoes.z);
+        //glCallList(rodaGG_base.listaVisualizacao);
     glPopMatrix();
     
     glPushMatrix();
 	    glTranslatef(rodaGG_aro.posicao.x, rodaGG_aro.posicao.y, rodaGG_aro.posicao.z);
-        glRotatef(auxRotacao,1,0,0);
+        //glRotatef(auxRotacao,1,0,0);
 
 		//desenhando o aro
 		glPushMatrix();
@@ -154,9 +157,11 @@ void desenhaRodaGigante(){
 		glPopMatrix();
 
         glPushMatrix();
+            glTranslatef(0, -3.5, 0);
             glPushMatrix();
-                glScalef(100,1,1);
-                glCallList(pedra.listaVisualizacao);
+                //glScalef(100,1,1);
+                glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);
+                glCallList(rodaGG_carro.listaVisualizacao);
             glPopMatrix();
     		for(i=0; i<CARRINHOS; i++){
     			glPushMatrix();
@@ -164,7 +169,7 @@ void desenhaRodaGigante(){
                 glTranslatef(0, raio*cos(angulo*i),raio*sin(angulo*i));
                 //glTranslatef(0,-rodaGG_carro.dimensoes.y/2,0);
                 glScalef(rodaGG_carro.dimensoes.x,rodaGG_carro.dimensoes.y,rodaGG_carro.dimensoes.z);
-                glRotatef(-auxRotacao,1,0,0);
+                //glRotatef(-auxRotacao,1,0,0);
     			glCallList(rodaGG_carro.listaVisualizacao);
                 //glScalef(100,1,1);
                 //glCallList(pedra.listaVisualizacao);
@@ -177,26 +182,26 @@ void desenhaRodaGigante(){
 void desenhaOBJ(Objeto3D objeto)
 {
 	glPushMatrix();
-	glTranslatef(objeto.posicao.x,objeto.posicao.y,objeto.posicao.z);
-	glScalef(objeto.dimensoes.x,objeto.dimensoes.y,objeto.dimensoes.z);
-	glCallList(objeto.listaVisualizacao);
+    	glTranslatef(objeto.posicao.x,objeto.posicao.y,objeto.posicao.z);
+    	glScalef(objeto.dimensoes.x,objeto.dimensoes.y,objeto.dimensoes.z);
+    	glCallList(objeto.listaVisualizacao);
 	glPopMatrix();
 }
 
-void cenario()
+void chao()
 {
 		// Terreno
 		glPushMatrix();
-		glTranslatef(0,-100,0);
 		for(int random = -QTDECHAO, auxrandom, random1, auxrandom1 ; random <= QTDECHAO ;random++)
 		{
-			auxrandom = random*100;
+			auxrandom = random*terreno.dimensoes.x*2;
 			for(random1 = -QTDECHAO ;random1 <= QTDECHAO; random1++)
 			{
-				auxrandom1 = random1*100;
+				auxrandom1 = random1*terreno.dimensoes.x*2;
 				glPushMatrix();
-				glTranslatef(auxrandom,0,auxrandom1);
-				desenhaOBJ(terreno);
+    				glTranslatef(auxrandom,-TAMANHO/2,auxrandom1);
+                    glScalef(terreno.dimensoes.x,terreno.dimensoes.y,terreno.dimensoes.z);
+                    glCallList(terreno.listaVisualizacao);
 				glPopMatrix();
 			}
 		}		
