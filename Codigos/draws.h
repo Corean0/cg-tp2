@@ -2,6 +2,7 @@ void chao();
 void desenhaCentro();
 void ruas();
 void pipocas();
+void bancos();
 
 // Desenho do jogo
 void desenhaMinhaCena()
@@ -74,8 +75,7 @@ void desenhaMinhaCena()
     	desenhaOBJ(fonte,0);
 	pipocas();
     	desenhaOBJ(cerca,0);
-	desenhaOBJ(banco,90);
-	desenhaOBJ(banco2,90);
+	bancos();
 	ruas();
 	chao();
 	//desenhaRodaGigante();
@@ -250,15 +250,37 @@ void ruas(){
 		aux_rua(5,-terreno_rua.dimensoes.x*4,-terreno_rua.dimensoes.x*2,0);
 		aux_rua(3,-terreno_rua.dimensoes.x*4,terreno_rua.dimensoes.x*2.5,1);
 		aux_rua(3,-terreno_rua.dimensoes.x*4,-terreno_rua.dimensoes.x*2.5,1);
-/*
-		aux_rua(5,-terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*2.5,1);
-		aux_rua(5,-terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*2.5,1);*/
+
+		//ruas centrais levando à brinquedo 3
+		aux_rua(7,terreno_rua.dimensoes.x*2,0,1);
+		aux_rua(9,-terreno_rua.dimensoes.x*13,0,1);
+
+		//rua brinquedo 1-2
+		aux_rua(19,-terreno_rua.dimensoes.x*9,-terreno_rua.dimensoes.x*9,0);
+
+		//ruas para "fechar" caixa
+		aux_rua(10,-terreno_rua.dimensoes.x*8,-terreno_rua.dimensoes.x*6,1);
+		aux_rua(10,-terreno_rua.dimensoes.x*8,terreno_rua.dimensoes.x*6,1);
+
+		//ruas levando para as lanchonetes
+		aux_rua(2,0,terreno_rua.dimensoes.x*7,0);
+		aux_rua(2,0,-terreno_rua.dimensoes.x*8,0);
+
 	glPopMatrix();
 }
 
 void pipocas(){	
     	desenhaOBJ(pipoca,90);
 	desenhaOBJ(pipoca1,-90);
+}
+
+void bancos(){
+	glPushMatrix();
+		glTranslatef(pipoca.posicao.x-terreno_rua.dimensoes.x*2,0,pipoca.posicao.z-2);
+		desenhaOBJ(banco,90);
+		glTranslatef(0,0,terreno_rua.dimensoes.x*2+5);
+		desenhaOBJ(banco,90);
+	glPopMatrix();
 }
 
 void desenhaCentro(){
