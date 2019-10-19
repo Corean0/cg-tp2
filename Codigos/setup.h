@@ -77,23 +77,15 @@ void setupJogo(){
     // Carregando objetos
     // Nessa ordem
     // TAMANHO é a variavel global de parametrização de tamanho para as coisas
-    /* Para dar ctrl C    
-    carregaOBJ(, glmReadOBJ("../pontos_obj/.obj"));
-    setPosicao();
-    setDimensoesProp();
+    /* Para dar ctrl C
+    carregaOBJ(&, glmReadOBJ("../pontos_obj/.obj"));
+    setPosicao(&);
+    setDimensoesProp(&);
     */
-
-    carregaOBJ(&arvore_1, glmReadOBJ("../pontos_obj/arvore_1.obj"));
-    setPosicao(&arvore_1,-20,0,0);
-    setDimensoesProp(&arvore_1, 50);
 
     carregaOBJ(&terreno, glmReadOBJ("../pontos_obj/terreno.obj"));
     setDimensoesProp(&terreno,TAMANHO);
     setPosicao(&terreno, 0,0,0);
-
-    carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_1.obj"));
-    setPosicao(&pedra_3,0,0,0);
-    setDimensoesProp(&pedra_3,10);
 
     carregaOBJ(&fonte, glmReadOBJ("../pontos_obj/fonte.obj"));
     setDimensoesProp(&fonte, TAMANHO);
@@ -101,7 +93,23 @@ void setupJogo(){
 
     carregaOBJ(&pipoca, glmReadOBJ("../pontos_obj/pipoca.obj"));
     setDimensoesProp(&pipoca, TAMANHO/3);
-    setPosicao(&pipoca, -TAMANHO-10, 0,0);
+    setPosicao(&pipoca, -40, 0,-25);
+
+    carregaOBJ(&pipoca1, glmReadOBJ("../pontos_obj/pipoca.obj"));
+    setDimensoesProp(&pipoca1, TAMANHO/3);
+    setPosicao(&pipoca1, -40, 0,25);
+  
+    carregaOBJ(&banco, glmReadOBJ("../pontos_obj/banco.obj"));
+    setPosicao(&banco, 35,0,20);
+    setDimensoesProp(&banco, TAMANHO/5);
+    
+    carregaOBJ(&banco2, glmReadOBJ("../pontos_obj/banco.obj"));
+    setPosicao(&banco2, 35,0,-20);
+    setDimensoesProp(&banco2,TAMANHO/5);
+
+    carregaOBJ(&terreno_rua, glmReadOBJ("../pontos_obj/terreno_rua_quadrado.obj"));
+    setPosicao(&terreno_rua, 0,0,0);
+    setDimensoesProp(&terreno_rua,TAMANHO*1.2/3);
 
     carregaOBJ(&cerca, glmReadOBJ("../pontos_obj/cerca.obj"));
     setPosicao(&cerca,-100,0,0);

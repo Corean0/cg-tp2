@@ -1,5 +1,7 @@
 void chao();
 void desenhaCentro();
+void rua();
+void pipocas();
 
 // Desenho do jogo
 void desenhaMinhaCena()
@@ -68,13 +70,16 @@ void desenhaMinhaCena()
 	}
 	    
 	glClearColor(1,1,1,1);
-	desenhaCentro();
-    	desenhaOBJ(fonte);
-    	desenhaOBJ(pipoca);
-    	//desenhaOBJ(cerca);
+	//desenhaCentro();
+    	desenhaOBJ(fonte,0);
+	pipocas();
+    	desenhaOBJ(cerca,0);
+	desenhaOBJ(banco,90);
+	desenhaOBJ(banco2,90);
+	rua();
 	chao();
 	//desenhaRodaGigante();
-	//interface com problema tb
+	//interface com problema de não saber configurar 2/3D
 	//desenhaInterface();
 
 	if (isLightingOn)
@@ -124,8 +129,7 @@ void drawObject(spriteObject objeto)
     glDisable(GL_TEXTURE_2D);
 }
 
-void desenhaInterface(){	
-        //perguntar como fazer isso
+void desenhaInterface(){
 	//configurar glortho para fzr (PUTA MERDA) e dps reconfigurar persperctive pra quando rodar lá n zuar nd
 	configura2D();
         drawObject(jogar);
@@ -143,7 +147,7 @@ void desenhaRodaGigante(){
     
     //desenhando a base
     glPushMatrix();
-    	glTranslatef(rodaGG_aro.posicao.x,rodaGG_aro.posicao.y-rodaGG_aro.dimensoes.y,rodaGG_aro.posicao.z);
+    	glTranslatef(rodaGG_aro.posicao.x,rodaGG_aro.posicao.y-rodaGG_aro.dimensoes.y/2,rodaGG_aro.posicao.z);
     	glScalef(rodaGG_base.aumento.x,rodaGG_base.aumento.y,rodaGG_base.aumento.z);
         glCallList(rodaGG_base.listaVisualizacao);
     glPopMatrix();
@@ -181,11 +185,12 @@ void desenhaRodaGigante(){
     glPopMatrix();
 }
 
-void desenhaOBJ(Objeto3D objeto)
+void desenhaOBJ(Objeto3D objeto, float rotacao)
 {
 	glPushMatrix();
 	    	glTranslatef(objeto.posicao.x,objeto.dimensoes.y/2+objeto.posicao.y,objeto.posicao.z);
 	    	glScalef(objeto.aumento.x,objeto.aumento.y,objeto.aumento.z);
+		glRotatef(rotacao,0,1,0);
 	    	glCallList(objeto.listaVisualizacao);
 	glPopMatrix();
 }
@@ -208,6 +213,38 @@ void chao()
 			}
 		}		
 		glPopMatrix();
+}
+
+void aux_rua(int constante, float centrox, float centroz, int direcao){
+	if(direcao==1){
+		for(int random = -constante; random<=constante ; random++){
+			glPushMatrix();
+				glTranslatef(centrox,0,centroz);
+				glTranslatef(terreno_rua.dimensoes.x*constante/2,0,0);
+				desenhaOBJ(terreno_rua,0);
+			glPopMatrix();
+		}
+	}else{
+		for(int random = -constante; random<=constante ; random++){
+			glPushMatrix();
+				glTranslatef(centrox,0,centroz);
+				glTranslatef(0,0,terreno_rua.dimensoes.z*constante/2);
+				desenhaOBJ(terreno_rua,0);
+			glPopMatrix();
+		}
+	}
+}
+
+void rua(){
+	glPushMatrix();
+		glTranslatef(0,terreno.dimensoes.y/2,0);
+		aux_rua(2,fonte.dimensoes.x,0,0);
+	glPopMatrix();
+}
+
+void pipocas(){	
+    	desenhaOBJ(pipoca,90);
+	desenhaOBJ(pipoca1,-90);
 }
 
 void desenhaCentro(){
