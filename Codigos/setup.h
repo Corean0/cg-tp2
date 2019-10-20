@@ -82,7 +82,7 @@ void setupJogo(){
     setPosicao(&);
     setDimensoesProp(&);
     */
-
+/*
     carregaOBJ(&terreno, glmReadOBJ("../pontos_obj/terreno.obj"));
     setDimensoesDesprop(&terreno,TAMANHO*3,TAMANHO,TAMANHO*3);
     setPosicao(&terreno, 0,0,0);
@@ -110,15 +110,21 @@ void setupJogo(){
     carregaOBJ(&cerca, glmReadOBJ("../pontos_obj/cerca.obj"));
     setPosicao(&cerca,0,0,0);
     setDimensoesProp(&cerca, TAMANHO);
+*/
+
 
     carregaOBJ(&rodaGG_base, glmReadOBJ("../pontos_obj/base_roda_gigante.obj"));
     setPosicao(&rodaGG_base,0,0,0);
-    setDimensoesProp(&rodaGG_base,50);
+    setDimensoesProp(&rodaGG_base,TAMANHO);
     carregaOBJ(&rodaGG_aro, glmReadOBJ("../pontos_obj/aro_roda_gigante.obj"));
     setPosicao(&rodaGG_aro,0,0,0);
-    setDimensoesProp(&rodaGG_aro,50);
+    setDimensoesProp(&rodaGG_aro,TAMANHO);
     carregaOBJ(&rodaGG_carro, glmReadOBJ("../pontos_obj/carrinho_vermelho.obj"));
     setPosicao(&rodaGG_carro,0,0,0);
-    setDimensoesProp(&rodaGG_carro,7);
+    setDimensoesProp(&rodaGG_carro,TAMANHO/5);
+
+    carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_3.obj"));
+    setPosicao(&pedra_3, 0,0,0);
+    setDimensoesDesprop(&pedra_3, 100,1,1);
 
 }
