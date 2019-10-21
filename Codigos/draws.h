@@ -323,8 +323,8 @@ void postes(){
 	desenhaPosicao(poste,-(fonte.dimensoes.x/2-1),-(fonte.dimensoes.z/2+4),0);
 
 	//postes ao lado das cadeiras e mesas
-	//desenhaPosicao(poste,fonte.dimensoes.x/2-1,terreno_rua.dimensoes.x*5,0);
-	//desenhaPosicao(poste,fonte.dimensoes.x/2-1,-terreno_rua.dimensoes.x*5,0);
+	desenhaPosicao(poste,fonte.dimensoes.x*1.3,terreno_rua.dimensoes.x*7,0);
+	desenhaPosicao(poste,fonte.dimensoes.x*1.3,-terreno_rua.dimensoes.x*7,0);
 
 }
 
