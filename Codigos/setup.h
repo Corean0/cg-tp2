@@ -79,10 +79,17 @@ void setupJogo(){
     // TAMANHO é a variavel global de parametrização de tamanho para as coisas
     /* Para dar ctrl C
     carregaOBJ(&, glmReadOBJ("../pontos_obj/.obj"));
-    setPosicao(&);
-    setDimensoesProp(&);
+    setPosicao(&,0,0,0);
+    setDimensoesProp(&,TAMANHO);
     */
-/*
+
+    //só teste algum obj q precisa desenhando-o no centro(acima do chão) com dimensão TAMANHO
+    //carregaOBJ(&OBJ, glmReadOBJ("../pontos_obj/poste.obj"));
+
+    carregaOBJ(&poste, glmReadOBJ("../pontos_obj/poste.obj"));
+    setPosicao(&poste,0,0,0);
+    setDimensoesProp(&poste,TAMANHO*1.6/2);
+
     carregaOBJ(&terreno, glmReadOBJ("../pontos_obj/terreno.obj"));
     setDimensoesDesprop(&terreno,TAMANHO*3,TAMANHO,TAMANHO*3);
     setPosicao(&terreno, 0,0,0);
@@ -107,10 +114,13 @@ void setupJogo(){
     setPosicao(&terreno_rua, 0,0,0);
     setDimensoesProp(&terreno_rua,TAMANHO/2);
 
+    carregaOBJ(&terreno_rcurva, glmReadOBJ("../pontos_obj/terreno_rua_curva.obj"));
+    setPosicao(&terreno_rcurva, 0,0,0);
+    setDimensoesProp(&terreno_rcurva,TAMANHO/2);
+
     carregaOBJ(&cerca, glmReadOBJ("../pontos_obj/cerca.obj"));
     setPosicao(&cerca,0,0,0);
     setDimensoesProp(&cerca, TAMANHO);
-*/
 
 
     carregaOBJ(&rodaGG_base, glmReadOBJ("../pontos_obj/base_roda_gigante.obj"));

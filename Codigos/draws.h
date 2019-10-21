@@ -1,10 +1,3 @@
-void chao();
-void desenhaCentro();
-void ruas();
-void pipocas();
-void bancos();
-void cercas();
-
 // Desenho do jogo
 void desenhaMinhaCena()
 {
@@ -72,14 +65,15 @@ void desenhaMinhaCena()
 	}
 	    
 	glClearColor(1,1,1,1);
-	//desenhaCentro();
-    	/*desenhaOBJ(fonte,0);
+	//testeOBJ();
+    	desenhaOBJ(fonte,0);
 	pipocas();
-	cercas();
+	//cercas();
 	bancos();
+	postes();
 	ruas();
-	chao();*/
-	desenhaRodaGigante();
+	chao();
+	//desenhaRodaGigante();
 	//interface com problema de não saber configurar 2/3D
 	//desenhaInterface();
 
@@ -197,6 +191,14 @@ void desenhaOBJ(Objeto3D objeto, float rotacao)
 	glPopMatrix();
 }
 
+void desenhaPosicao(Objeto3D objeto,float centrox, float centroz, float rotacao)
+{
+	glPushMatrix();
+		glTranslatef(centrox,0,centroz);
+		desenhaOBJ(objeto,rotacao);
+	glPopMatrix();
+}
+
 void chao()
 {
 		// Terreno
@@ -217,35 +219,23 @@ void chao()
 		glPopMatrix();
 }
 
-//direcao == 1: eixo z, senão eixo x
-//tem q passar o centrox e centroy
-void aux_rua(int qtdeQDD, float centrox, float centroz, int direcao){
-	if(direcao==1){
-		for(int random = 0; random<qtdeQDD ; random++){
-			glPushMatrix();
-				glTranslatef(centrox,0,centroz);
-				glTranslatef(terreno_rua.dimensoes.z*random,0,0);
-				desenhaOBJ(terreno_rua,0);
-			glPopMatrix();
-		}
-	}else{
-		for(int random = 0; random<qtdeQDD ; random++){
-			glPushMatrix();
-				glTranslatef(centrox,0,centroz);
-				glTranslatef(0,0,terreno_rua.dimensoes.x*random);
-				desenhaOBJ(terreno_rua,0);
-			glPopMatrix();
-		}
-	}
-}
-
+/*
+LEMBRETE:
+eixo x: altera cima/baixo, sendo positivo levando mais para baixo
+eixo z: altera direita/esquerda, sendo positivo levando mais para esquerda
+*/
 void ruas(){
 	glPushMatrix();
+		//para ajustar erro terreno-rua
 		glTranslatef(0,terreno.dimensoes.y/2,0);
 		//ruas em torno da fonte e alongando pros extremos laterais
-		aux_rua(13,terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*6,0);
-		aux_rua(13,-terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*6,0);
+		//"baixo"
+		aux_rua(11,terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*5,0);
+		//"cima" fonte -> pipocas
+		aux_rua(11,-terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*5,0);
+		//"esquerda" brinquedo1 -> brinquedo2
 		aux_rua(5,-terreno_rua.dimensoes.x*2,terreno_rua.dimensoes.x*2.5,1);
+		//"direita"
 		aux_rua(5,-terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*2.5,1);
 
 		//ruas em torno das pipocas
@@ -260,15 +250,34 @@ void ruas(){
 		//rua brinquedo 1-2
 		aux_rua(19,-terreno_rua.dimensoes.x*9,-terreno_rua.dimensoes.x*9,0);
 
-		//ruas para "fechar" caixa
-		aux_rua(10,-terreno_rua.dimensoes.x*8,-terreno_rua.dimensoes.x*6,1);
-		aux_rua(10,-terreno_rua.dimensoes.x*8,terreno_rua.dimensoes.x*6,1);
+		//ruas para "fechar" caixa das arvores
+		aux_rua(3,-terreno_rua.dimensoes.x,-terreno_rua.dimensoes.x*6,1);
+		aux_rua(3,-terreno_rua.dimensoes.x,terreno_rua.dimensoes.x*6,1);
 
 		//ruas levando para as lanchonetes
 		aux_rua(2,0,terreno_rua.dimensoes.x*7,0);
 		aux_rua(2,0,-terreno_rua.dimensoes.x*8,0);
 
+		//ruas curvas
+		//ruas ao lado da lanchonete, na parte oposta da direção dos brinquedos
+		glPushMatrix();
+			glTranslatef(terreno_rua.dimensoes.x*2,0,0);
+			desenhaPosicao(terreno_rcurva,0,-terreno_rua.dimensoes.x*6,-90);
+			desenhaPosicao(terreno_rcurva,0,terreno_rua.dimensoes.x*6,180);
+		glPopMatrix();
+
+		//ruas na direção lanchonete -> brinquedos
+		glPushMatrix();
+			glTranslatef(-terreno_rua.dimensoes.x*2,0,0);
+			desenhaPosicao(terreno_rcurva,0,-terreno_rua.dimensoes.x*6,0);
+			desenhaPosicao(terreno_rcurva,0,terreno_rua.dimensoes.x*6,90);
+		glPopMatrix();
+
 	glPopMatrix();
+}
+
+void cercas(){
+	aux_cerca(3,0,0,1);
 }
 
 void pipocas(){	
@@ -285,13 +294,23 @@ void bancos(){
 	glPopMatrix();
 }
 
-void cercas(){
+void postes(){
+	//postes em torno da fonte
+	desenhaPosicao(poste,fonte.dimensoes.x/2-1,fonte.dimensoes.z/2+4,0);
+	desenhaPosicao(poste,fonte.dimensoes.x/2-1,-(fonte.dimensoes.z/2+4),0);
+	desenhaPosicao(poste,-(fonte.dimensoes.x/2-1),fonte.dimensoes.z/2+4,0);
+	desenhaPosicao(poste,-(fonte.dimensoes.x/2-1),-(fonte.dimensoes.z/2+4),0);
+
+	//postes ao lado das cadeiras e mesas
+	desenhaPosicao(poste,fonte.dimensoes.x/2-1,terreno_rua.dimensoes.x*5,0);
+	desenhaPosicao(poste,fonte.dimensoes.x/2-1,-terreno_rua.dimensoes.x*5,0);
+
 }
 
-void desenhaCentro(){
+void testeOBJ(){
 	glPushMatrix();
-		glTranslatef(0,0,0);
-		glScalef(10,10,10);
-		glCallList(pedra_3.listaVisualizacao);
+		glScalef(TAMANHO,TAMANHO,TAMANHO);
+		glTranslatef(0,OBJ.dimensoes.y/2,0);
+		glCallList(OBJ.listaVisualizacao);
 	glPopMatrix();
 }

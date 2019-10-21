@@ -1,5 +1,3 @@
-void attDimensoes(Objeto3D *objeto);
-
 void carregaOBJ(Objeto3D *objeto, GLMmodel* model){
 	glmUnitize(model);
 	glmFacetNormals(model);

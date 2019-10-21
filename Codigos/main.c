@@ -19,12 +19,12 @@
 #define CARRINHOS 9.0
 #define QTDECHAO 3.0
 #define VELOCIDADE_RODA 0.5
-#define TAMANHO 50
+#define TAMANHO 10
 
 // Variaveis globais
 
 Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, arvore_1, terreno, pedra_3,cerca, fonte, pipoca, pipoca1, 
-		banco, terreno_rua;
+		banco, terreno_rua,terreno_rcurva,poste,OBJ;
 
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera, cursor;
@@ -89,6 +89,7 @@ void main(int argc, char** argv)
     glutMainLoop();
 }
 
+#include "draws_aux.h"
 #include "cod_aux.h"
 #include "refresh.h"
 #include "draws.h"
