@@ -78,17 +78,30 @@ void setupJogo(){
     // Nessa ordem
     // TAMANHO é a variavel global de parametrização de tamanho para as coisas
     /* Para dar ctrl C
+
     carregaOBJ(&, glmReadOBJ("../pontos_obj/.obj"));
     setPosicao(&,0,0,0);
     setDimensoesProp(&,TAMANHO);
     */
 
     //só teste algum obj q precisa desenhando-o no centro(acima do chão) com dimensão TAMANHO
-    //carregaOBJ(&OBJ, glmReadOBJ("../pontos_obj/poste.obj"));
+    //carregaOBJ(&OBJ, glmReadOBJ("../pontos_obj/lanchonete.obj"));
 
     carregaOBJ(&poste, glmReadOBJ("../pontos_obj/poste.obj"));
     setPosicao(&poste,0,0,0);
     setDimensoesProp(&poste,TAMANHO*1.6/2);
+
+    carregaOBJ(&arvore1, glmReadOBJ("../pontos_obj/arvore_1.obj"));
+    setPosicao(&arvore1,0,0,0);
+    setDimensoesProp(&arvore1,TAMANHO);
+
+    carregaOBJ(&arvore2, glmReadOBJ("../pontos_obj/arvore_2.obj"));
+    setPosicao(&arvore2,0,0,0);
+    setDimensoesProp(&arvore2,TAMANHO);
+
+    carregaOBJ(&arvore_morta, glmReadOBJ("../pontos_obj/arvore_morta.obj"));
+    setPosicao(&arvore_morta,0,0,0);
+    setDimensoesProp(&arvore_morta,TAMANHO);
 
     carregaOBJ(&terreno, glmReadOBJ("../pontos_obj/terreno.obj"));
     setDimensoesDesprop(&terreno,TAMANHO*3,TAMANHO,TAMANHO*3);
@@ -116,7 +129,7 @@ void setupJogo(){
 
     carregaOBJ(&terreno_rcurva, glmReadOBJ("../pontos_obj/terreno_rua_curva.obj"));
     setPosicao(&terreno_rcurva, 0,0,0);
-    setDimensoesProp(&terreno_rcurva,TAMANHO/2);
+    setDimensoesProp(&terreno_rcurva,TAMANHO*1.26);
 
     carregaOBJ(&cerca, glmReadOBJ("../pontos_obj/cerca.obj"));
     setPosicao(&cerca,0,0,0);

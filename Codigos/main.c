@@ -23,7 +23,7 @@
 
 // Variaveis globais
 
-Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, arvore_1, terreno, pedra_3,cerca, fonte, pipoca, pipoca1, 
+Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, arvore1,arvore2,arvore_morta, terreno, pedra_3,cerca, fonte, pipoca, pipoca1, 
 		banco, terreno_rua,terreno_rcurva,poste,OBJ;
 
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
