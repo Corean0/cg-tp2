@@ -22,4 +22,5 @@ typedef struct Objeto3D
 	vetorR3 dimensoes;
 	vetorR3 aumento;
 	GLuint listaVisualizacao;
+
 } Objeto3D;

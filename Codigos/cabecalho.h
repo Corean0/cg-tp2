@@ -37,3 +37,4 @@ void postes();
 void desenhaPosicao(Objeto3D objeto,float centrox, float centroz, float rotacao);
 void arvores();
 void lanchonetes();
+void carrossel();

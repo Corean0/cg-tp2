@@ -85,7 +85,8 @@ void setupJogo(){
     */
 
     //só teste algum obj q precisa desenhando-o no centro(acima do chão) com dimensão TAMANHO
-    //carregaOBJ(&OBJ, glmReadOBJ("../pontos_obj/lanchonete.obj"));
+    OBJ.listaVisualizacao=0;
+    //carregaOBJ(&OBJ, glmReadOBJ("../pontos_obj/carrossel_cavalo.obj"));
 
     carregaOBJ(&poste, glmReadOBJ("../pontos_obj/poste.obj"));
     setPosicao(&poste,0,0,0);
@@ -143,19 +144,35 @@ void setupJogo(){
     setDimensoesProp(&lanchonete1,TAMANHO*1.5);
     setPosicao(&lanchonete1,0,0,-terreno_rua.dimensoes.x*8.5-lanchonete1.dimensoes.z/2);
 
-
     carregaOBJ(&rodaGG_base, glmReadOBJ("../pontos_obj/base_roda_gigante.obj"));
-    setPosicao(&rodaGG_base,0,0,0);
-    setDimensoesProp(&rodaGG_base,TAMANHO);
+    setDimensoesProp(&rodaGG_base,TAMANHO*2-5.5/*-ERRO VISUAL*/);
+    setPosicao(&rodaGG_base,-(-terreno_rua.dimensoes.x*13.5-rodaGG_base.dimensoes.x/2),0,0);
     carregaOBJ(&rodaGG_aro, glmReadOBJ("../pontos_obj/aro_roda_gigante.obj"));
     setPosicao(&rodaGG_aro,0,0,0);
-    setDimensoesProp(&rodaGG_aro,TAMANHO);
+    setDimensoesProp(&rodaGG_aro,TAMANHO*2);
     carregaOBJ(&rodaGG_carro, glmReadOBJ("../pontos_obj/carrinho_vermelho.obj"));
     setPosicao(&rodaGG_carro,0,0,0);
-    setDimensoesProp(&rodaGG_carro,TAMANHO/5);
+    setDimensoesProp(&rodaGG_carro,TAMANHO*2/5);
+
+    carregaOBJ(&carrossel_base, glmReadOBJ("../pontos_obj/carrossel_base.obj"));
+    setDimensoesProp(&carrossel_base,TAMANHO*1.5);
+    setPosicao(&carrossel_base,-terreno_rua.dimensoes.x*9,0,-terreno_rua.dimensoes.x*9.5-carrossel_base.dimensoes.x/2);
+
+    carregaOBJ(&carrossel_cavalo, glmReadOBJ("../pontos_obj/carrossel_cavalo.obj"));
+    setPosicao(&carrossel_cavalo,0,0,0);
+    setDimensoesProp(&carrossel_cavalo,TAMANHO/3);
 
     carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_3.obj"));
     setPosicao(&pedra_3, 0,0,0);
     setDimensoesDesprop(&pedra_3, 100,1,1);
 
+	for(int i=0;i<CAVALOS;i++){
+		if(rand()%2==0){
+			alturaCavalo[i]=(rand()%40)/20.0;
+			velAlt[i] = CONSTANTE;
+		}else{
+			alturaCavalo[i]=-(rand()%40)/20.0;
+			velAlt[i] = -CONSTANTE;
+		}		
+	}
 }

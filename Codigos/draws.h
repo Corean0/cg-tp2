@@ -52,7 +52,7 @@ void desenhaMinhaCena()
 
     // Esfera indicativa de onde está a luz
 	/*	
-		glPushMatrix();
+	glPushMatrix();
         glTranslatef(20.0, 50.0, 50.0);
         glColor3f(0, 0, 0);
         glutWireSphere(2, 8, 8); 
@@ -65,7 +65,7 @@ void desenhaMinhaCena()
 	}
 	    
 	glClearColor(1,1,1,1);
-	//tirar condiciona junto de tudo relacionado a OBJ antes de entregar
+	//tirar condicional junto de tudo relacionado a OBJ antes de entregar
 	if(OBJ.listaVisualizacao!=0)
 		testeOBJ();
 	else{
@@ -77,7 +77,8 @@ void desenhaMinhaCena()
 		ruas();
 		arvores();
 		lanchonetes();
-		//desenhaRodaGigante();
+		desenhaRodaGigante();
+		carrossel();
 		//interface com problema de não saber configurar 2/3D
 		//desenhaInterface();
 	}
@@ -101,6 +102,7 @@ void desenhaMinhaCena()
         drawObject(sair_creditos);
     }
     
+    START++;
     glutSwapBuffers();
 }
 
@@ -138,52 +140,52 @@ void desenhaInterface(){
 }
 
 
+//FALTA ARRUMAR A RODELA DOS CARRINHOS NOS AROS DA RODA
 void desenhaRodaGigante(){
     int i;
     const float angulo = (M_PI*2)/CARRINHOS;
-    const float raio = rodaGG_aro.dimensoes.y/2/*ERRO VISUAL*/-3;//tem que arrumar isso daqui ainda
+    const float raio = rodaGG_aro.dimensoes.y/2/*-ERRO VISUAL*/;//tem que arrumar isso daqui ainda
 //printf("%f %f %f\n", rodaGG_aro.dimensoes.x,rodaGG_aro.dimensoes.y,rodaGG_aro.dimensoes.z); //valores corretos disso e do aro
-    auxRotacao+=VELOCIDADE_RODA;
-    if(auxRotacao==360)
-    	auxRotacao=0;
-    
-    //desenhando a base
-    glPushMatrix();
-    	glTranslatef(rodaGG_aro.posicao.x+1,rodaGG_aro.posicao.y-(rodaGG_aro.dimensoes.y/2)+1.3/*ERROVISUAL*/,rodaGG_aro.posicao.z);
-    	glScalef(rodaGG_base.aumento.x,rodaGG_base.aumento.y,rodaGG_base.aumento.z);
-        glCallList(rodaGG_base.listaVisualizacao);
-    glPopMatrix();
+    auxRotacaoRGG+=VELOCIDADE_RODA;
+    if(auxRotacaoRGG==360)
+    	auxRotacaoRGG=0;
     
     glPushMatrix();
-	    	glTranslatef(rodaGG_aro.posicao.x, rodaGG_aro.posicao.y, rodaGG_aro.posicao.z);
-		glRotatef(auxRotacao,1,0,0);
+	    glRotatef(180,0,1,0);
+	    //desenhando a base
+	    desenhaOBJ(rodaGG_base,0);
+	    
+	    glPushMatrix();
+		    	glTranslatef(rodaGG_base.posicao.x-2, rodaGG_base.posicao.y+rodaGG_base.dimensoes.y/2+rodaGG_aro.dimensoes.y/2/*-ERRO VISUAL*/-7.4, rodaGG_base.posicao.z);
+			glRotatef(auxRotacaoRGG,1,0,0);
 
-		//desenhando o aro
-		glPushMatrix();
-			    glScalef(rodaGG_aro.aumento.x,rodaGG_aro.aumento.y,rodaGG_aro.aumento.z);
-			    glCallList(rodaGG_aro.listaVisualizacao);
-		glPopMatrix();
-		
-		//ajusta centro da circunferencia com centro do encaixe do carrinho(funcionando)
-		//glRotatef(-auxRotacao,1,0,0);
-		//glTranslatef(0,-rodaGG_carro.dimensoes.y/*ERROVISUAL*/+9,0);
-		//desenhaOBJ(rodaGG_carro,0);
-		//desenhaOBJ(pedra_3,0); //testa centro coincidente ou não
-		//glRotatef(auxRotacao,1,0,0);
-		
+			//desenhando o aro
+			glPushMatrix();
+				    glScalef(rodaGG_aro.aumento.x,rodaGG_aro.aumento.y,rodaGG_aro.aumento.z);
+				    glCallList(rodaGG_aro.listaVisualizacao);
+			glPopMatrix();
+			
+			//ajusta centro da circunferencia com centro do encaixe do carrinho(funcionando)
+			//glRotatef(-auxRotacaoRGG,1,0,0);
+			//glTranslatef(0,-rodaGG_carro.dimensoes.y/*ERROVISUAL*/+9,0);
+			//desenhaOBJ(rodaGG_carro,0);
+			//desenhaOBJ(pedra_3,0); //testa centro coincidente ou não
+			//glRotatef(auxRotacaoRGG,1,0,0);
+			
 
-	    	for(i=0; i<CARRINHOS; i++){
-	    		glPushMatrix();
-				//não sei pq mas tem um erro q o centro não ta ajustado e esse translate arruma
-				//glRotatef(-auxRotacao,1,0,0);
-				glTranslatef(0, raio*sin(angulo*i+M_PI/18.0),raio*cos(angulo*i+M_PI/18.0));					
-				glScalef(rodaGG_carro.aumento.x,rodaGG_carro.aumento.y,rodaGG_carro.aumento.z);
-				glRotatef(-auxRotacao,1,0,0);
-				glCallList(rodaGG_carro.listaVisualizacao);
-				//glScalef(100,1,1);
-				//glCallList(pedra_3.listaVisualizacao);
-	    		glPopMatrix();
-	    	}
+		    	for(i=0; i<CARRINHOS; i++){
+		    		glPushMatrix();
+					//não sei pq mas tem um erro q o centro não ta ajustado e esse translate arruma
+					//glRotatef(-auxRotacaoRGG,1,0,0);
+					glTranslatef(0, raio*sin(angulo*i+M_PI/18.0),raio*cos(angulo*i+M_PI/18.0));					
+					glScalef(rodaGG_carro.aumento.x,rodaGG_carro.aumento.y,rodaGG_carro.aumento.z);
+					glRotatef(-auxRotacaoRGG,1,0,0);
+					glCallList(rodaGG_carro.listaVisualizacao);
+					//glScalef(100,1,1);
+					//glCallList(pedra_3.listaVisualizacao);
+		    		glPopMatrix();
+		    	}
+	    glPopMatrix();    
     glPopMatrix();
 }
 
@@ -341,6 +343,44 @@ void arvores(){
 void lanchonetes(){
 	desenhaOBJ(lanchonete,180);
 	desenhaOBJ(lanchonete1,0);
+}
+
+//FUNCIONAMENTO: desenhará "CAVALOS" cavalos em um raio exterior e os fara subir e descer
+void carrossel(){
+	int i;
+	const float anguloRad = (M_PI*2)/CAVALOS;
+	const float anguloGra = 360.0/CAVALOS;
+	const float raio = carrossel_base.dimensoes.x/2-2;
+
+	auxRotacaoCAR += VELOCIDADE_CAVALO;
+	if(auxRotacaoCAR == 360)
+		auxRotacaoCAR = 0;
+
+	glPushMatrix();
+		//desenhando a base estática
+		desenhaOBJ(carrossel_base,0);
+
+		glPushMatrix();
+			glTranslatef(carrossel_base.posicao.x,carrossel_base.posicao.y+carrossel_base.dimensoes.y/2/*ERRO*/-3,carrossel_base.posicao.z);
+			glRotatef(auxRotacaoCAR,0,1,0);
+			for(i=0;i<CAVALOS;i++){
+				glPushMatrix();
+					if(START==0)
+						glTranslatef(0,alturaCavalo[i],0);
+					if(alturaCavalo[i] > 2  && velAlt[i] > 0)
+						velAlt[i] = -CONSTANTE;
+					if(alturaCavalo[i] < -2 && velAlt[i] < 0)
+						velAlt[i] = CONSTANTE;
+					alturaCavalo[i] = alturaCavalo[i]+velAlt[i];
+					glTranslatef(sin(anguloRad*i)*raio,alturaCavalo[i],cos(anguloRad*i)*raio);
+					glRotatef(-auxRotacaoCAR,0,1,0);
+				    	glScalef(carrossel_cavalo.aumento.x,carrossel_cavalo.aumento.y,carrossel_cavalo.aumento.z);
+					glRotatef(-90,0,1,0);
+				    	glCallList(carrossel_cavalo.listaVisualizacao);
+				glPopMatrix();
+			}
+		glPopMatrix();
+	glPopMatrix();
 }
 
 void testeOBJ(){
