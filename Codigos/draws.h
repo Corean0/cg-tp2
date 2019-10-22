@@ -65,6 +65,7 @@ void desenhaMinhaCena()
 	}
 	    
 	glClearColor(1,1,1,1);
+	//tirar condiciona junto de tudo relacionado a OBJ antes de entregar
 	if(OBJ.listaVisualizacao!=0)
 		testeOBJ();
 	else{
@@ -75,6 +76,7 @@ void desenhaMinhaCena()
 		postes();
 		ruas();
 		arvores();
+		lanchonetes();
 		//desenhaRodaGigante();
 		//interface com problema de não saber configurar 2/3D
 		//desenhaInterface();
@@ -149,12 +151,12 @@ void desenhaRodaGigante(){
     glPushMatrix();
     	glTranslatef(rodaGG_aro.posicao.x+1,rodaGG_aro.posicao.y-(rodaGG_aro.dimensoes.y/2)+1.3/*ERROVISUAL*/,rodaGG_aro.posicao.z);
     	glScalef(rodaGG_base.aumento.x,rodaGG_base.aumento.y,rodaGG_base.aumento.z);
-        //glCallList(rodaGG_base.listaVisualizacao);
+        glCallList(rodaGG_base.listaVisualizacao);
     glPopMatrix();
     
     glPushMatrix();
 	    	glTranslatef(rodaGG_aro.posicao.x, rodaGG_aro.posicao.y, rodaGG_aro.posicao.z);
-		//glRotatef(auxRotacao,1,0,0);
+		glRotatef(auxRotacao,1,0,0);
 
 		//desenhando o aro
 		glPushMatrix();
@@ -164,8 +166,8 @@ void desenhaRodaGigante(){
 		
 		//ajusta centro da circunferencia com centro do encaixe do carrinho(funcionando)
 		//glRotatef(-auxRotacao,1,0,0);
-		glTranslatef(0,-rodaGG_carro.dimensoes.y/*ERROVISUAL*/+9,0);
-		desenhaOBJ(rodaGG_carro,0);
+		//glTranslatef(0,-rodaGG_carro.dimensoes.y/*ERROVISUAL*/+9,0);
+		//desenhaOBJ(rodaGG_carro,0);
 		//desenhaOBJ(pedra_3,0); //testa centro coincidente ou não
 		//glRotatef(auxRotacao,1,0,0);
 		
@@ -176,7 +178,7 @@ void desenhaRodaGigante(){
 				//glRotatef(-auxRotacao,1,0,0);
 				glTranslatef(0, raio*sin(angulo*i+M_PI/18.0),raio*cos(angulo*i+M_PI/18.0));					
 				glScalef(rodaGG_carro.aumento.x,rodaGG_carro.aumento.y,rodaGG_carro.aumento.z);
-				//glRotatef(-auxRotacao,1,0,0);
+				glRotatef(-auxRotacao,1,0,0);
 				glCallList(rodaGG_carro.listaVisualizacao);
 				//glScalef(100,1,1);
 				//glCallList(pedra_3.listaVisualizacao);
@@ -233,6 +235,7 @@ void ruas(){
 	glPushMatrix();
 		//para ajustar erro terreno-rua
 		glTranslatef(0,terreno.dimensoes.y/2,0);
+
 		//ruas em torno da fonte e alongando pros extremos laterais
 		//"baixo"
 		aux_rua(11,terreno_rua.dimensoes.x*2,-terreno_rua.dimensoes.x*5,0);
@@ -333,6 +336,11 @@ void arvores(){
 	desenhaPosicao(arvore1,arvore1.dimensoes.x/2,fonte.dimensoes.z*1.8,32);
 	desenhaPosicao(arvore1,-arvore1.dimensoes.x/2,fonte.dimensoes.z*1.4,0);
 	desenhaPosicao(arvore1,0,-fonte.dimensoes.z*2,0);
+}
+
+void lanchonetes(){
+	desenhaOBJ(lanchonete,180);
+	desenhaOBJ(lanchonete1,0);
 }
 
 void testeOBJ(){
