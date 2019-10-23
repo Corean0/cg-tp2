@@ -97,8 +97,9 @@ void mouseClick(int botao, int estado, int x, int y)
 				{
 					tela = 1;
 					if(start==0){
+						loading();
 						setupJogo();
-						start++;
+    						start++;
 					}glutSetCursor(GLUT_CURSOR_NONE);
 					glutReshapeWindow(largura,altura);
 				}

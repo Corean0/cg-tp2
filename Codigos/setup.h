@@ -164,7 +164,7 @@ void setupJogo(){
 
     carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_3.obj"));
     setPosicao(&pedra_3, 0,0,0);
-    setDimensoesDesprop(&pedra_3, 100,1,1);
+    setDimensoesProp(&pedra_3, TAMANHO/2.2);
 
 	for(int i=0;i<CAVALOS;i++){
 		if(rand()%2==0){

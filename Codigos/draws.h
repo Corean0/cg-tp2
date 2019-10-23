@@ -102,7 +102,6 @@ void desenhaMinhaCena()
         drawObject(sair_creditos);
     }
     
-    START++;
     glutSwapBuffers();
 }
 
@@ -331,16 +330,21 @@ void postes(){
 	desenhaPosicao(poste,-(fonte.dimensoes.x/2-1),-(fonte.dimensoes.z/2+4),0);
 
 	//postes ao lado das cadeiras e mesas
-	desenhaPosicao(poste,fonte.dimensoes.x*1.3,terreno_rua.dimensoes.x*7,0);
-	desenhaPosicao(poste,fonte.dimensoes.x*1.3,-terreno_rua.dimensoes.x*7,0);
+	desenhaPosicao(poste,fonte.dimensoes.x*1,terreno_rua.dimensoes.x*6.5,0);
+	desenhaPosicao(poste,fonte.dimensoes.x*1,-terreno_rua.dimensoes.x*6.5,0);
 
 }
 
 void arvores(){
-	//arvore próximas à fonte
-	desenhaPosicao(arvore1,arvore1.dimensoes.x/2,fonte.dimensoes.z*1.8,32);
+	//arvores próximas à fonte
+	//conjunto do lado esquerdo
+	desenhaPosicao(arvore1,arvore1.dimensoes.x/2,fonte.dimensoes.z*1.8,0);
 	desenhaPosicao(arvore1,-arvore1.dimensoes.x/2,fonte.dimensoes.z*1.4,0);
-	desenhaPosicao(arvore1,0,-fonte.dimensoes.z*2,0);
+	desenhaPosicao(pedra_3,arvore1.dimensoes.x/2,fonte.dimensoes.z*1.8-arvore1.dimensoes.z/2-pedra_3.dimensoes.z/2,45);
+	//conjunto do lado direito
+	desenhaPosicao(arvore1,arvore1.dimensoes.x/2,-fonte.dimensoes.z*1.8,0);
+	desenhaPosicao(arvore1,-arvore1.dimensoes.x/2,-fonte.dimensoes.z*1.4,0);
+	desenhaPosicao(pedra_3,-arvore1.dimensoes.x/2,-fonte.dimensoes.z*1.4-arvore1.dimensoes.z/2-pedra_3.dimensoes.z/2,30);
 }
 
 void lanchonetes(){
@@ -368,14 +372,11 @@ void carrossel(){
 			glRotatef(auxRotacaoCAR,0,1,0);
 			for(i=0;i<CAVALOS;i++){
 				glPushMatrix();
-					if(START==0);
-					else{
-						if(alturaCavalo[i] > AMP_CAVALO  && velAlt[i] > 0)
-							velAlt[i] = -CONSTANTE;
-						if(alturaCavalo[i] < -AMP_CAVALO && velAlt[i] < 0)
-							velAlt[i] = CONSTANTE;
-						alturaCavalo[i] = alturaCavalo[i]+velAlt[i];
-					}
+					if(alturaCavalo[i] > AMP_CAVALO  && velAlt[i] > 0)
+						velAlt[i] = -CONSTANTE;
+					else if(alturaCavalo[i] < -AMP_CAVALO && velAlt[i] < 0)
+						velAlt[i] = CONSTANTE;
+					alturaCavalo[i] = alturaCavalo[i]+velAlt[i];
 					glTranslatef(0,alturaCavalo[i],0);
 					glTranslatef(sin(anguloRad*i)*raio,0,cos(anguloRad*i)*raio);
 					glRotatef(-auxRotacaoCAR,0,1,0);
@@ -395,4 +396,7 @@ void testeOBJ(){
 		glTranslatef(0,OBJ.dimensoes.y/2,0);
 		glCallList(OBJ.listaVisualizacao);
 	glPopMatrix();
+}
+
+void loading(){
 }

@@ -27,7 +27,7 @@
 
 // Variaveis globais
 
-Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, arvore1,arvore2,arvore_morta, terreno, pedra_3,cerca, fonte, pipoca, pipoca1, 
+Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, arvore1, arvore2, arvore_morta, terreno, pedra_3,cerca, fonte, pipoca, pipoca1, 
 		banco, terreno_rua,terreno_rcurva,poste,lanchonete,lanchonete1,carrossel_base,carrossel_cavalo,
 		/*sumir com esse daqui antes de entregar projeto final*/OBJ;
 
@@ -35,7 +35,7 @@ spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, 
 vetorR3         camera, cursor;
 int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 0, start=0;
 float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0, auxRotacaoRGG = 0, auxRotacaoCAR = 0, 
-		alturaCavalo[CAVALOS],velAlt[CAVALOS],START=0;
+		alturaCavalo[CAVALOS],velAlt[CAVALOS];
 Mix_Chunk       *som1;
 
 // Parâmetros do modelo de iluminação: FONTE DE LUZ
@@ -73,7 +73,7 @@ void main(int argc, char** argv)
 
     // Seta valores iniciais
     
-    setupJogo();
+    setup();
  
     // Callbacks
     glutDisplayFunc(desenhaMinhaCena);
