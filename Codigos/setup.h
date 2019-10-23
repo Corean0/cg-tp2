@@ -137,12 +137,12 @@ void setupJogo(){
     setDimensoesProp(&cerca, TAMANHO);
 
     carregaOBJ(&lanchonete, glmReadOBJ("../pontos_obj/lanchonete.obj"));
-    setDimensoesProp(&lanchonete,TAMANHO*1.5);
+    setDimensoesProp(&lanchonete,TAMANHO*2);
     setPosicao(&lanchonete,0,0,-(-terreno_rua.dimensoes.x*8.5-lanchonete.dimensoes.z/2));
 
     carregaOBJ(&lanchonete1, glmReadOBJ("../pontos_obj/lanchonete.obj"));
-    setDimensoesProp(&lanchonete1,TAMANHO*1.5);
-    setPosicao(&lanchonete1,0,0,-terreno_rua.dimensoes.x*8.5-lanchonete1.dimensoes.z/2);
+    setDimensoesProp(&lanchonete1,TAMANHO*2);
+    setPosicao(&lanchonete1,0,-2,-terreno_rua.dimensoes.x*8.5-lanchonete1.dimensoes.z/2);
 
     carregaOBJ(&rodaGG_base, glmReadOBJ("../pontos_obj/base_roda_gigante.obj"));
     setDimensoesProp(&rodaGG_base,TAMANHO*2-5.5/*-ERRO VISUAL*/);
