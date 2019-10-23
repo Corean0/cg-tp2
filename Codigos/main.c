@@ -22,7 +22,8 @@
 #define TAMANHO 10
 #define CAVALOS 5
 #define VELOCIDADE_CAVALO 0.5
-#define CONSTANTE 0.06
+#define CONSTANTE 0.03
+#define AMP_CAVALO 1
 
 // Variaveis globais
 

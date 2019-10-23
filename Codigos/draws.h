@@ -65,7 +65,7 @@ void desenhaMinhaCena()
 	}
 	    
 	glClearColor(1,1,1,1);
-	//tirar condicional junto de tudo relacionado a OBJ antes de entregar
+	//tirar condicional junto de tudo relacionado a OBJ antes de entregar para professor
 	if(OBJ.listaVisualizacao!=0)
 		testeOBJ();
 	else{
@@ -257,8 +257,11 @@ void ruas(){
 		aux_rua(7,terreno_rua.dimensoes.x*2,0,1);
 		aux_rua(9,-terreno_rua.dimensoes.x*13,0,1);
 
-		//rua brinquedo 1-2
-		aux_rua(19,-terreno_rua.dimensoes.x*9,-terreno_rua.dimensoes.x*9,0);
+		//rua brinquedos 1-2
+		aux_rua(19,-terreno_rua.dimensoes.x*11,-terreno_rua.dimensoes.x*9,0);
+
+		//rua brinquedos 4-5
+		aux_rua(9,-terreno_rua.dimensoes.x*7,-terreno_rua.dimensoes.x*4,0);
 
 		//ruas para "fechar" caixa das arvores
 		aux_rua(3,-terreno_rua.dimensoes.x,-terreno_rua.dimensoes.x*6,1);
@@ -345,7 +348,7 @@ void lanchonetes(){
 	desenhaOBJ(lanchonete1,0);
 }
 
-//FUNCIONAMENTO: desenhará "CAVALOS" cavalos em um raio exterior e os fara subir e descer
+//FUNCIONAMENTO: desenhará "CAVALOS" cavalos em um raio exterior e os fara subir e descer (pensar em desenhar cavalos em raio interior também)
 void carrossel(){
 	int i;
 	const float anguloRad = (M_PI*2)/CAVALOS;
@@ -361,25 +364,28 @@ void carrossel(){
 		desenhaOBJ(carrossel_base,0);
 
 		glPushMatrix();
-			glTranslatef(carrossel_base.posicao.x,carrossel_base.posicao.y+carrossel_base.dimensoes.y/2/*ERRO*/-3,carrossel_base.posicao.z);
+			glTranslatef(carrossel_base.posicao.x,carrossel_base.posicao.y+carrossel_base.dimensoes.y/2/*ERRO*/-5,carrossel_base.posicao.z);
 			glRotatef(auxRotacaoCAR,0,1,0);
 			for(i=0;i<CAVALOS;i++){
 				glPushMatrix();
-					if(START==0)
-						glTranslatef(0,alturaCavalo[i],0);
-					if(alturaCavalo[i] > 2  && velAlt[i] > 0)
-						velAlt[i] = -CONSTANTE;
-					if(alturaCavalo[i] < -2 && velAlt[i] < 0)
-						velAlt[i] = CONSTANTE;
-					alturaCavalo[i] = alturaCavalo[i]+velAlt[i];
-					glTranslatef(sin(anguloRad*i)*raio,alturaCavalo[i],cos(anguloRad*i)*raio);
+					if(START==0);
+					else{
+						if(alturaCavalo[i] > AMP_CAVALO  && velAlt[i] > 0)
+							velAlt[i] = -CONSTANTE;
+						if(alturaCavalo[i] < -AMP_CAVALO && velAlt[i] < 0)
+							velAlt[i] = CONSTANTE;
+						alturaCavalo[i] = alturaCavalo[i]+velAlt[i];
+					}
+					glTranslatef(0,alturaCavalo[i],0);
+					glTranslatef(sin(anguloRad*i)*raio,0,cos(anguloRad*i)*raio);
 					glRotatef(-auxRotacaoCAR,0,1,0);
-				    	glScalef(carrossel_cavalo.aumento.x,carrossel_cavalo.aumento.y,carrossel_cavalo.aumento.z);
+				    glScalef(carrossel_cavalo.aumento.x,carrossel_cavalo.aumento.y,carrossel_cavalo.aumento.z);
 					glRotatef(-90,0,1,0);
-				    	glCallList(carrossel_cavalo.listaVisualizacao);
+				    glCallList(carrossel_cavalo.listaVisualizacao);
 				glPopMatrix();
 			}
 		glPopMatrix();
+		
 	glPopMatrix();
 }
 

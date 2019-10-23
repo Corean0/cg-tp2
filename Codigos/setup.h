@@ -146,7 +146,7 @@ void setupJogo(){
 
     carregaOBJ(&rodaGG_base, glmReadOBJ("../pontos_obj/base_roda_gigante.obj"));
     setDimensoesProp(&rodaGG_base,TAMANHO*2-5.5/*-ERRO VISUAL*/);
-    setPosicao(&rodaGG_base,-(-terreno_rua.dimensoes.x*13.5-rodaGG_base.dimensoes.x/2),0,0);
+    setPosicao(&rodaGG_base,-(-terreno_rua.dimensoes.x*13.5-rodaGG_base.dimensoes.x/2+2),0,0);
     carregaOBJ(&rodaGG_aro, glmReadOBJ("../pontos_obj/aro_roda_gigante.obj"));
     setPosicao(&rodaGG_aro,0,0,0);
     setDimensoesProp(&rodaGG_aro,TAMANHO*2);
@@ -156,11 +156,11 @@ void setupJogo(){
 
     carregaOBJ(&carrossel_base, glmReadOBJ("../pontos_obj/carrossel_base.obj"));
     setDimensoesProp(&carrossel_base,TAMANHO*1.5);
-    setPosicao(&carrossel_base,-terreno_rua.dimensoes.x*9,0,-terreno_rua.dimensoes.x*9.5-carrossel_base.dimensoes.x/2);
+    setPosicao(&carrossel_base,-terreno_rua.dimensoes.x*11,0,-terreno_rua.dimensoes.x*9.5-carrossel_base.dimensoes.x/2+2);
 
     carregaOBJ(&carrossel_cavalo, glmReadOBJ("../pontos_obj/carrossel_cavalo.obj"));
     setPosicao(&carrossel_cavalo,0,0,0);
-    setDimensoesProp(&carrossel_cavalo,TAMANHO/1.3);
+    setDimensoesProp(&carrossel_cavalo,TAMANHO/1.2);
 
     carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_3.obj"));
     setPosicao(&pedra_3, 0,0,0);
@@ -168,11 +168,11 @@ void setupJogo(){
 
 	for(int i=0;i<CAVALOS;i++){
 		if(rand()%2==0){
-			alturaCavalo[i]=(rand()%40)/20.0;
-			velAlt[i] = CONSTANTE;
-		}else{
-			alturaCavalo[i]=-(rand()%40)/20.0;
+			alturaCavalo[i]=(rand()%40)/40.0;
 			velAlt[i] = -CONSTANTE;
+		}else{
+			alturaCavalo[i]=-(rand()%40)/40.0;
+			velAlt[i] = CONSTANTE;
 		}		
 	}
 }
