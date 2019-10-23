@@ -160,7 +160,7 @@ void setupJogo(){
 
     carregaOBJ(&carrossel_cavalo, glmReadOBJ("../pontos_obj/carrossel_cavalo.obj"));
     setPosicao(&carrossel_cavalo,0,0,0);
-    setDimensoesProp(&carrossel_cavalo,TAMANHO/3);
+    setDimensoesProp(&carrossel_cavalo,TAMANHO/1.3);
 
     carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_3.obj"));
     setPosicao(&pedra_3, 0,0,0);
