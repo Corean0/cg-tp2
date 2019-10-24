@@ -43,3 +43,12 @@ void aux_rua(int qtdeQDD, float centrox, float centroz, int direcao){
 		}
 	}
 }
+
+//altura igual 1 significa topo e 0 significa base
+void torreParada(int altura, float tempo){
+	if(altura == 1)
+		alturaTorre = torreB.dimensoes.y-16;
+	else if(altura == 0)
+		alturaTorre = torreB.posicao.y+0.01;
+	torreP = tempo*100;
+}

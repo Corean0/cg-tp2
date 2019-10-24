@@ -24,6 +24,7 @@
 #define VELOCIDADE_CAVALO 0.5
 #define CONSTANTE 0.03
 #define AMP_CAVALO 1
+#define VEL_TORRE 3
 
 // Variaveis globais
 
@@ -35,7 +36,7 @@ spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, 
 vetorR3         camera, cursor;
 int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 0, start=0;
 float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0, auxRotacaoRGG = 0, auxRotacaoCAR = 0, 
-		alturaCavalo[CAVALOS],velAlt[CAVALOS],alturaTorre,velTor;
+		alturaCavalo[CAVALOS],velAlt[CAVALOS],alturaTorre = 0,velTor, torreP=0;
 Mix_Chunk       *som1;
 
 // Parâmetros do modelo de iluminação: FONTE DE LUZ
@@ -71,8 +72,7 @@ void main(int argc, char** argv)
     glutEnterGameMode();
     srand(time(0));
 
-    // Seta valores iniciais
-    
+    // Seta valores iniciais    
     setup();
  
     // Callbacks

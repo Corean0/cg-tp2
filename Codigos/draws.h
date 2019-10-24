@@ -395,11 +395,18 @@ void torre(){
 	glPushMatrix();
 		desenhaOBJ(torreB,90);
 		glTranslatef(torreB.posicao.x-3,torreB.posicao.y,torreB.posicao.z-12);
-		if(alturaTorre >= )
-		for(){
-		}
+		if(alturaTorre >= torreB.dimensoes.y-13){
+			torreParada(1,0);
+			velTor = -VEL_TORRE;
+		}else if(alturaTorre <= torreB.posicao.y){
+			torreParada(0,5);
+			velTor = VEL_TORRE/5.0;
+		}if(torreP <= 0)
+			alturaTorre += velTor;
+		glTranslatef(0,alturaTorre,0);
 		desenhaOBJ(torreC,0);
 	glPopMatrix();
+	torreP--;
 }
 
 void loading(){
