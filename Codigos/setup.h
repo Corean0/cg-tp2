@@ -86,7 +86,7 @@ void setupJogo(){
 
     //só teste algum obj q precisa desenhando-o no centro(acima do chão) com dimensão TAMANHO
     OBJ.listaVisualizacao=0;
-    //carregaOBJ(&OBJ, glmReadOBJ("../pontos_obj/carrossel_cavalo.obj"));
+    //carregaOBJ(&OBJ, glmReadOBJ("../pontos_obj/arena_xicaras.obj"));
 
     carregaOBJ(&poste, glmReadOBJ("../pontos_obj/poste.obj"));
     setPosicao(&poste,0,0,0);
@@ -136,7 +136,7 @@ void setupJogo(){
     setPosicao(&cerca,0,0,0);
     setDimensoesProp(&cerca, TAMANHO);
 
-    carregaOBJ(&lanchonete, glmReadOBJ("../pontos_obj/lanchonete.obj"));
+    carregaOBJ(&lanchonete, glmReadOBJ("../pontos_obj/xicara.obj"));
     setDimensoesProp(&lanchonete,TAMANHO*2);
     setPosicao(&lanchonete,0,0,-(-terreno_rua.dimensoes.x*8.5-lanchonete.dimensoes.z/2));
 
