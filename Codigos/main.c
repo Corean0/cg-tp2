@@ -24,25 +24,26 @@
 #define VELOCIDADE_CAVALO 0.5
 #define CONSTANTE 0.03
 #define AMP_CAVALO 1
+#define VEL_TORRE 3
 
 // Variaveis globais
 
 Objeto3D	rodaGG_base,rodaGG_aro,rodaGG_carro, arvore1, arvore2, arvore_morta, terreno, pedra_3,cerca, fonte, pipoca, pipoca1, 
-		banco, terreno_rua,terreno_rcurva,poste,lanchonete,lanchonete1,carrossel_base,carrossel_cavalo, mesa,
+		banco, terreno_rua,terreno_rcurva,poste,lanchonete,lanchonete1,carrossel_base,carrossel_cavalo, mesa, torreB, torreC, 
 		/*sumir com esse daqui antes de entregar projeto final*/OBJ;
 
 spriteObject    wallpaper_menu, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera, cursor;
 int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 0, start=0;
 float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0, auxRotacaoRGG = 0, auxRotacaoCAR = 0, 
-		alturaCavalo[CAVALOS],velAlt[CAVALOS];
+		alturaCavalo[CAVALOS],velAlt[CAVALOS],alturaTorre = 0,velTor, torreP=0;
 Mix_Chunk       *som1;
 
 // Parâmetros do modelo de iluminação: FONTE DE LUZ
-const GLfloat light_ambient[]  = { 0.5f, 0.5f, 0.5f, 1.0f };
+const GLfloat light_ambient[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
 const GLfloat light_diffuse[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
-const GLfloat light_specular[] = { 0.5f, 0.5f, 0.5f, 1.0f };
-const GLfloat light_position[] = { 20.0f, 50.0f, 50.0f, 0.0f };
+const GLfloat light_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+const GLfloat light_position[] = { -50.0f, 500.0f, 0.0f, 0.0f };
 
 // Parâmetros do modelo de iluminação: MATERIAL
 const GLfloat mat_ambient[]    = { 0.7f, 0.7f, 0.7f, 1.0f };
@@ -71,8 +72,7 @@ void main(int argc, char** argv)
     glutEnterGameMode();
     srand(time(0));
 
-    // Seta valores iniciais
-    
+    // Seta valores iniciais    
     setup();
  
     // Callbacks

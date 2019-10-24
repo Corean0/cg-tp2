@@ -8,7 +8,6 @@ void carregaOBJ(Objeto3D *objeto, GLMmodel* model){
 	objeto->dimensoes.x = aux[0];
 	objeto->dimensoes.y = aux[1];
 	objeto->dimensoes.z = aux[2];
-	//printf("a: %f %f %f\n\n",aux[0],aux[1],aux[2]);
 	free(model);
 }
 

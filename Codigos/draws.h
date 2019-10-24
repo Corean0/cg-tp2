@@ -18,6 +18,15 @@ void desenhaMinhaCena()
 
     else if(tela == 1)
     {
+
+	float colorFog[4] = {1.0, 1.0, 1.0, 1}; 
+    	glEnable(GL_FOG);
+    	glFogi(GL_FOG_MODE, GL_EXP2);    //GL_EXP, GL_EXP2 e GL_LINEAR
+    	//glFogf(GL_FOG_START, 100);    //onde começa e termina o fog para GL_LINEAR(-3.00 ate 3.00)
+    	//glFogf(GL_FOG_END, 5);
+    	glFogf(GL_FOG_DENSITY, 0.005);   //densidade do fog, 0.00 á 3.00
+    	glFogfv(GL_FOG_COLOR, colorFog);
+
 	//isso aqui n ta "direito"
 	//configura3D();
         movimentacao();
@@ -79,6 +88,7 @@ void desenhaMinhaCena()
 		lanchonetes();
 		desenhaRodaGigante();
 		carrossel();
+		torre();
 		//interface com problema de não saber configurar 2/3D
 		//desenhaInterface();
 	}
@@ -390,13 +400,31 @@ void carrossel(){
 	glPopMatrix();
 }
 
+void torre(){
+	glPushMatrix();
+		desenhaOBJ(torreB,90);
+		glTranslatef(torreB.posicao.x-3,torreB.posicao.y,torreB.posicao.z-12);
+		if(alturaTorre >= torreB.dimensoes.y-13){
+			torreParada(1,0.5);
+			velTor = -VEL_TORRE;
+		}else if(alturaTorre <= torreB.posicao.y){
+			torreParada(0,1);
+			velTor = VEL_TORRE/5.0;
+		}if(torreP <= 0)
+			alturaTorre += velTor;
+		glTranslatef(0,alturaTorre,0);
+		desenhaOBJ(torreC,0);
+	glPopMatrix();
+	torreP--;
+}
+
+void loading(){
+}
+
 void testeOBJ(){
 	glPushMatrix();
 		glScalef(TAMANHO,TAMANHO,TAMANHO);
 		glTranslatef(0,OBJ.dimensoes.y/2,0);
 		glCallList(OBJ.listaVisualizacao);
 	glPopMatrix();
-}
-
-void loading(){
 }
