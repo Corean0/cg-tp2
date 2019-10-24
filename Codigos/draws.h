@@ -79,6 +79,7 @@ void desenhaMinhaCena()
 		lanchonetes();
 		desenhaRodaGigante();
 		carrossel();
+		torre();
 		//interface com problema de não saber configurar 2/3D
 		//desenhaInterface();
 	}
@@ -390,13 +391,24 @@ void carrossel(){
 	glPopMatrix();
 }
 
+void torre(){
+	glPushMatrix();
+		desenhaOBJ(torreB,90);
+		glTranslatef(torreB.posicao.x-3,torreB.posicao.y,torreB.posicao.z-12);
+		if(alturaTorre >= )
+		for(){
+		}
+		desenhaOBJ(torreC,0);
+	glPopMatrix();
+}
+
+void loading(){
+}
+
 void testeOBJ(){
 	glPushMatrix();
 		glScalef(TAMANHO,TAMANHO,TAMANHO);
 		glTranslatef(0,OBJ.dimensoes.y/2,0);
 		glCallList(OBJ.listaVisualizacao);
 	glPopMatrix();
-}
-
-void loading(){
 }

@@ -136,9 +136,9 @@ void setupJogo(){
     setPosicao(&cerca,0,0,0);
     setDimensoesProp(&cerca, TAMANHO);
 
-    carregaOBJ(&lanchonete, glmReadOBJ("../pontos_obj/xicara.obj"));
+    carregaOBJ(&lanchonete, glmReadOBJ("../pontos_obj/lanchonete.obj"));
     setDimensoesProp(&lanchonete,TAMANHO*2);
-    setPosicao(&lanchonete,0,0,-(-terreno_rua.dimensoes.x*8.5-lanchonete.dimensoes.z/2));
+    setPosicao(&lanchonete,0,-2,-(-terreno_rua.dimensoes.x*8.5-lanchonete.dimensoes.z/2));
 
     carregaOBJ(&lanchonete1, glmReadOBJ("../pontos_obj/lanchonete.obj"));
     setDimensoesProp(&lanchonete1,TAMANHO*2);
@@ -165,6 +165,14 @@ void setupJogo(){
     carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_3.obj"));
     setPosicao(&pedra_3, 0,0,0);
     setDimensoesProp(&pedra_3, TAMANHO/2.2);
+
+    carregaOBJ(&torreB, glmReadOBJ("../pontos_obj/torre.obj"));
+    setDimensoesProp(&torreB,TAMANHO*3);
+    setPosicao(&torreB,-terreno_rua.dimensoes.x*7,0.2,-terreno_rua.dimensoes.x*3-torreB.dimensoes.z/2);
+
+    carregaOBJ(&torreC, glmReadOBJ("../pontos_obj/banco_da_torre.obj"));
+    setPosicao(&torreC,0,0,0);
+    setDimensoesProp(&torreC,torreB.aumento.x/4.2);
 
 	for(int i=0;i<CAVALOS;i++){
 		if(rand()%2==0){

@@ -39,3 +39,4 @@ void arvores();
 void lanchonetes();
 void carrossel();
 void loading();
+void torre();
