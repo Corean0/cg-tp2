@@ -40,10 +40,10 @@ float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 
 Mix_Chunk       *som1;
 
 // Parâmetros do modelo de iluminação: FONTE DE LUZ
-const GLfloat light_ambient[]  = { 0.5f, 0.5f, 0.5f, 1.0f };
+const GLfloat light_ambient[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
 const GLfloat light_diffuse[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
-const GLfloat light_specular[] = { 0.5f, 0.5f, 0.5f, 1.0f };
-const GLfloat light_position[] = { 20.0f, 50.0f, 50.0f, 0.0f };
+const GLfloat light_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+const GLfloat light_position[] = { -50.0f, 500.0f, 0.0f, 0.0f };
 
 // Parâmetros do modelo de iluminação: MATERIAL
 const GLfloat mat_ambient[]    = { 0.7f, 0.7f, 0.7f, 1.0f };
