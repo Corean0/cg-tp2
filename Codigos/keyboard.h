@@ -168,7 +168,7 @@ void movimentacao()
 		cursor.y++;
 	}
 
-	if(keyboard[81] == 1)
+	if(keyboard[81] == 1 && cursor.y>5)
 	{
 		cursor.y--;
 	}

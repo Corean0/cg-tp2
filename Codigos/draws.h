@@ -21,9 +21,9 @@ void desenhaMinhaCena()
 
 	float colorFog[4] = {1.0, 1.0, 1.0, 1}; 
     	glEnable(GL_FOG);
-    	glFogi(GL_FOG_MODE, GL_EXP2);    //GL_EXP, GL_EXP2 e GL_LINEAR
-    	//glFogf(GL_FOG_START, 100);    //onde começa e termina o fog para GL_LINEAR(-3.00 ate 3.00)
-    	//glFogf(GL_FOG_END, 5);
+    	glFogi(GL_FOG_MODE, GL_LINEAR);    //GL_EXP, GL_EXP2 e GL_LINEAR
+    	glFogf(GL_FOG_START, 100);    //onde começa e termina o fog para GL_LINEAR(-3.00 ate 3.00)
+    	glFogf(GL_FOG_END, 200);
     	glFogf(GL_FOG_DENSITY, 0.005);   //densidade do fog, 0.00 á 3.00
     	glFogfv(GL_FOG_COLOR, colorFog);
 
@@ -42,8 +42,10 @@ void desenhaMinhaCena()
         {
             // Camera simples
             default:
-
-                gluLookAt(0, 0, 200, 0, 0, 0, 0, 1, 0);
+				
+                //gluLookAt(-80, 30, 0,-120, 25, 0, 0, 1, 0); // Roda Gigante
+				//gluLookAt(-30, 30, -10, -60, 28, -40, 0, 1, 0); // Carrosel
+				gluLookAt(-108, 25, -50,-108, 23, -55, 0, 1, 0); // Torre que cai
                 break;
 
             // Camera primeira pessoa
