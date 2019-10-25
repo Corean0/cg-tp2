@@ -83,17 +83,17 @@ void desenhaMinhaCena()
 	    	desenhaOBJ(fonte,0);
 		pipocas();
 		//cercas();
-		bancos();
 		postes();
-		ruas();
+		torre();
 		arvores();
 		lanchonetes();
 		desenhaRodaGigante();
 		carrossel();
-		torre();
 		//interface com problema de não saber configurar 2/3D
 		//desenhaInterface();
 	}
+	bancos();
+	ruas();
 	chao();
 
 	if (isLightingOn)
@@ -407,11 +407,11 @@ void torre(){
 		desenhaOBJ(torreB,90);
 		glTranslatef(torreB.posicao.x-3,torreB.posicao.y,torreB.posicao.z-12);
 		if(alturaTorre >= torreB.dimensoes.y-13){
-			torreParada(1,0.5);
+			torreParada(1,1.5);
 			velTor = -VEL_TORRE;
 		}else if(alturaTorre <= torreB.posicao.y){
-			torreParada(0,1);
-			velTor = VEL_TORRE/5.0;
+			torreParada(0,3);
+			velTor = VEL_TORRE/10.0;
 		}if(torreP <= 0)
 			alturaTorre += velTor;
 		glTranslatef(0,alturaTorre,0);

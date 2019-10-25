@@ -50,5 +50,5 @@ void torreParada(int altura, float tempo){
 		alturaTorre = torreB.dimensoes.y-13.1;
 	else if(altura == 0)
 		alturaTorre = torreB.posicao.y+0.01;
-	torreP = tempo*10;
+	torreP = tempo*30;
 }

@@ -16,7 +16,7 @@ void begin3d();
 void movimentacao();
 void desenhaInterface();
 void desenhaRodaGigante();
-void carregOBJ(Objeto3D *objeto, GLMmodel* model);
+void carregOBJ(Objeto3D *objeto, GLMmodel* model, bool controle);
 void desenhaOBJ(Objeto3D objeto, float rotacao);
 void setDimensoesProp(Objeto3D *objeto,float aumento);
 void setDimensoesDesprop(Objeto3D *objeto, float x, float y, float z);

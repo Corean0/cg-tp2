@@ -79,7 +79,7 @@ void setupJogo(){
     // TAMANHO é a variavel global de parametrização de tamanho para as coisas
     /* Para dar ctrl C
 
-    carregaOBJ(&, glmReadOBJ("../pontos_obj/.obj"));
+    carregaOBJ(&, glmReadOBJ("../pontos_obj/.obj",true));
     setPosicao(&,0,0,0);
     setDimensoesProp(&,TAMANHO);
     */
@@ -88,89 +88,89 @@ void setupJogo(){
     OBJ.listaVisualizacao=0;
     //carregaOBJ(&OBJ, glmReadOBJ("../pontos_obj/arena_xicaras.obj"));
 
-    carregaOBJ(&poste, glmReadOBJ("../pontos_obj/poste.obj"));
+    carregaOBJ(&poste, glmReadOBJ("../pontos_obj/poste.obj"),true);
     setPosicao(&poste,0,0,0);
     setDimensoesProp(&poste,TAMANHO*1.6/2);
 
-    carregaOBJ(&arvore1, glmReadOBJ("../pontos_obj/arvore_1.obj"));
+    carregaOBJ(&arvore1, glmReadOBJ("../pontos_obj/arvore_1.obj"),true);
     setPosicao(&arvore1,0,0,0);
     setDimensoesProp(&arvore1,TAMANHO);
 
-    carregaOBJ(&arvore2, glmReadOBJ("../pontos_obj/arvore_2.obj"));
+    carregaOBJ(&arvore2, glmReadOBJ("../pontos_obj/arvore_2.obj"),true);
     setPosicao(&arvore2,0,0,0);
     setDimensoesProp(&arvore2,TAMANHO);
 
-    carregaOBJ(&arvore_morta, glmReadOBJ("../pontos_obj/arvore_morta.obj"));
+    carregaOBJ(&arvore_morta, glmReadOBJ("../pontos_obj/arvore_morta.obj"),true);
     setPosicao(&arvore_morta,0,0,0);
     setDimensoesProp(&arvore_morta,TAMANHO);
 
-    carregaOBJ(&terreno, glmReadOBJ("../pontos_obj/terreno.obj"));
+    carregaOBJ(&terreno, glmReadOBJ("../pontos_obj/terreno.obj"),false);
     setDimensoesDesprop(&terreno,TAMANHO*3,TAMANHO,TAMANHO*3);
     setPosicao(&terreno, 0,0,0);
 
-    carregaOBJ(&fonte, glmReadOBJ("../pontos_obj/fonte.obj"));
+    carregaOBJ(&fonte, glmReadOBJ("../pontos_obj/fonte.obj"),true);
     setDimensoesProp(&fonte, TAMANHO+TAMANHO/3);
     setPosicao(&fonte,0,0,0);
 
-    carregaOBJ(&pipoca, glmReadOBJ("../pontos_obj/pipoca.obj"));
+    carregaOBJ(&pipoca, glmReadOBJ("../pontos_obj/pipoca.obj"),true);
     setDimensoesProp(&pipoca, TAMANHO/2.3);
     setPosicao(&pipoca, -30, 0,-10);
 
-    carregaOBJ(&pipoca1, glmReadOBJ("../pontos_obj/pipoca.obj"));
+    carregaOBJ(&pipoca1, glmReadOBJ("../pontos_obj/pipoca.obj"),true);
     setDimensoesProp(&pipoca1, TAMANHO/2.3);
     setPosicao(&pipoca1, -30, 0,10);
   
-    carregaOBJ(&banco, glmReadOBJ("../pontos_obj/banco.obj"));
+    carregaOBJ(&banco, glmReadOBJ("../pontos_obj/banco.obj"),true);
     setPosicao(&banco, 0,0,0);
     setDimensoesProp(&banco, TAMANHO/2.8);
 
-    carregaOBJ(&terreno_rua, glmReadOBJ("../pontos_obj/terreno_rua_quadrado.obj"));
+    carregaOBJ(&terreno_rua, glmReadOBJ("../pontos_obj/terreno_rua_quadrado.obj"),false);
     setPosicao(&terreno_rua, 0,0,0);
     setDimensoesProp(&terreno_rua,TAMANHO/2);
 
-    carregaOBJ(&terreno_rcurva, glmReadOBJ("../pontos_obj/terreno_rua_curva.obj"));
+    carregaOBJ(&terreno_rcurva, glmReadOBJ("../pontos_obj/terreno_rua_curva.obj"),false);
     setPosicao(&terreno_rcurva, 0,0,0);
     setDimensoesProp(&terreno_rcurva,TAMANHO*1.26);
 
-    carregaOBJ(&cerca, glmReadOBJ("../pontos_obj/cerca.obj"));
+    carregaOBJ(&cerca, glmReadOBJ("../pontos_obj/cerca.obj"),true);
     setPosicao(&cerca,0,0,0);
     setDimensoesProp(&cerca, TAMANHO);
 
-    carregaOBJ(&lanchonete, glmReadOBJ("../pontos_obj/lanchonete.obj"));
+    carregaOBJ(&lanchonete, glmReadOBJ("../pontos_obj/lanchonete.obj"),true);
     setDimensoesProp(&lanchonete,TAMANHO*2);
     setPosicao(&lanchonete,0,-2,-(-terreno_rua.dimensoes.x*8.5-lanchonete.dimensoes.z/2));
 
-    carregaOBJ(&lanchonete1, glmReadOBJ("../pontos_obj/lanchonete.obj"));
+    carregaOBJ(&lanchonete1, glmReadOBJ("../pontos_obj/lanchonete.obj"),true);
     setDimensoesProp(&lanchonete1,TAMANHO*2);
     setPosicao(&lanchonete1,0,-2,-terreno_rua.dimensoes.x*8.5-lanchonete1.dimensoes.z/2);
 
-    carregaOBJ(&rodaGG_base, glmReadOBJ("../pontos_obj/base_roda_gigante.obj"));
+    carregaOBJ(&rodaGG_base, glmReadOBJ("../pontos_obj/base_roda_gigante.obj"),true);
     setDimensoesProp(&rodaGG_base,TAMANHO*2-5.5/*-ERRO VISUAL*/);
     setPosicao(&rodaGG_base,-(-terreno_rua.dimensoes.x*13.5-rodaGG_base.dimensoes.x/2+2),0,0);
-    carregaOBJ(&rodaGG_aro, glmReadOBJ("../pontos_obj/aro_roda_gigante.obj"));
+    carregaOBJ(&rodaGG_aro, glmReadOBJ("../pontos_obj/aro_roda_gigante.obj"),true);
     setPosicao(&rodaGG_aro,0,0,0);
     setDimensoesProp(&rodaGG_aro,TAMANHO*2);
-    carregaOBJ(&rodaGG_carro, glmReadOBJ("../pontos_obj/carrinho_vermelho.obj"));
+    carregaOBJ(&rodaGG_carro, glmReadOBJ("../pontos_obj/carrinho_vermelho.obj"),true);
     setPosicao(&rodaGG_carro,0,0,0);
     setDimensoesProp(&rodaGG_carro,TAMANHO*2/5);
 
-    carregaOBJ(&carrossel_base, glmReadOBJ("../pontos_obj/carrossel_base.obj"));
+    carregaOBJ(&carrossel_base, glmReadOBJ("../pontos_obj/carrossel_base.obj"),true);
     setDimensoesProp(&carrossel_base,TAMANHO*1.5);
     setPosicao(&carrossel_base,-terreno_rua.dimensoes.x*11,0,-terreno_rua.dimensoes.x*9.5-carrossel_base.dimensoes.x/2+2);
 
-    carregaOBJ(&carrossel_cavalo, glmReadOBJ("../pontos_obj/carrossel_cavalo.obj"));
+    carregaOBJ(&carrossel_cavalo, glmReadOBJ("../pontos_obj/carrossel_cavalo.obj"),true);
     setPosicao(&carrossel_cavalo,0,0,0);
     setDimensoesProp(&carrossel_cavalo,TAMANHO/1.2);
 
-    carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_3.obj"));
+    carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_3.obj"),true);
     setPosicao(&pedra_3, 0,0,0);
     setDimensoesProp(&pedra_3, TAMANHO/2.2);
 
-    carregaOBJ(&torreB, glmReadOBJ("../pontos_obj/torre.obj"));
+    carregaOBJ(&torreB, glmReadOBJ("../pontos_obj/torre.obj"),true);
     setDimensoesProp(&torreB,TAMANHO*3);
     setPosicao(&torreB,-terreno_rua.dimensoes.x*7,0.2,-terreno_rua.dimensoes.x*3-torreB.dimensoes.z/2);
 
-    carregaOBJ(&torreC, glmReadOBJ("../pontos_obj/banco_da_torre.obj"));
+    carregaOBJ(&torreC, glmReadOBJ("../pontos_obj/banco_da_torre.obj"),true);
     setPosicao(&torreC,0,0,0);
     setDimensoesProp(&torreC,torreB.aumento.x/4.2);
 
