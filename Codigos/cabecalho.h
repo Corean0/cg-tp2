@@ -41,3 +41,4 @@ void carrossel();
 void loading();
 void torre();
 void torreParada(int altura, float tempo);
+void xicaras_malucas();

@@ -8,8 +8,8 @@ void carregaOBJ(Objeto3D *objeto, GLMmodel* model, bool controle){
 	objeto->dimensoes.x = aux[0];
 	objeto->dimensoes.y = aux[1];
 	objeto->dimensoes.z = aux[2];
-	//if(controle)
-		//glmDelete(model);
+	if(controle)
+		glmDelete(model);
 }
 
 void setDimensoesProp(Objeto3D *objeto,float aumento){

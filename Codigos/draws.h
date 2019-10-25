@@ -89,11 +89,12 @@ void desenhaMinhaCena()
 		lanchonetes();
 		desenhaRodaGigante();
 		carrossel();
+		bancos();
+		ruas();
+		xicaras_malucas();
 		//interface com problema de não saber configurar 2/3D
 		//desenhaInterface();
 	}
-	bancos();
-	ruas();
 	chao();
 
 	if (isLightingOn)
@@ -412,12 +413,47 @@ void torre(){
 		}else if(alturaTorre <= torreB.posicao.y){
 			torreParada(0,3);
 			velTor = VEL_TORRE/10.0;
-		}if(torreP <= 0)
+		}if(torreP <= 0){
+			torreP = 0;
 			alturaTorre += velTor;
+		}else
+			torreP--;
 		glTranslatef(0,alturaTorre,0);
 		desenhaOBJ(torreC,0);
 	glPopMatrix();
-	torreP--;
+}
+
+void xicaras_malucas(){
+	const float angulo = (M_PI*2)/(float)XICARAS;
+	const float raio = XM_base.dimensoes.z/2;
+
+	auxRotacaoX += VEL_XICARA;
+	if(auxRotacaoX == 360)
+		auxRotacaoX = 0;
+
+	glPushMatrix();
+		desenhaOBJ(XM_base,0);
+		glTranslatef(XM_base.posicao.x,XM_base.posicao.y+0.3,XM_base.posicao.z);
+		glRotatef(auxRotacaoX,0,1,0);
+		for(int i=0; i<XICARAS; i++){
+			glPushMatrix();
+			glTranslatef(sin(angulo*i)*raio,0,cos(angulo*i)*raio);
+			glRotatef(-auxRotacaoX,0,1,0);
+			if(randomX<180);
+			else{
+				if(rand()%2 == 0)
+					rotacaoXX[i] = VEL_XX;
+				else
+					rotacaoXX[i] = -VEL_XX;
+				if(i == XICARAS)
+					randomX = 0;
+			}rotacaoXXX[i] += rotacaoXX[i];
+			glRotatef(rotacaoXXX[i],0,1,0);
+			desenhaOBJ(XM_xicara,0);
+			glPopMatrix();
+		}
+	glPopMatrix();
+	randomX++;
 }
 
 void loading(){

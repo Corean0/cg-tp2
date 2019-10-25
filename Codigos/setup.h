@@ -86,7 +86,7 @@ void setupJogo(){
 
     //só teste algum obj q precisa desenhando-o no centro(acima do chão) com dimensão TAMANHO
     OBJ.listaVisualizacao=0;
-    //carregaOBJ(&OBJ, glmReadOBJ("../pontos_obj/arena_xicaras.obj"));
+    //carregaOBJ(&OBJ, glmReadOBJ("../pontos_obj/arena_xicaras.obj"), false);
 
     carregaOBJ(&poste, glmReadOBJ("../pontos_obj/poste.obj"),true);
     setPosicao(&poste,0,0,0);
@@ -174,6 +174,14 @@ void setupJogo(){
     setPosicao(&torreC,0,0,0);
     setDimensoesProp(&torreC,torreB.aumento.x/4.2);
 
+    carregaOBJ(&XM_base, glmReadOBJ("../pontos_obj/arena_xicaras.obj"),true);
+    setPosicao(&XM_base,-terreno_rua.dimensoes.x*11,0,terreno_rua.dimensoes.x*10.5+XM_base.dimensoes.z/2+1);
+    setDimensoesProp(&XM_base,TAMANHO*2);
+
+    carregaOBJ(&XM_xicara, glmReadOBJ("../pontos_obj/xicara.obj"),true);
+    setPosicao(&XM_xicara,0,0,0);
+    setDimensoesProp(&XM_xicara,XM_base.aumento.x/4);
+
 	for(int i=0;i<CAVALOS;i++){
 		if(rand()%2==0){
 			alturaCavalo[i]=(rand()%40)/40.0;
@@ -182,5 +190,12 @@ void setupJogo(){
 			alturaCavalo[i]=-(rand()%40)/40.0;
 			velAlt[i] = CONSTANTE;
 		}		
+	}
+	
+	for(int i=0; i<XICARAS; i++){
+		if(rand()%2==0)
+			rotacaoXX[i] = VEL_XX;
+		else
+			rotacaoXX[i] = -VEL_XX;
 	}
 }
