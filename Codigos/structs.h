@@ -16,6 +16,7 @@ typedef struct spriteObject
 
 } spriteObject;
 
+// Objetos em 3D
 typedef struct Objeto3D
 {
 	vetorR3 posicao;

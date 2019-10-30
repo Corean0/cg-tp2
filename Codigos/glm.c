@@ -38,15 +38,9 @@
 #include <string.h>
 #include <assert.h>
 #include "glm.h"
-/*
-#define DEBUG
-#define GLDEBUG
-*/
 #include "glmint.h"
 
 #define T(x) (model->triangles[(x)])
-
-
 
 /* _GLMnode: general purpose node */
 typedef struct _GLMnode {
@@ -54,7 +48,6 @@ typedef struct _GLMnode {
     GLboolean      averaged;
     struct _GLMnode* next;
 } GLMnode;
-
 
 /* glmMax: returns the maximum of two floats */
 static GLfloat

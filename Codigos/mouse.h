@@ -5,7 +5,7 @@ void mouseMove(int x, int y)
 	double xChange, yChange;
 
 	// Posicao atual do mouse
-    	mouse.posicao.x = x;
+    mouse.posicao.x = x;
    	mouse.posicao.y = altura - y;
 
    	// Salvando as alteracoes realizadas na camera do jogador
@@ -67,8 +67,8 @@ void mouseMove(int x, int y)
 			sair_menu.textura = loadTexture("../Imagens/sair_branco.png");
 	}
 
-	// Efeito hover nos creditos
-	if(tela == 3)
+	// Efeito hover nos Creditos e nos Controles
+	if(tela == 3 || tela == 2)
 	{		
 		if(mouse.posicao.x < sair_creditos.posicao.x + sair_creditos.dimensoes.x/2 && mouse.posicao.x > sair_creditos.posicao.x - sair_creditos.dimensoes.x/2 &&
 		   mouse.posicao.y < sair_creditos.posicao.y + sair_creditos.dimensoes.y/2 && mouse.posicao.y > sair_creditos.posicao.y - sair_creditos.dimensoes.y/2)
@@ -96,11 +96,14 @@ void mouseClick(int botao, int estado, int x, int y)
 				   mouse.posicao.y < jogar.posicao.y + jogar.dimensoes.y/2 && mouse.posicao.y > jogar.posicao.y - jogar.dimensoes.y/2)
 				{
 					tela = 1;
-					if(start==0){
+					if(start == 0)
+					{
 						loading();
 						setupJogo();
     						start++;
-					}glutSetCursor(GLUT_CURSOR_NONE);
+					}
+
+					glutSetCursor(GLUT_CURSOR_NONE);
 					glutReshapeWindow(largura,altura);
 				}
 
@@ -126,8 +129,8 @@ void mouseClick(int botao, int estado, int x, int y)
 				}
 			}
 
-			// Creditos
-			if(tela == 3)
+			// Creditos ou Controles
+			if(tela == 3 || tela == 2)
 			{
 				// Clicando "Sair"
 				if(mouse.posicao.x < sair_creditos.posicao.x + sair_creditos.dimensoes.x/2 && mouse.posicao.x > sair_creditos.posicao.x - sair_creditos.dimensoes.x/2 &&

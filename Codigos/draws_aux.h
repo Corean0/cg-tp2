@@ -1,11 +1,12 @@
 /*
 LEMBRETE:
-eixo x: altera cima/baixo, sendo positivo levando mais para baixo
-eixo z: altera direita/esquerda, sendo positivo levando mais para esquerda
+Eixo x: altera cima/baixo, sendo positivo levando mais para baixo
+Eixo z: altera direita/esquerda, sendo positivo levando mais para esquerda
 */
 
-void aux_cerca(int qtdeQDD, float centrox, float centroz, int direcao){
-	//faz crescer na vertical e para "baixo", centro deve coincidir com a cera mais acima do sistema
+void aux_cerca(int qtdeQDD, float centrox, float centroz, int direcao)
+{
+	// Cresce na vertical para baixo, centro deve coincidir com a cerca mais acima do sistema
 	if(direcao==1)
 		for(int random=0; random<qtdeQDD; random++){
 			glPushMatrix();
@@ -13,8 +14,7 @@ void aux_cerca(int qtdeQDD, float centrox, float centroz, int direcao){
 				desenhaPosicao(cerca,centrox,centroz,0);
 			glPopMatrix();
 		}
-	//direcao==0 ou qlq outro nmr
-	//faz crescer na horizontal para "esquerda", o centro deve ser o centro da cerca mais á "direita"
+	// Cresce na horizontal para esquerda, o centro deve ser o centro da cerca mais à direita
 	else
 		for(int random=0; random<qtdeQDD; random++){
 			glPushMatrix();
@@ -24,18 +24,24 @@ void aux_cerca(int qtdeQDD, float centrox, float centroz, int direcao){
 		}		
 }
 
-//direcao == 1: eixo z, senão eixo x
-//tem q passar o centrox e centroy
+// Direcao == 1: eixo z
+// Direcao == 0: eixo x
+// Parametros: centrox e centroy
 void aux_rua(int qtdeQDD, float centrox, float centroz, int direcao){
-	if(direcao==1){
-		for(int random = 0; random<qtdeQDD ; random++){
+	if(direcao == 1)
+	{
+		for(int random = 0; random<qtdeQDD ; random++)
+		{
 			glPushMatrix();
 				glTranslatef(terreno_rua.dimensoes.z*random,0,0);
 				desenhaPosicao(terreno_rua,centrox,centroz,0);				
 			glPopMatrix();
 		}
-	}else{
-		for(int random = 0; random<qtdeQDD ; random++){
+	}
+	else
+	{
+		for(int random = 0; random<qtdeQDD ; random++)
+		{
 			glPushMatrix();
 				glTranslatef(0,0,terreno_rua.dimensoes.x*random);
 				desenhaPosicao(terreno_rua,centrox,centroz,0);
@@ -44,11 +50,18 @@ void aux_rua(int qtdeQDD, float centrox, float centroz, int direcao){
 	}
 }
 
-//altura igual 1 significa topo e 0 significa base
-void torreParada(int altura, float tempo){
+// Altura = 1 Topo
+// Altura = 0 Base
+void torreParada(int altura, float tempo)
+{
 	if(altura == 1)
+	{
 		alturaTorre = torreB.dimensoes.y-13.1;
+	}
 	else if(altura == 0)
+	{
 		alturaTorre = torreB.posicao.y+0.01;
+	}
+
 	torreP = tempo*30;
 }

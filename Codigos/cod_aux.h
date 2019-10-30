@@ -1,4 +1,5 @@
-void carregaOBJ(Objeto3D *objeto, GLMmodel* model, bool controle){
+void carregaOBJ(Objeto3D *objeto, GLMmodel* model, bool controle)
+{
 	glmUnitize(model);
 	glmFacetNormals(model);
 	glmVertexNormals(model, 90.0, 1);
@@ -12,33 +13,37 @@ void carregaOBJ(Objeto3D *objeto, GLMmodel* model, bool controle){
 		glmDelete(model);
 }
 
-void setDimensoesProp(Objeto3D *objeto,float aumento){
+void setDimensoesProp(Objeto3D *objeto,float aumento)
+{
 	objeto->aumento.x = aumento;
 	objeto->aumento.y = aumento;
 	objeto->aumento.z = aumento;
 	attDimensoes(objeto);
 }
 
-void setDimensoesDesprop(Objeto3D *objeto, float x, float y, float z){
+void setDimensoesDesprop(Objeto3D *objeto, float x, float y, float z)
+{
 	objeto->aumento.x = x;
 	objeto->aumento.y = y;
 	objeto->aumento.z = z;
 	attDimensoes(objeto);
 }
 
-void setPosicao(Objeto3D *objeto,float x, float y, float z){
+void setPosicao(Objeto3D *objeto,float x, float y, float z)
+{
 	objeto->posicao.x = x;
 	objeto->posicao.y = y;
 	objeto->posicao.z = z;
 }
 
-//Não tenho nem ideia mas to testando pra ver se funciona
-void configura3D(){
+// Teste
+void configura3D()
+{
 	glEnable(GL_DEPTH_TEST);
         glViewport (0, 0, largura, altura);
         glMatrixMode (GL_PROJECTION);
         glLoadIdentity();
-	gluPerspective(60.0, (float)largura/(float)altura, 0.2, 400.0);     //colocar fovy entre 45.0 e 60.0
+	gluPerspective(60.0, (float)largura/(float)altura, 0.2, 400.0);     // Fovy entre 45.0 e 60.0
 	glMaterialfv(GL_FRONT, GL_AMBIENT,   mat_ambient);
     	glMaterialfv(GL_FRONT, GL_DIFFUSE,   mat_diffuse);
     	glMaterialfv(GL_FRONT, GL_SPECULAR,  mat_specular);
@@ -46,7 +51,8 @@ void configura3D(){
    	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 }
 
-void configura2D(){
+void configura2D()
+{
 	glDisable(GL_DEPTH_TEST);
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
@@ -54,7 +60,8 @@ void configura2D(){
         glMatrixMode(GL_MODELVIEW);
 }
 
-void attDimensoes(Objeto3D *objeto){
+void attDimensoes(Objeto3D *objeto)
+{
 	objeto->dimensoes.x=objeto->dimensoes.x*objeto->aumento.x;
 	objeto->dimensoes.y=objeto->dimensoes.y*objeto->aumento.y;
 	objeto->dimensoes.z=objeto->dimensoes.z*objeto->aumento.z;

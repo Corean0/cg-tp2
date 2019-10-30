@@ -20,26 +20,34 @@ void setup()
     cursor.y = 0;
     cursor.z = 0;
 	
+    // Texturas 2D
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
     jogar.textura = loadTexture("../Imagens/jogar_branco.png");
     controles.textura = loadTexture("../Imagens/controles_branco.png");
     creditos.textura = loadTexture("../Imagens/creditos_branco.png");
     sair_menu.textura = loadTexture("../Imagens/sair_branco.png");
     sair_creditos.textura = loadTexture("../Imagens/sair_branco.png");
+    wallpaper_controles.textura = loadTexture("../Imagens/wallpaper_controles.png");
     wallpaper_creditos.textura = loadTexture("../Imagens/wallpaper_creditos.png");
+    wallpaper_controles.textura = loadTexture("../Imagens/wallpaper_controles.png");
 
-    float matAmbAndDif[4] = {1.0, 1.0, 1.0, 1.0};    // vetor cor ambiente e difusa: branca
-    float matShine[] = {5};                          // expoente especular (shininess)
+    float matAmbAndDif[4] = {1.0, 1.0, 1.0, 1.0};    // Vetor cor ambiente e difusa: branca
+    float matShine[] = {5};                          // Expoente especular (shininess)
     int light = 0;
 }
 
 void attPosicao()
 {
-    // Objetos gerais
+    // Objetos gerais 2D
     wallpaper_menu.dimensoes.x = largura;
     wallpaper_menu.dimensoes.y = altura;
     wallpaper_menu.posicao.x = largura/2;
     wallpaper_menu.posicao.y = altura/2;
+
+    wallpaper_controles.dimensoes.x = largura;
+    wallpaper_controles.dimensoes.y = altura;
+    wallpaper_controles.posicao.x = largura/2;
+    wallpaper_controles.posicao.y = altura/2;
 
     jogar.dimensoes.x = largura/6;
     jogar.dimensoes.y = altura/12;
@@ -84,7 +92,7 @@ void setupJogo(){
     setDimensoesProp(&,TAMANHO);
     */
 
-    //só teste algum obj q precisa desenhando-o no centro(acima do chão) com dimensão TAMANHO
+    // Teste de objeto unico
     OBJ.listaVisualizacao=0;
     //carregaOBJ(&OBJ, glmReadOBJ("../pontos_obj/arena_xicaras.obj"), false);
 
@@ -157,7 +165,6 @@ void setupJogo(){
     carregaOBJ(&carrossel_base, glmReadOBJ("../pontos_obj/carrossel_base.obj"),true);
     setDimensoesProp(&carrossel_base,TAMANHO*1.5);
     setPosicao(&carrossel_base,-terreno_rua.dimensoes.x*11,0,-terreno_rua.dimensoes.x*9.5-carrossel_base.dimensoes.x/2+2);
-
     carregaOBJ(&carrossel_cavalo, glmReadOBJ("../pontos_obj/carrossel_cavalo.obj"),true);
     setPosicao(&carrossel_cavalo,0,0,0);
     setDimensoesProp(&carrossel_cavalo,TAMANHO/1.2);
@@ -169,7 +176,6 @@ void setupJogo(){
     carregaOBJ(&torreB, glmReadOBJ("../pontos_obj/torre.obj"),true);
     setDimensoesProp(&torreB,TAMANHO*3);
     setPosicao(&torreB,-terreno_rua.dimensoes.x*7,0.2,-terreno_rua.dimensoes.x*3-torreB.dimensoes.z/2);
-
     carregaOBJ(&torreC, glmReadOBJ("../pontos_obj/banco_da_torre.obj"),true);
     setPosicao(&torreC,0,0,0);
     setDimensoesProp(&torreC,torreB.aumento.x/4.2);
@@ -177,23 +183,26 @@ void setupJogo(){
     carregaOBJ(&XM_base, glmReadOBJ("../pontos_obj/arena_xicaras.obj"),true);
     setPosicao(&XM_base,-terreno_rua.dimensoes.x*11,0,terreno_rua.dimensoes.x*10.5+XM_base.dimensoes.z/2+1);
     setDimensoesProp(&XM_base,TAMANHO*2);
-
     carregaOBJ(&XM_xicara, glmReadOBJ("../pontos_obj/xicara.obj"),true);
     setPosicao(&XM_xicara,0,0,0);
     setDimensoesProp(&XM_xicara,XM_base.aumento.x/4);
 
-	for(int i=0;i<CAVALOS;i++){
-		if(rand()%2==0){
-			alturaCavalo[i]=(rand()%40)/40.0;
+	for(int i=0;i<CAVALOS;i++)
+    {
+		if(rand() % 2 == 0)
+        {
+			alturaCavalo[i] = (rand() % 40)/40.0;
 			velAlt[i] = -CONSTANTE;
-		}else{
-			alturaCavalo[i]=-(rand()%40)/40.0;
+		}
+        else
+        {
+			alturaCavalo[i]=-(rand() % 40)/40.0;
 			velAlt[i] = CONSTANTE;
 		}		
 	}
 	
 	for(int i=0; i<XICARAS; i++){
-		if(rand()%2==0)
+		if(rand() % 2 == 0)
 			rotacaoXX[i] = VEL_XX;
 		else
 			rotacaoXX[i] = -VEL_XX;

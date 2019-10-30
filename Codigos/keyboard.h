@@ -42,11 +42,13 @@ void teclaPressionada(unsigned char key, int x, int y)
 
 		case 'l':
     	case 'L':
-        	if(isLightingOn==0){
-				isLightingOn=1;
+        	if(isLightingOn == 0)
+            {
+				isLightingOn = 1;
 			}
-			else{
-				isLightingOn=0;
+			else
+            {
+				isLightingOn = 0;
 			}
         break;
 
@@ -80,7 +82,7 @@ void teclaPressionada(unsigned char key, int x, int y)
             {
                 exit(0);
             }
-            else if(tela == 3|| tela == 1)
+            else if(tela == 3 || tela == 1 || tela == 2)
             {
                 tela = 0;
 				glutSetCursor(GLUT_CURSOR_INHERIT);

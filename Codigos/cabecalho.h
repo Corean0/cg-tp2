@@ -1,3 +1,4 @@
+// Cabecalho com as funcoes do programa
 void setup();
 GLuint loadTexture(const char* arquivo);
 void redimensiona(int weidth, int height);
