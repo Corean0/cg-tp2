@@ -27,9 +27,9 @@ void carrossel()
 					glTranslatef(0,alturaCavalo[i],0);
 					glTranslatef(sin(anguloRad*i)*raio,0,cos(anguloRad*i)*raio);
 					glRotatef(-auxRotacaoCAR,0,1,0);
-				    glScalef(carrossel_cavalo.aumento.x,carrossel_cavalo.aumento.y,carrossel_cavalo.aumento.z);
+				    	glScalef(carrossel_cavalo.aumento.x,carrossel_cavalo.aumento.y,carrossel_cavalo.aumento.z);
 					glRotatef(-90,0,1,0);
-				    glCallList(carrossel_cavalo.listaVisualizacao);
+				    	glCallList(carrossel_cavalo.listaVisualizacao);
 				glPopMatrix();
 			}
 		glPopMatrix();
@@ -81,8 +81,8 @@ void xicaras_malucas()
 		for(int i=0; i<XICARAS; i++){
 			glPushMatrix();
 			glTranslatef(sin(angulo*i)*raio,0,cos(angulo*i)*raio);
-			//glRotatef(-auxRotacaoX,0,1,0);
-			/*if(randomX<=180);
+			glRotatef(-auxRotacaoX,0,1,0);
+			if(randomX<=180);
 			else
 			{
 				if(rand()%2 == 0)
@@ -99,12 +99,12 @@ void xicaras_malucas()
 				}
 			}
 			rotacaoXXX[i] += rotacaoXX[i];
-			glRotatef(rotacaoXXX[i],0,1,0);*/
+			glRotatef(rotacaoXXX[i],0,1,0);
 			desenhaOBJ(XM_xicara,0);
 			glPopMatrix();
 		}
 	glPopMatrix();
-	//randomX++;
+	randomX++;
 }
 
 // FALTA ARRUMAR A RODELA DOS CARRINHOS NOS AROS DA RODA

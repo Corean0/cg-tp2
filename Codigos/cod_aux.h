@@ -1,18 +1,15 @@
-void carregaOBJ(Objeto3D *objeto, GLMmodel* model, bool controle)
+void carregaOBJ(Objeto3D *objeto, GLMmodel* model)
 {
 	glmUnitize(model);
 	glmFacetNormals(model);
 	glmVertexNormals(model, 90.0, 1);
-	objeto->listaVisualizacao = glmList(model, GLM_SMOOTH | GLM_TEXTURE | GLM_COLOR);
+	objeto->listaVisualizacao = glmList(model, GLM_SMOOTH | GLM_COLOR);
 	float aux[3];
 	glmDimensions(model, aux);
 	objeto->dimensoes.x = aux[0];
 	objeto->dimensoes.y = aux[1];
 	objeto->dimensoes.z = aux[2];
-	//if(controle)
-		glmDelete(model);
-	//problemas e.e
-	//free(model);
+	glmDelete(model);
 }
 
 void setDimensoesProp(Objeto3D *objeto,float aumento)

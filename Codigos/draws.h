@@ -75,27 +75,22 @@ void desenhaMinhaCena()
 		    
 		glClearColor(1,1,1,1);
 
-		// Tirar condicional junto de tudo relacionado a OBJ antes de entregar para professor
-		if(OBJ.listaVisualizacao!=0)
-			testeOBJ();
-		else
-		{
-		    desenhaOBJ(fonte,0);
-			pipocas();
-			//cercas();
-			postes();
-			torre();
-			arvores();
-			lanchonetes();
-			desenhaRodaGigante();
-			carrossel();
-			bancos();
-			ruas();
-			xicaras_malucas();
-			// Interface com problema de não saber configurar 2/3D
-			// DesenhaInterface();
-		}
 		chao();
+		lanchonetes();
+		desenhaOBJ(fonte,0);
+		pipocas();
+		//cercas();
+		postes();
+		torre();
+		arvores();
+		desenhaRodaGigante();
+		carrossel();
+		bancos();
+		ruas();
+		xicaras_malucas();
+		bancosCadeira();
+		// Interface com problema de não saber configurar 2/3D
+		// DesenhaInterface();
 
 		if (isLightingOn)
 	    {
@@ -322,15 +317,14 @@ void lanchonetes()
 	desenhaOBJ(lanchonete1,0);
 }
 
-void loading()
+void bancosCadeira()
 {
+	desenhaPosicao(banco_Cadeira,terreno_rua.dimensoes.z,terreno_rua.dimensoes.x*7,90);
+	desenhaPosicao(banco_Cadeira,-terreno_rua.dimensoes.z,terreno_rua.dimensoes.x*7,90);
+	desenhaPosicao(banco_Cadeira,terreno_rua.dimensoes.z,-terreno_rua.dimensoes.x*7,90);
+	desenhaPosicao(banco_Cadeira,-terreno_rua.dimensoes.z,-terreno_rua.dimensoes.x*7,90);
 }
 
-void testeOBJ()
+void loading()
 {
-	glPushMatrix();
-		glScalef(TAMANHO,TAMANHO,TAMANHO);
-		glTranslatef(0,OBJ.dimensoes.y/2,0);
-		glCallList(OBJ.listaVisualizacao);
-	glPopMatrix();
 }

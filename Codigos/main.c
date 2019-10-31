@@ -32,8 +32,7 @@
 // Variaveis globais
 Objeto3D	    rodaGG_base,rodaGG_aro,rodaGG_carro, arvore1, arvore2, arvore_morta, terreno, pedra_3,cerca, fonte, pipoca, pipoca1, 
 		        banco, terreno_rua,terreno_rcurva,poste,lanchonete,lanchonete1,carrossel_base,carrossel_cavalo, mesa, torreB, torreC,
-		        XM_base,XM_xicara, 
-		        /*sumir com esse daqui antes de entregar projeto final*/OBJ;
+		        XM_base,XM_xicara, banco_Cadeira;
 spriteObject    wallpaper_menu, wallpaper_controles, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse;
 vetorR3         camera, cursor;
 int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 1, start=0,randomX=0;
@@ -87,7 +86,7 @@ void main(int argc, char** argv)
     glutPassiveMotionFunc(mouseMove);
     glutMouseFunc(mouseClick);
 
-	glEnable(GL_LIGHT0);
+    glEnable(GL_LIGHT0);
     glEnable(GL_NORMALIZE);
     glEnable(GL_COLOR_MATERIAL);
 
@@ -100,10 +99,10 @@ void main(int argc, char** argv)
     glutMainLoop();
 }
 
+#include "brinquedos.h"
 #include "draws_aux.h"
 #include "cod_aux.h"
 #include "refresh.h"
-#include "brinquedos.h"
 #include "draws.h"
 #include "setup.h"
 #include "keyboard.h"
