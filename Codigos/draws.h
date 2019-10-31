@@ -319,10 +319,10 @@ void lanchonetes()
 
 void bancosCadeira()
 {
-	desenhaPosicao(banco_Cadeira,terreno_rua.dimensoes.z,terreno_rua.dimensoes.x*7,90);
-	desenhaPosicao(banco_Cadeira,-terreno_rua.dimensoes.z,terreno_rua.dimensoes.x*7,90);
-	desenhaPosicao(banco_Cadeira,terreno_rua.dimensoes.z,-terreno_rua.dimensoes.x*7,90);
-	desenhaPosicao(banco_Cadeira,-terreno_rua.dimensoes.z,-terreno_rua.dimensoes.x*7,90);
+	desenhaPosicao(banco_Cadeira,terreno_rua.dimensoes.z*1.5,terreno_rua.dimensoes.x*7.5,90);
+	desenhaPosicao(banco_Cadeira,-terreno_rua.dimensoes.z*1.5,terreno_rua.dimensoes.x*7.5,90);
+	desenhaPosicao(banco_Cadeira,terreno_rua.dimensoes.z*1.5,-terreno_rua.dimensoes.x*7.5,90);
+	desenhaPosicao(banco_Cadeira,-terreno_rua.dimensoes.z*1.5,-terreno_rua.dimensoes.x*7.5,90);
 }
 
 void loading()

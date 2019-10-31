@@ -82,7 +82,7 @@ void xicaras_malucas()
 			glPushMatrix();
 			glTranslatef(sin(angulo*i)*raio,0,cos(angulo*i)*raio);
 			glRotatef(-auxRotacaoX,0,1,0);
-			if(randomX<=180);
+			if(randomX<=250);
 			else
 			{
 				if(rand()%2 == 0)
@@ -93,7 +93,7 @@ void xicaras_malucas()
 				{
 					rotacaoXX[i] = -VEL_XX;
 				}
-				if(i == XICARAS)
+				if(i == XICARAS-1)
 				{
 					randomX = 0;
 				}

@@ -26,8 +26,8 @@
 #define AMP_CAVALO 1
 #define VEL_TORRE 3
 #define XICARAS 6
-#define VEL_XICARA 1
-#define VEL_XX 2
+#define VEL_XICARA 2
+#define VEL_XX 4
 
 // Variaveis globais
 Objeto3D	    rodaGG_base,rodaGG_aro,rodaGG_carro, arvore1, arvore2, arvore_morta, terreno, pedra_3,cerca, fonte, pipoca, pipoca1, 
