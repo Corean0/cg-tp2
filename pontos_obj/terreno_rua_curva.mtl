@@ -1,13 +1,22 @@
 # Blender MTL File: 'None'
-# Material Count: 1
+# Material Count: 2
 
-newmtl Material.000
-Ns 575.999996
+newmtl Material.005
+Ns 225.000000
 Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
+Kd 0.008076 0.008076 0.008076
 Ks 0.500000 0.500000 0.500000
 Ke 0.0 0.0 0.0
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd ../Imagens/rua.png
+
+newmtl Material.006
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.233015 0.056288 0.007893
+Ks 0.500000 0.500000 0.500000
+Ke 0.0 0.0 0.0
+Ni 1.450000
+d 1.000000
+illum 2
