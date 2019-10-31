@@ -25,7 +25,7 @@
 #define CONSTANTE 0.03
 #define AMP_CAVALO 1
 #define VEL_TORRE 3
-#define XICARAS 5
+#define XICARAS 6
 #define VEL_XICARA 1
 #define VEL_XX 2
 
@@ -103,6 +103,7 @@ void main(int argc, char** argv)
 #include "draws_aux.h"
 #include "cod_aux.h"
 #include "refresh.h"
+#include "brinquedos.h"
 #include "draws.h"
 #include "setup.h"
 #include "keyboard.h"
