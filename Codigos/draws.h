@@ -280,10 +280,14 @@ void meiosFios(){
 }
 
 void carros(){
+	//Lado direito
 	desenhaPosicao(carro,terreno_rua.dimensoes.x*3.25,-(terreno_rua.dimensoes.z/2+carro.dimensoes.z/2+2),0);
-	/*desenhaPosicao(carro,,,);
-	desenhaPosicao(carro,,,);
-	desenhaPosicao(carro,,,);*/
+	desenhaPosicao(carro,terreno_rua.dimensoes.x*9.25,-(terreno_rua.dimensoes.z/2+carro.dimensoes.z/2+2),0);
+	desenhaPosicao(carro,terreno_rua.dimensoes.x*12.25,-(terreno_rua.dimensoes.z/2+carro.dimensoes.z/2+2),0);
+
+	//Lado esquerdo
+	desenhaPosicao(carro,terreno_rua.dimensoes.x*4.75,terreno_rua.dimensoes.z/2+carro.dimensoes.z/2+2,180);
+	desenhaPosicao(carro,terreno_rua.dimensoes.x*15.25,terreno_rua.dimensoes.z/2+carro.dimensoes.z/2+2,180);
 }
 
 void cercas()
@@ -356,6 +360,7 @@ void arvores()
 	desenhaPosicao(arvore2,50,100,0);
 	desenhaPosicao(arvore2,-75,120,0);
 	desenhaPosicao(arvore2,100,-80,0);
+	desenhaPosicao(arvore2,80,40,0);
 
 	//Pedras 1 aleatórias
 	desenhaPosicao(pedra_1,-50,78,0);
@@ -363,6 +368,7 @@ void arvores()
 	desenhaPosicao(pedra_1,30,70,0);
 	desenhaPosicao(pedra_1,60,90,0);
 	desenhaPosicao(pedra_1,100,-100,0);
+	desenhaPosicao(pedra_1,100,30,0);
 
 	//Pedras 2 aleatórias
 	desenhaPosicao(pedra_2,40,140,90);
@@ -376,6 +382,7 @@ void arvores()
 	desenhaPosicao(pedra_3,-terreno_rua.dimensoes.x*7-10,-75,0);
 	desenhaPosicao(pedra_3,-terreno_rua.dimensoes.x*7+3,90,0);
 	desenhaPosicao(pedra_3,-terreno_rua.dimensoes.x*7+10,-100,0);
+	desenhaPosicao(pedra_3,120,40,0);
 }
 
 void lanchonetes()
