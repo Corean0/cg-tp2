@@ -97,6 +97,13 @@ void setupJogo(){
     setPosicao(&,0,0,0);
     setDimensoesProp(&,TAMANHO);
     */
+	//Parte 2D
+	indicadorCamera.dimensoes.x = largura/6;
+	indicadorCamera.dimensoes.y = altura/4;
+	indicadorCamera.posicao.x = indicadorCamera.dimensoes.x/2;
+	indicadorCamera.posicao.y = altura - indicadorCamera.dimensoes.y/2;
+
+    //Parte 3D
     carregaOBJ(&poste, glmReadOBJ("../pontos_obj/poste.obj"));
     setPosicao(&poste,0,0,0);
     setDimensoesProp(&poste,TAMANHO*1.6/2);
@@ -108,10 +115,6 @@ void setupJogo(){
     carregaOBJ(&arvore2, glmReadOBJ("../pontos_obj/arvore_2.obj"));
     setPosicao(&arvore2,0,0,0);
     setDimensoesProp(&arvore2,TAMANHO);
-
-    carregaOBJ(&arvore_morta, glmReadOBJ("../pontos_obj/arvore_morta.obj"));
-    setPosicao(&arvore_morta,0,0,0);
-    setDimensoesProp(&arvore_morta,TAMANHO);
 
     carregaOBJ(&terreno, glmReadOBJ("../pontos_obj/terreno.obj"));
     setDimensoesDesprop(&terreno,TAMANHO*3,TAMANHO,TAMANHO*3);
@@ -170,6 +173,14 @@ void setupJogo(){
     setPosicao(&carrossel_cavalo,0,0,0);
     setDimensoesProp(&carrossel_cavalo,TAMANHO/1.2);
 
+    carregaOBJ(&pedra_1, glmReadOBJ("../pontos_obj/pedra_1.obj"));
+    setPosicao(&pedra_1,0,0,0);
+    setDimensoesProp(&pedra_1,TAMANHO/3);
+
+    carregaOBJ(&pedra_2, glmReadOBJ("../pontos_obj/pedra_2.obj"));
+    setPosicao(&pedra_2,0,0,0);
+    setDimensoesProp(&pedra_2,TAMANHO/2.2);
+
     carregaOBJ(&pedra_3, glmReadOBJ("../pontos_obj/pedra_3.obj"));
     setPosicao(&pedra_3, 0,0,0);
     setDimensoesProp(&pedra_3, TAMANHO/2.2);
@@ -192,7 +203,7 @@ void setupJogo(){
     setPosicao(&banco_Cadeira,0,0,0);
     setDimensoesProp(&banco_Cadeira,TAMANHO/2);
 
-
+	//seta posições iniciais aleatórias pros cavalos
 	for(int i=0;i<CAVALOS;i++)
     {
 		if(rand() % 2 == 0)

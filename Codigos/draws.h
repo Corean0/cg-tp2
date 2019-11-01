@@ -18,7 +18,7 @@ void desenhaMinhaCena()
     else if(tela == 1)
     {
 
-		float colorFog[4] = {1.0, 1.0, 1.0, 1}; 
+	float colorFog[4] = {1.0, 1.0, 1.0, 1}; 
     	glEnable(GL_FOG);
     	glFogi(GL_FOG_MODE, GL_LINEAR);    // GL_EXP, GL_EXP2 e GL_LINEAR
     	glFogf(GL_FOG_START, 100);         // Inicio e termino do fog para GL_LINEAR -3.00 ate 3.00
@@ -26,7 +26,7 @@ void desenhaMinhaCena()
     	glFogf(GL_FOG_DENSITY, 0.005);     // Densidade do fog 0.00 á 3.00
     	glFogfv(GL_FOG_COLOR, colorFog);
 
-		// configura3D();
+	//configura3D();
         movimentacao();
 
         // Coordenadas da camera em coordenadas esfericas
@@ -89,7 +89,7 @@ void desenhaMinhaCena()
 		xicaras_malucas();
 		bancosCadeira();
 		// Interface com problema de não saber configurar 2/3D
-		// DesenhaInterface();
+		//desenhaInterface();
 
 		if (isLightingOn)
 	    {
@@ -143,8 +143,7 @@ void desenhaInterface()
 {
 	// Configurar glortho para fazer e depois reconfigurar persperctive
 	configura2D();
-        drawObject(jogar);
-        drawObject(controles);
+	drawObject(indicadorCamera);
 }
 
 void desenhaOBJ(Objeto3D objeto, float rotacao)
@@ -308,6 +307,25 @@ void arvores()
 	desenhaPosicao(arvore1,arvore1.dimensoes.x/2,-fonte.dimensoes.z*1.8,0);
 	desenhaPosicao(arvore1,-arvore1.dimensoes.x/2,-fonte.dimensoes.z*1.4,0);
 	desenhaPosicao(pedra_3,-arvore1.dimensoes.x/2,-fonte.dimensoes.z*1.4-arvore1.dimensoes.z/2-pedra_3.dimensoes.z/2,30);
+
+	//Arvores 2 aleatórias
+	desenhaPosicao(arvore2,-140, 50,0);
+	desenhaPosicao(arvore2,-150, -80,0);
+	desenhaPosicao(arvore2,-180, 100,0);
+	desenhaPosicao(arvore2,-100, 40,0);
+	desenhaPosicao(arvore2,0,100,0);
+	desenhaPosicao(arvore2,0,-140,0);
+	desenhaPosicao(arvore2,50,100,0);
+	desenhaPosicao(arvore2,-75,120,0);
+	desenhaPosicao(arvore2,100,-80,0);
+
+	//Pedras 1 aleatórias
+	desenhaPosicao(pedra_1,-50,78,0);
+	desenhaPosicao(pedra_1,-90,35,0);
+	desenhaPosicao(pedra_1,30,70,0);
+	desenhaPosicao(pedra_1,60,90,0);
+	desenhaPosicao(pedra_1,100,-100,0);
+	
 }
 
 void lanchonetes()
