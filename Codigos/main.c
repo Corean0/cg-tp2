@@ -32,7 +32,7 @@
 // Variaveis globais
 Objeto3D	    rodaGG_base,rodaGG_aro,rodaGG_carro, arvore1, arvore2, terreno,pedra_1,pedra_2,pedra_3,cerca, fonte, pipoca,
 		    pipoca1, banco, terreno_rua,terreno_rcurva,poste,lanchonete,lanchonete1,carrossel_base,carrossel_cavalo, mesa, torreB, torreC,
-		    XM_base,XM_xicara, banco_Cadeira,baseF,foguetes;
+		    XM_base,XM_xicara, banco_Cadeira,baseF,foguetes,meio_fio;
 spriteObject    wallpaper_menu, wallpaper_controles, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse, loadingO,
 		indicadorCamera;
 vetorR3         camera, cursor;

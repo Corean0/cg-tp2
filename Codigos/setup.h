@@ -214,6 +214,10 @@ void setupJogo(){
     setPosicao(&foguetes,0,0,0);
     setDimensoesProp(&foguetes,TAMANHO*2);
 
+    carregaOBJ(&meio_fio, glmReadOBJ("../pontos_obj/meio_fio.obj"));
+    setPosicao(&meio_fio,0,0,0);
+    setDimensoesProp(&meio_fio,TAMANHO);
+
 	//seta posições iniciais aleatórias pros cavalos
 	for(int i=0;i<CAVALOS;i++)
     {

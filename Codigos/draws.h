@@ -89,6 +89,7 @@ void desenhaMinhaCena()
 		xicaras_malucas();
 		bancosCadeira();
 		rocket();
+		meiosFios();
 		// Interface com problema de não saber configurar 2/3D
 		//desenhaInterface();
 
@@ -185,12 +186,12 @@ void chao()
 		glPopMatrix();
 }
 
+
 /*
 LEMBRETE:
 Eixo x: altera cima/baixo, sendo positivo levando mais para baixo
 Eixo z: altera direita/esquerda, sendo positivo levando mais para esquerda
 */
-
 void ruas()
 {
 	glPushMatrix();
@@ -213,7 +214,7 @@ void ruas()
 		aux_rua(2,-terreno_rua.dimensoes.x*3,-terreno_rua.dimensoes.x*2,1);
 
 		// Ruas centrais levando à brinquedo 3
-		aux_rua(7,terreno_rua.dimensoes.x*2,0,1);
+		aux_rua(15,terreno_rua.dimensoes.x*2,0,1);
 		aux_rua(9,-terreno_rua.dimensoes.x*13,0,1);
 
 		// Rua brinquedos 1-2
@@ -253,6 +254,19 @@ void ruas()
 		glPopMatrix();
 
 	glPopMatrix();
+}
+
+void meiosFios(){
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*4,terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2,0);
+	/*desenhaPosicao(meio_fio,,,0);
+	desenhaPosicao(meio_fio,,,0);
+	desenhaPosicao(meio_fio,,,0);
+	desenhaPosicao(meio_fio,,,0);
+	desenhaPosicao(meio_fio,,,0);
+	desenhaPosicao(meio_fio,,,0);
+	desenhaPosicao(meio_fio,,,0);
+	desenhaPosicao(meio_fio,,,0);
+	desenhaPosicao(meio_fio,,,0);*/
 }
 
 void cercas()
@@ -310,10 +324,10 @@ void arvores()
 	desenhaPosicao(pedra_3,-arvore1.dimensoes.x/2,-fonte.dimensoes.z*1.4-arvore1.dimensoes.z/2-pedra_3.dimensoes.z/2,30);
 
 	//Arvores 1 aleatórias
-	/*desenhaPosicao(arvore1,,,);
-	desenhaPosicao(arvore1,,,);
-	desenhaPosicao(arvore1,,,);
-	desenhaPosicao(arvore1,,,);*/
+	desenhaPosicao(arvore1,-terreno_rua.dimensoes.x*7+30,-100,0);
+	desenhaPosicao(arvore1,-terreno_rua.dimensoes.x*7-23,-135,0);
+	desenhaPosicao(arvore1,-terreno_rua.dimensoes.x*7,170,0);
+	desenhaPosicao(arvore1,-terreno_rua.dimensoes.x*7+15,136,30);
 
 	//Arvores 2 aleatórias
 	desenhaPosicao(arvore2,-140, 50,0);
@@ -336,9 +350,9 @@ void arvores()
 	//Pedras 2 aleatórias
 	desenhaPosicao(pedra_2,40,140,90);
 	desenhaPosicao(pedra_2,50,-140,0);
-	desenhaPosicao(pedra_2,100,-30,30);
+	desenhaPosicao(pedra_2,100,-50,30);
 	desenhaPosicao(pedra_2,80,-120,0);
-	desenhaPosicao(pedra_2,150,35,10);
+	desenhaPosicao(pedra_2,150,55,10);
 	desenhaPosicao(pedra_2,80,90,-120);
 
 	//Pedras 3 aletórias
