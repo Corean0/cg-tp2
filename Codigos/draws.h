@@ -309,6 +309,12 @@ void arvores()
 	desenhaPosicao(arvore1,-arvore1.dimensoes.x/2,-fonte.dimensoes.z*1.4,0);
 	desenhaPosicao(pedra_3,-arvore1.dimensoes.x/2,-fonte.dimensoes.z*1.4-arvore1.dimensoes.z/2-pedra_3.dimensoes.z/2,30);
 
+	//Arvores 1 aleatórias
+	/*desenhaPosicao(arvore1,,,);
+	desenhaPosicao(arvore1,,,);
+	desenhaPosicao(arvore1,,,);
+	desenhaPosicao(arvore1,,,);*/
+
 	//Arvores 2 aleatórias
 	desenhaPosicao(arvore2,-140, 50,0);
 	desenhaPosicao(arvore2,-150, -80,0);
@@ -326,7 +332,19 @@ void arvores()
 	desenhaPosicao(pedra_1,30,70,0);
 	desenhaPosicao(pedra_1,60,90,0);
 	desenhaPosicao(pedra_1,100,-100,0);
-	
+
+	//Pedras 2 aleatórias
+	desenhaPosicao(pedra_2,40,140,90);
+	desenhaPosicao(pedra_2,50,-140,0);
+	desenhaPosicao(pedra_2,100,-30,30);
+	desenhaPosicao(pedra_2,80,-120,0);
+	desenhaPosicao(pedra_2,150,35,10);
+	desenhaPosicao(pedra_2,80,90,-120);
+
+	//Pedras 3 aletórias
+	desenhaPosicao(pedra_3,-terreno_rua.dimensoes.x*7-10,-75,0);
+	desenhaPosicao(pedra_3,-terreno_rua.dimensoes.x*7+3,90,0);
+	desenhaPosicao(pedra_3,-terreno_rua.dimensoes.x*7+10,-100,0);
 }
 
 void lanchonetes()

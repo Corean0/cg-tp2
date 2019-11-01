@@ -19,6 +19,9 @@ void setup()
     cursor.x = 0;
     cursor.y = 0;
     cursor.z = 0;
+
+	som1 = carregaMusica("../Sons/awesome.ogg");
+	comecaMusica(som1,0,-1);
 	
     // Texturas 2D
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
