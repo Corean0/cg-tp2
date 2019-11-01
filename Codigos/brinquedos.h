@@ -70,6 +70,13 @@ void xicaras_malucas()
 	const float angulo = (M_PI*2)/(float)XICARAS;
 	const float raio = XM_base.dimensoes.z/2-7;
 
+	if(randomX1<=350);
+	else{
+		if(rand()%2==0);
+		else
+			VEL_XICARA = -VEL_XICARA;
+		randomX1=0;
+	}
 	auxRotacaoX += VEL_XICARA;
 	if(auxRotacaoX == 360)
 		auxRotacaoX = 0;
@@ -105,6 +112,7 @@ void xicaras_malucas()
 		}
 	glPopMatrix();
 	randomX++;
+	randomX1++;
 }
 
 // FALTA ARRUMAR A RODELA DOS CARRINHOS NOS AROS DA RODA
