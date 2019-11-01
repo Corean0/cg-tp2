@@ -78,19 +78,19 @@ void desenhaMinhaCena()
 		chao();
 		lanchonetes();
 		desenhaOBJ(fonte,0);
-		/*pipocas();
+		pipocas();
 		postes();
 		torre();
 		arvores();
 		desenhaRodaGigante();
 		carrossel();
 		bancos();
-		ruas();*/
+		ruas();
 		xicaras_malucas();
-		/*bancosCadeira();
+		bancosCadeira();
 		rocket();
 		meiosFios();
-		carros();*/
+		carros();
 		// Interface com problema de não saber configurar 2/3D
 		//desenhaInterface();
 
