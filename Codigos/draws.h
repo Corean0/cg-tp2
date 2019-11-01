@@ -355,7 +355,6 @@ void arvores()
 	desenhaPosicao(arvore2,80,40,0);
 
 	//Pedras 1 aleatórias
-	desenhaPosicao(pedra_1,-50,78,0);
 	desenhaPosicao(pedra_1,-90,35,0);
 	desenhaPosicao(pedra_1,30,70,0);
 	desenhaPosicao(pedra_1,60,90,0);
@@ -372,7 +371,6 @@ void arvores()
 
 	//Pedras 3 aletórias
 	desenhaPosicao(pedra_3,-terreno_rua.dimensoes.x*7-10,-75,0);
-	desenhaPosicao(pedra_3,-terreno_rua.dimensoes.x*7+3,90,0);
 	desenhaPosicao(pedra_3,-terreno_rua.dimensoes.x*7+10,-100,0);
 	desenhaPosicao(pedra_3,120,40,0);
 }
