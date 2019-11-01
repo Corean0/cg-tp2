@@ -216,7 +216,11 @@ void setupJogo(){
 
     carregaOBJ(&meio_fio, glmReadOBJ("../pontos_obj/meio_fio.obj"));
     setPosicao(&meio_fio,0,0,0);
-    setDimensoesProp(&meio_fio,TAMANHO);
+    setDimensoesProp(&meio_fio,TAMANHO/1.5);
+
+    carregaOBJ(&carro, glmReadOBJ("../pontos_obj/lego_carro.obj"));
+    setPosicao(&carro,0,0,0);
+    setDimensoesProp(&carro,TAMANHO/1.4);
 
 	//seta posições iniciais aleatórias pros cavalos
 	for(int i=0;i<CAVALOS;i++)

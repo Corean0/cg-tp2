@@ -45,3 +45,4 @@ void xicaras_malucas();
 void bancosCadeira();
 void rocket();
 void meiosFios();
+void carros();

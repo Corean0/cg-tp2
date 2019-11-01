@@ -90,6 +90,7 @@ void desenhaMinhaCena()
 		bancosCadeira();
 		rocket();
 		meiosFios();
+		carros();
 		// Interface com problema de não saber configurar 2/3D
 		//desenhaInterface();
 
@@ -257,16 +258,32 @@ void ruas()
 }
 
 void meiosFios(){
+	//Lado esquerdo
 	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*4,terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2,0);
-	/*desenhaPosicao(meio_fio,,,0);
-	desenhaPosicao(meio_fio,,,0);
-	desenhaPosicao(meio_fio,,,0);
-	desenhaPosicao(meio_fio,,,0);
-	desenhaPosicao(meio_fio,,,0);
-	desenhaPosicao(meio_fio,,,0);
-	desenhaPosicao(meio_fio,,,0);
-	desenhaPosicao(meio_fio,,,0);
-	desenhaPosicao(meio_fio,,,0);*/
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*5.5,terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2,0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*7,terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2,0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*8.5,terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2,0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*10,terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2,0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*11.5,terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2,0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*13,terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2,0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*14.5,terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2,0);
+
+	//Lado direito
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*4,-(terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2),0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*5.5,-(terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2),0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*7,-(terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2),0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*8.5,-(terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2),0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*10,-(terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2),0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*11.5,-(terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2),0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*13,-(terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2),0);
+	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*14.5,-(terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2),0);
+}
+
+void carros(){
+	desenhaPosicao(carro,terreno_rua.dimensoes.x*3.25,-(terreno_rua.dimensoes.z/2+carro.dimensoes.z/2+2),0);
+	/*desenhaPosicao(carro,,,);
+	desenhaPosicao(carro,,,);
+	desenhaPosicao(carro,,,);*/
 }
 
 void cercas()
