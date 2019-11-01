@@ -155,3 +155,12 @@ void desenhaRodaGigante(){
 	    glPopMatrix();    
     glPopMatrix();
 }
+
+void rocket(){
+	glPushMatrix();
+		desenhaOBJ(baseF,0);
+		glTranslatef(baseF.posicao.x,baseF.dimensoes.y/2,baseF.posicao.z);
+		desenhaOBJ(foguetes,auxRotacaoF);
+		auxRotacaoF++;
+	glPopMatrix();
+}

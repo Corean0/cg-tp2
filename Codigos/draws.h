@@ -88,6 +88,7 @@ void desenhaMinhaCena()
 		ruas();
 		xicaras_malucas();
 		bancosCadeira();
+		rocket();
 		// Interface com problema de não saber configurar 2/3D
 		//desenhaInterface();
 

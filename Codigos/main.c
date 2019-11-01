@@ -32,14 +32,14 @@
 // Variaveis globais
 Objeto3D	    rodaGG_base,rodaGG_aro,rodaGG_carro, arvore1, arvore2, terreno,pedra_1,pedra_2,pedra_3,cerca, fonte, pipoca,
 		    pipoca1, banco, terreno_rua,terreno_rcurva,poste,lanchonete,lanchonete1,carrossel_base,carrossel_cavalo, mesa, torreB, torreC,
-		    XM_base,XM_xicara, banco_Cadeira;
+		    XM_base,XM_xicara, banco_Cadeira,baseF,foguetes;
 spriteObject    wallpaper_menu, wallpaper_controles, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse, loadingO,
 		indicadorCamera;
 vetorR3         camera, cursor;
 int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 1, start=0,randomX=0;
 float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0, auxRotacaoRGG = 0, auxRotacaoCAR = 0, 
 		        auxRotacaoX = 0,alturaCavalo[CAVALOS],velAlt[CAVALOS],alturaTorre = 0,velTor, torreP=0, rotacaoXX[XICARAS],
-		        rotacaoXXX[XICARAS];
+		        rotacaoXXX[XICARAS], auxRotacaoF = 0;
 Mix_Chunk       *som1;
 
 // Parâmetros do modelo de iluminação: FONTE DE LUZ

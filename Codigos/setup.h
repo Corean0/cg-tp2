@@ -203,6 +203,14 @@ void setupJogo(){
     setPosicao(&banco_Cadeira,0,0,0);
     setDimensoesProp(&banco_Cadeira,TAMANHO/2);
 
+    carregaOBJ(&baseF, glmReadOBJ("../pontos_obj/base_foguete.obj"));
+    setDimensoesProp(&baseF,TAMANHO*2);
+    setPosicao(&baseF,-terreno_rua.dimensoes.x*7,0,terreno_rua.dimensoes.x*4.5+baseF.dimensoes.z/2-1.5);
+
+    carregaOBJ(&foguetes, glmReadOBJ("../pontos_obj/foguetes.obj"));
+    setPosicao(&foguetes,0,0,0);
+    setDimensoesProp(&foguetes,TAMANHO*2);
+
 	//seta posições iniciais aleatórias pros cavalos
 	for(int i=0;i<CAVALOS;i++)
     {
