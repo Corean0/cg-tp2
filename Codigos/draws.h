@@ -79,7 +79,6 @@ void desenhaMinhaCena()
 		lanchonetes();
 		desenhaOBJ(fonte,0);
 		pipocas();
-		//cercas();
 		postes();
 		torre();
 		arvores();
@@ -326,5 +325,7 @@ void bancosCadeira()
 }
 
 void loading()
-{
+{	
+        drawObject(loadingO);
+	glutSwapBuffers();
 }

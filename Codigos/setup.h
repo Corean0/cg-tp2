@@ -30,6 +30,7 @@ void setup()
     wallpaper_controles.textura = loadTexture("../Imagens/wallpaper_controles.png");
     wallpaper_creditos.textura = loadTexture("../Imagens/wallpaper_creditos.png");
     wallpaper_controles.textura = loadTexture("../Imagens/wallpaper_controles.png");
+    loadingO.textura = loadTexture("../Imagens/wallpaper_loading.png");
 
     float matAmbAndDif[4] = {1.0, 1.0, 1.0, 1.0};    // Vetor cor ambiente e difusa: branca
     float matShine[] = {5};                          // Expoente especular (shininess)
@@ -72,13 +73,19 @@ void attPosicao()
 
     sair_creditos.dimensoes.x = largura/8;
     sair_creditos.dimensoes.y = altura/12;
-    sair_creditos.posicao.x = largura/2 + largura/3;
-    sair_creditos.posicao.y = altura/4;
+    sair_creditos.posicao.x = largura/2 + largura/3 + largura/14;
+    sair_creditos.posicao.y = altura/4 + altura/3;
 
     wallpaper_creditos.dimensoes.x = largura;
     wallpaper_creditos.dimensoes.y = altura;
     wallpaper_creditos.posicao.x = largura/2;
     wallpaper_creditos.posicao.y = altura/2;
+
+    loadingO.dimensoes.x = largura;
+    loadingO.dimensoes.y = altura;
+    loadingO.posicao.x = largura/2;
+    loadingO.posicao.y = altura/2;
+
 }
 
 void setupJogo(){
