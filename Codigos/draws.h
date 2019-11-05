@@ -4,10 +4,10 @@ void desenhaMinhaCena()
     glMatrixMode(GL_MODELVIEW);
     glColor4f(1, 1, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_ACCUM_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    glClearColor(1,1,1,1);
     
     if(tela == 0)
     {
-		// configura2D();
         drawObject(wallpaper_menu);
         drawObject(jogar);
         drawObject(controles);
@@ -31,7 +31,6 @@ void desenhaMinhaCena()
     	glFogf(GL_FOG_DENSITY, 0.005);     // Densidade do fog 0.00 á 3.00
     	glFogfv(GL_FOG_COLOR, colorFog);
 
-	//configura3D();
         movimentacao();
 
         // Coordenadas da camera em coordenadas esfericas
@@ -78,31 +77,21 @@ void desenhaMinhaCena()
                 gluLookAt(cursor.x + camera.x,cursor.y + camera.y, cursor.z + camera.z, cursor.x + 0,cursor.y + 0, cursor.z + 0, 0, 1, 0);
                 break;
         }
-
-	    // Esfera indicativa de onde está a luz
-		/*	
-		glPushMatrix();
-	        glTranslatef(20.0, 50.0, 50.0);
-	        glColor3f(0, 0, 0);
-	        glutWireSphere(2, 8, 8); 
-	    	glPopMatrix();
-		*/
 			
 		if (isLightingOn)
 		{
-	        glEnable(GL_LIGHTING);
+	        	glEnable(GL_LIGHTING);
 		}
-		    
-		glClearColor(1,1,1,1);
 
+		carros();
 		chao();
-		//lanchonetes();
+		lanchonetes();
 		desenhaOBJ(fonte,0);
-		//pipocas();
-		//postes();
+		pipocas();
+		postes();
 		torre();
-		//arvores();
-		//desenhaRodaGigante();
+		arvores();
+		desenhaRodaGigante();
 		carrossel();
 		bancos();
 		ruas();
@@ -110,14 +99,14 @@ void desenhaMinhaCena()
 		bancosCadeira();
 		rocket();
 		meiosFios();
-		//carros();
 
 		if (isLightingOn)
 	    {
 	    	glDisable(GL_LIGHTING);
-	    }
+	    }	
 
-		desenhaInterface();	
+   		glColor4f(1, 1, 1, 1);
+		desenhaInterface();
     }
 
     else if(tela == 2)

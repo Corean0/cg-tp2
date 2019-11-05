@@ -163,25 +163,25 @@ void movimentacao()
     // Tecla w/W        
     if(keyboard[87] == 1) 
     {
-        cursor.x--;
+        cursor.x -= 0.5;
     }
 
     // Tecla s/S
     if(keyboard[83] == 1)  
     {
-        cursor.x++;
+        cursor.x += 0.5;
     }
 
     // Tecla a/A
     if(keyboard[65] == 1)  
     {
-        cursor.z++;
+        cursor.z += 0.5;
     }
 
     // Tecla d/D
     if(keyboard[68] == 1)  
     {
-        cursor.z--;
+        cursor.z -= 0.5;
     }
 
 	if(keyboard[69] == 1)
@@ -189,7 +189,7 @@ void movimentacao()
 		cursor.y++;
 	}
 
-	if(keyboard[81] == 1 && cursor.y>5)
+	if(keyboard[81] == 1 && cursor.y>fonte.dimensoes.y/3)
 	{
 		cursor.y--;
 	}

@@ -16,9 +16,6 @@ void setup()
 
     // Maquinas de estado
     tela = 0;
-    cursor.x = 0;
-    cursor.y = 0;
-    cursor.z = 0;
 
 	som1 = carregaMusica("../Sons/awesome.ogg");
 	comecaMusica(som1,0,-1);
@@ -106,6 +103,7 @@ void setupJogo(){
 	indicadorCamera.dimensoes.y = altura/4;
 	indicadorCamera.posicao.x = indicadorCamera.dimensoes.x/2;
 	indicadorCamera.posicao.y = altura - indicadorCamera.dimensoes.y/2;
+
 
     //Parte 3D
     carregaOBJ(&poste, glmReadOBJ("../pontos_obj/poste.obj"));
@@ -218,6 +216,10 @@ void setupJogo(){
     carregaOBJ(&carro, glmReadOBJ("../pontos_obj/lego_carro.obj"));
     setPosicao(&carro,0,0,0);
     setDimensoesProp(&carro,TAMANHO/1.4);
+	
+    cursor.x = terreno_rua.dimensoes.x*11;
+    cursor.y = fonte.dimensoes.y/3;
+    cursor.z = 0;
 
 	//seta posições iniciais aleatórias pros cavalos
 	for(int i=0;i<CAVALOS;i++)
