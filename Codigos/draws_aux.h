@@ -4,26 +4,6 @@ Eixo x: altera cima/baixo, sendo positivo levando mais para baixo
 Eixo z: altera direita/esquerda, sendo positivo levando mais para esquerda
 */
 
-void aux_cerca(int qtdeQDD, float centrox, float centroz, int direcao)
-{
-	// Cresce na vertical para baixo, centro deve coincidir com a cerca mais acima do sistema
-	if(direcao==1)
-		for(int random=0; random<qtdeQDD; random++){
-			glPushMatrix();
-				glTranslatef(cerca.dimensoes.x*random,0,0);
-				desenhaPosicao(cerca,centrox,centroz,0);
-			glPopMatrix();
-		}
-	// Cresce na horizontal para esquerda, o centro deve ser o centro da cerca mais à direita
-	else
-		for(int random=0; random<qtdeQDD; random++){
-			glPushMatrix();
-				glTranslatef(0,0,cerca.dimensoes.x*random);
-				desenhaPosicao(cerca,centrox,centroz,90);
-			glPopMatrix();
-		}		
-}
-
 // Direcao == 1: eixo z
 // Direcao == 0: eixo x
 // Parametros: centrox e centroy

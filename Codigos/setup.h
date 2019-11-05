@@ -147,10 +147,6 @@ void setupJogo(){
     setPosicao(&terreno_rcurva, 0,0,0);
     setDimensoesProp(&terreno_rcurva,TAMANHO/2);
 
-    carregaOBJ(&cerca, glmReadOBJ("../pontos_obj/cerca.obj"));
-    setPosicao(&cerca,0,0,0);
-    setDimensoesProp(&cerca, TAMANHO);
-
     carregaOBJ(&lanchonete, glmReadOBJ("../pontos_obj/lanchonete.obj"));
     setDimensoesProp(&lanchonete,TAMANHO*2);
     setPosicao(&lanchonete,0,-2,-(-terreno_rua.dimensoes.x*8.5-lanchonete.dimensoes.z/2));

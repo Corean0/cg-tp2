@@ -31,8 +31,6 @@ void aux_rua(int qtdeQDD, float centrox, float centroz, int direcao);
 void ruas();
 void pipocas();
 void bancos();
-void aux_cerca(int qtdeQDD, float centrox, float centroz, int direcao);
-void cercas();
 void postes();
 void desenhaPosicao(Objeto3D objeto,float centrox, float centroz, float rotacao);
 void arvores();

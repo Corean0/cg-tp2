@@ -282,11 +282,6 @@ void carros(){
 	desenhaPosicao(carro,terreno_rua.dimensoes.x*4.75,terreno_rua.dimensoes.z/2+carro.dimensoes.z/2+2,180);
 }
 
-void cercas()
-{
-	aux_cerca(3,0,0,1);
-}
-
 void pipocas()
 {
 	// Pipoca da direita
