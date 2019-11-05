@@ -40,6 +40,15 @@ void teclaPressionada(unsigned char key, int x, int y)
 		keyboard[69] = 1;
 		break;
 
+		case 'N':
+        case 'n':
+
+            if(fogOn==1)
+				fogOn=0;
+			else
+				fogOn=1;
+            break;
+
 		case 'l':
     	case 'L':
         	if(isLightingOn == 0)
@@ -56,22 +65,31 @@ void teclaPressionada(unsigned char key, int x, int y)
         // Camera perspectiva
         case '1':
 
-            if(tela == 1)
+            if(tela == 1){
+				indicadorCamera.textura = loadTexture("../Imagens/interface_camera1.png");
                 modoCamera = 1;
+				cameraBrinquedos++;
+				if(cameraBrinquedos == 6)
+					cameraBrinquedos=1;
+			}
             break;
 
         // Camera primeira pessoa
         case '2':
 
-            if(tela == 1)
+            if(tela == 1){
+				indicadorCamera.textura = loadTexture("../Imagens/interface_camera2.png");
                 modoCamera = 2;
+			}
             break;
 
         // Camera terceira pessoa
         case '3':
 
-            if(tela == 1)
+            if(tela == 1){
+				indicadorCamera.textura = loadTexture("../Imagens/interface_camera3.png");
                 modoCamera = 3;
+			}
             break;
 
         //ESC
@@ -106,6 +124,7 @@ void teclaSegurada(unsigned char key, int x, int y)
 
             keyboard[83] = 0;
             break;
+
 
         case 'W':
         case 'w':

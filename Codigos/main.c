@@ -35,7 +35,7 @@ Objeto3D	    rodaGG_base,rodaGG_aro,rodaGG_carro, arvore1, arvore2, terreno,pedr
 spriteObject    wallpaper_menu, wallpaper_controles, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse, loadingO,
 		indicadorCamera;
 vetorR3         camera, cursor;
-int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 1, start=0,randomX=0,randomX1=0;
+int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 3, isLightingOn = 1, start=0,randomX=0,randomX1=0,fogOn=1, cameraBrinquedos=0;
 float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0, auxRotacaoRGG = 0, auxRotacaoCAR = 0, 
 		        auxRotacaoX = 0,alturaCavalo[CAVALOS],velAlt[CAVALOS],alturaTorre = 0,velTor, torreP=0, rotacaoXX[XICARAS],
 		        rotacaoXXX[XICARAS], auxRotacaoF = 0,VEL_XICARA = 2;

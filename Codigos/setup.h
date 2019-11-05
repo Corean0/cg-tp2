@@ -34,6 +34,7 @@ void setup()
     wallpaper_creditos.textura = loadTexture("../Imagens/wallpaper_creditos.png");
     wallpaper_controles.textura = loadTexture("../Imagens/wallpaper_controles.png");
     loadingO.textura = loadTexture("../Imagens/wallpaper_loading.png");
+	indicadorCamera.textura = loadTexture("../Imagens/interface_camera3.png");
 
     float matAmbAndDif[4] = {1.0, 1.0, 1.0, 1.0};    // Vetor cor ambiente e difusa: branca
     float matShine[] = {5};                          // Expoente especular (shininess)

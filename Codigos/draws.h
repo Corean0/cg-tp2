@@ -19,7 +19,12 @@ void desenhaMinhaCena()
     {
 
 	float colorFog[4] = {1.0, 1.0, 1.0, 1}; 
-    	glEnable(GL_FOG);
+
+		if(fogOn==1)    
+			glEnable(GL_FOG);
+		else
+			glDisable(GL_FOG);
+    	
     	glFogi(GL_FOG_MODE, GL_LINEAR);    // GL_EXP, GL_EXP2 e GL_LINEAR
     	glFogf(GL_FOG_START, 100);         // Inicio e termino do fog para GL_LINEAR -3.00 ate 3.00
     	glFogf(GL_FOG_END, 200);
@@ -40,12 +45,27 @@ void desenhaMinhaCena()
         {
             // Camera simples
             default:
-				
-                // gluLookAt(-80, 30, 0,-120, 25, 0, 0, 1, 0); // Roda Gigante
-				// gluLookAt(-30, 30, -10, -60, 28, -40, 0, 1, 0); // Carrosel
-				gluLookAt(-108, 25, -50,-108, 23, -55, 0, 1, 0); // Torre que cai
-                break;
-
+				break;
+			case 1:	
+				switch(cameraBrinquedos){
+					case 1:
+						gluLookAt(-80, 30, 0,-120, 25, 0, 0, 1, 0); // Roda Gigante
+					break;
+					case 2:
+						gluLookAt(-30, 30, -10, -60, 28, -40, 0, 1, 0); // Carrosel
+		            break;
+					case 3:
+						gluLookAt(-108, 25, -50,-108, 23, -55, 0, 1, 0); // Torre que cai
+					break;
+					case 4:
+						gluLookAt(-70, 30, -5, -70, 20, 40, 0, 1, 0); // Foguete
+					break;
+					case 5:
+						gluLookAt(-110, 30, 30, -110, 26, 40, 0, 1, 0); // Xicara
+					break;
+				}
+            	break;
+		
             // Camera primeira pessoa
             case 2:
 
@@ -76,13 +96,13 @@ void desenhaMinhaCena()
 		glClearColor(1,1,1,1);
 
 		chao();
-		lanchonetes();
+		//lanchonetes();
 		desenhaOBJ(fonte,0);
-		pipocas();
-		postes();
+		//pipocas();
+		//postes();
 		torre();
-		arvores();
-		desenhaRodaGigante();
+		//arvores();
+		//desenhaRodaGigante();
 		carrossel();
 		bancos();
 		ruas();
@@ -90,15 +110,14 @@ void desenhaMinhaCena()
 		bancosCadeira();
 		rocket();
 		meiosFios();
-		carros();
-		// Interface com problema de não saber configurar 2/3D
-		//desenhaInterface();
+		//carros();
 
 		if (isLightingOn)
 	    {
 	    	glDisable(GL_LIGHTING);
 	    }
 
+		desenhaInterface();	
     }
 
     else if(tela == 2)
@@ -142,11 +161,39 @@ void drawObject(spriteObject objeto)
     glDisable(GL_TEXTURE_2D);
 }
 
+void config2D(){
+
+	glDisable(GL_LIGHTING);
+	glDisable(GL_DEPTH_TEST);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    glOrtho(0, largura, 0, altura, 0, 1);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    glViewport(0, 0, largura, altura);
+
+}
+
+void config3D(){
+
+	glEnable(GL_DEPTH_TEST);
+    glViewport (0, 0, largura, altura);
+    glMatrixMode (GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(60.0, (float)largura/(float)altura, 0.2, 400.0);     //colocar fovy entre 45.0 e 60.0
+    glMatrixMode(GL_MODELVIEW);
+    begin3d();
+	glLoadIdentity();
+
+}
+
 void desenhaInterface()
 {
 	// Configurar glortho para fazer e depois reconfigurar persperctive
-	configura2D();
+	config2D();
 	drawObject(indicadorCamera);
+	config3D();
+
 }
 
 void desenhaOBJ(Objeto3D objeto, float rotacao)
