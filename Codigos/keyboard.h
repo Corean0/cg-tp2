@@ -28,19 +28,7 @@ void teclaPressionada(unsigned char key, int x, int y)
             keyboard[68] = 1;  
             break;
 
-	case 'Q':
-	case 'q':
-
-		keyboard[81] = 1;
-		break;
-
-	case 'E':
-	case 'e':
-
-		keyboard[69] = 1;
-		break;
-
-		case 'N':
+	case 'N':
         case 'n':
 
             if(fogOn==1)
@@ -143,18 +131,6 @@ void teclaSegurada(unsigned char key, int x, int y)
 
             keyboard[68] = 0;
             break;
-
-	case 'Q':
-	case 'q':
-
-		keyboard[81] = 0;
-		break;
-
-	case 'E':
-	case 'e':
-
-		keyboard[69] = 0;
-		break;
     }
 }
 
@@ -184,13 +160,4 @@ void movimentacao()
         cursor.z -= 0.5;
     }
 
-	if(keyboard[69] == 1)
-	{
-		cursor.y++;
-	}
-
-	if(keyboard[81] == 1 && cursor.y>fonte.dimensoes.y/3)
-	{
-		cursor.y--;
-	}
 }

@@ -5,7 +5,7 @@ void mouseMove(int x, int y)
 	double xChange, yChange;
 
 	// Posicao atual do mouse
-    mouse.posicao.x = x;
+    	mouse.posicao.x = x;
    	mouse.posicao.y = altura - y;
 
    	// Salvando as alteracoes realizadas na camera do jogador
