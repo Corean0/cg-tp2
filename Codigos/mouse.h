@@ -11,11 +11,17 @@ void mouseMove(int x, int y)
    	// Salvando as alteracoes realizadas na camera do jogador
 	// xMouse e yMouse são valores do ultimo frame do mouse
 	xChange = x - xMouse;
-	yChange = y - yMouse;
+	yChange = -(y - yMouse);
 
    	// Regulando os angulos em coordenadas esfericas 2D -> 3D
-   	pi = pi - yChange/150;
-   	theta = theta + xChange/150;
+	if(tela == 1){		
+   		pi = pi - yChange/150;
+   		theta = theta + xChange/150;
+	}
+	if(pi >=72)
+		pi = 72;
+	if(pi <= 69.292908)
+		pi = 69.292908;
 
    	// Limitando o valor do angulo
    	if(pi >= 180)

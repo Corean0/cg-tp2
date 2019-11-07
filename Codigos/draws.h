@@ -35,8 +35,8 @@ void desenhaMinhaCena()
 
         // Coordenadas da camera em coordenadas esfericas
         camera.x = 100*sin(pi)*cos(theta);
-        camera.y = 100*cos(pi);
         camera.z = 100*sin(pi)*sin(theta);
+        camera.y = 100*cos(pi);
 
         glLoadIdentity();
 

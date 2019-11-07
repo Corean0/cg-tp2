@@ -36,7 +36,7 @@ spriteObject    wallpaper_menu, wallpaper_controles, wallpaper_creditos, jogar, 
 		indicadorCamera;
 vetorR3         camera, cursor;
 int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 2, isLightingOn = 1, start=0,randomX=0,randomX1=0,fogOn=1, cameraBrinquedos=0;
-float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 90, theta = 0, auxRotacaoRGG = 0, auxRotacaoCAR = 0, 
+float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 70.686569, theta = 179.093338, auxRotacaoRGG = 0, auxRotacaoCAR = 0, 
 		        auxRotacaoX = 0,alturaCavalo[CAVALOS],velAlt[CAVALOS],alturaTorre = 0,velTor, torreP=0, rotacaoXX[XICARAS],
 		        rotacaoXXX[XICARAS], auxRotacaoF = 0,VEL_XICARA = 2;
 Mix_Chunk       *som1;
