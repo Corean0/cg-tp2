@@ -27,25 +27,20 @@
 #define VEL_TORRE 3
 #define XICARAS 6
 #define VEL_XX 4
+#define timer_aux 0.000001
 
 // Variaveis globais
 Objeto3D	    rodaGG_base,rodaGG_aro,rodaGG_carro, arvore1, arvore2, terreno,pedra_1,pedra_2,pedra_3, fonte, pipoca, pipoca1,
 		    banco, terreno_rua,terreno_rcurva,poste,lanchonete,lanchonete1,carrossel_base,carrossel_cavalo, mesa, torreB, torreC,
 		    XM_base,XM_xicara, banco_Cadeira,baseF,foguetes,meio_fio,carro;
 spriteObject    wallpaper_menu, wallpaper_controles, wallpaper_creditos, jogar, controles, creditos, sair_menu, sair_creditos, mouse, loadingO,
-		indicadorCamera;
+		indicadorCamera, indicabrinquedo;
 vetorR3         camera, cursor;
-int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 2, isLightingOn = 1, start=0,randomX=0,randomX1=0,fogOn=1, cameraBrinquedos=0;
+int             keyboard[256], tela = 1, light = 0, xMouse = 0, yMouse = 0, modoCamera = 2, isLightingOn = 1, start=0,randomX=0,randomX1=0,fogOn=1, cameraBrinquedos=0, timer = 0;
 float           matAmbAndDif[4], matShine[], altura = 720, largura = 1280, pi = 70.686569, theta = 179.093338, auxRotacaoRGG = 0, auxRotacaoCAR = 0, 
 		        auxRotacaoX = 0,alturaCavalo[CAVALOS],velAlt[CAVALOS],alturaTorre = 0,velTor, torreP=0, rotacaoXX[XICARAS],
-		        rotacaoXXX[XICARAS], auxRotacaoF = 0,VEL_XICARA = 2;
+		        rotacaoXXX[XICARAS], auxRotacaoF = 0,VEL_XICARA = 2, m = 1.0;
 Mix_Chunk       *som1;
-
-// Parâmetros do modelo de iluminação: FONTE DE LUZ
-const GLfloat light_ambient[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
-const GLfloat light_diffuse[]  = { 1.0f, 1.0f, 1.0f, 1.0f };
-const GLfloat light_specular[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-const GLfloat light_position[] = { -50.0f, 500.0f, 0.0f, 0.0f };
 
 // Parâmetros do modelo de iluminação: MATERIAL
 const GLfloat mat_ambient[]    = { 0.7f, 0.7f, 0.7f, 1.0f };
@@ -87,13 +82,10 @@ void main(int argc, char** argv)
     glutMouseFunc(mouseClick);
 
     glEnable(GL_LIGHT0);
+	glEnable(GL_LIGHT1);
     glEnable(GL_NORMALIZE);
-    glEnable(GL_COLOR_MATERIAL);
-
-    glLightfv(GL_LIGHT0, GL_AMBIENT,  light_ambient);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE,  light_diffuse);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
-    glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+    glEnable(GL_COLOR_MATERIAL); 
+	glEnable(GL_LIGHT_MODEL_AMBIENT);
 
     // Loop
     glutMainLoop();

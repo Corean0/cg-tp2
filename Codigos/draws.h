@@ -18,7 +18,7 @@ void desenhaMinhaCena()
     else if(tela == 1)
     {
 
-	float colorFog[4] = {1.0, 1.0, 1.0, 1}; 
+	float colorFog[4] = {m, m, m, 1}; 
 
 		if(fogOn==1)    
 			glEnable(GL_FOG);
@@ -28,7 +28,7 @@ void desenhaMinhaCena()
     	glFogi(GL_FOG_MODE, GL_LINEAR);    // GL_EXP, GL_EXP2 e GL_LINEAR
     	glFogf(GL_FOG_START, 100);         // Inicio e termino do fog para GL_LINEAR -3.00 ate 3.00
     	glFogf(GL_FOG_END, 200);
-    	glFogf(GL_FOG_DENSITY, 0.005);     // Densidade do fog 0.00 á 3.00
+    	glFogf(GL_FOG_DENSITY, 0.01);     // Densidade do fog 0.00 á 3.00
     	glFogfv(GL_FOG_COLOR, colorFog);
 
         movimentacao();
@@ -37,6 +37,27 @@ void desenhaMinhaCena()
         camera.x = 100*sin(pi)*cos(theta);
         camera.z = 100*sin(pi)*sin(theta);
         camera.y = 100*cos(pi);
+
+		// DIA E NOITE
+	
+		const GLfloat light_ambient[]  = { m, m, m, 1.0f };
+	
+		if(m>=1)
+			timer=-1;
+	
+		if(m<=0)
+			timer=1;
+		
+		m=m+(timer_aux*timer);
+
+		if(timer<0)
+			timer--;
+		else
+			timer++;
+
+		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, light_ambient);
+
+		//
 
         glLoadIdentity();
 
@@ -85,13 +106,13 @@ void desenhaMinhaCena()
 
 		carros();
 		chao();
-		lanchonetes();
+		//lanchonetes();
 		desenhaOBJ(fonte,0);
 		pipocas();
 		postes();
 		torre();
-		arvores();
-		desenhaRodaGigante();
+		//arvores();
+		//desenhaRodaGigante();
 		carrossel();
 		bancos();
 		ruas();
