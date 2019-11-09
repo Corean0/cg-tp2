@@ -1,0 +1,46 @@
+============== 60% MINIMOS =============
+(V) 3 brinquedos - Roda Gigante com modelagem hierarquica exigida aqui
+(V) 2 camêras [1][3]- fixa em brinquedos e terceira pessoa
+(V) 1 fonte de luz direcional [L]
+(V) Objetos com texturas / materiais associados
+============== EXTRAS ===============
+[ 4%] (V) Textura no chão
+[10%] (V) Modelar e carregar modelos
+[ 8%] (V) Objetos no cenário
+[ 5%] (V) Parque temático
+[ 6%] (F) Fontes de luz pontuais
+[ 4%] (V) Fog [N]
+[ 4%] (V) Brinquedos funcionais - 2 brinquedos
+[10%] (V) Brinquedos funcionais por modelagem hierarquica
+[ 5%] (V) Terceira camera [3]
+[ 3%] (V) Música
+[ 8%] (-) Estacionamento (O nosso deve estar por volta de 5%)
+[10%] (-) Dia/Noite (Temos q fzr evento noturnos para chegar em 10%, no momento ta por volta de 6)
+============= IMPLEMENTAÇÕES CRIATIVAS ============
+- Hud (mostra qual a câmera selecionada)
+- Controle de versão por git (https://github.com/Corean0/cg-tp2.git)
+- Tela de loading para disfarçar tempo de carregamento dos objetos do jogo
+- Cenário bem ambientado com objetos harmonicamente espalhados
+- Camêras aprimoradas com travas para que não seja possível ver debaixo do chão ou bugs de 
+  primeira pessoa
+- Início do jogo alinhado com inicio do parque
+- Xicaras malucas com movimento aprimorado, elas giram em torno do proprio eixo por uma direção
+  e depois há um sistema de randomização que decide se ela continuará nessa direção ou vai virar
+  pra outra (movimento de rotação). Mesmo sistema de randomização implementado para giro em
+  torno do eixo central das xicaras (movimento de translação) porem com tempo diferente do
+  sistema anterior.
+- Torre com movimento aprimorado, sobe mais lentamente e depois para por um momento no ponto 
+  mais alto para cair muito mais rápido e novamente ter um momento de pausa na base. Feito para
+  se parecer mais com uma torre de verdade.
+- Cavalos com posições iniciais sendo randomizadas, deixando cada um com uma posição diferente,
+  feito para simular menor artificialidade.
+- Otimização de código para maior flexibilidade, as velocidades de todos os brinquedos estão
+  colocadas em #define no inicio da main para que possa ser alterada facilmente fora do "código
+  interno".
+- Menu completo, com tela de créditos, instruções de comandos, efeito hover e no mesmo tema do
+  parque de diversões(LEGO).
+- Otimização no carregamento de obj's, foi utilizada lista de visualização para guardar os .obj
+  usados. Na sequência que a lista é criada a sua respectiva variável GLMmodel é deletada para
+  menor consumo de RAM.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Total = 124% + Implementações criativas

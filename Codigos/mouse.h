@@ -18,10 +18,15 @@ void mouseMove(int x, int y)
    		pi = pi - yChange/150;
    		theta = theta + xChange/150;
 	}
+
+	// Limitando camera para que não seja possível ver abaixo do mapa ou coisa do tipo
 	if(pi >=72)
 		pi = 72;
 	if(pi <= 69.292908)
 		pi = 69.292908;
+
+	if(modoCamera == 3 && pi >= 70.266495)
+		pi = 70.266495;
 
    	// Limitando o valor do angulo
    	if(pi >= 180)

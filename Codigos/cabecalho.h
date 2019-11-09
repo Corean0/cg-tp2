@@ -44,3 +44,4 @@ void bancosCadeira();
 void rocket();
 void meiosFios();
 void carros();
+void atualizaLuz();

@@ -119,8 +119,7 @@ void xicaras_malucas()
 void desenhaRodaGigante(){
     int i;
     const float angulo = (M_PI*2)/CARRINHOS;
-    const float raio = rodaGG_aro.dimensoes.y/2/*-ERRO VISUAL*/;//tem que arrumar isso daqui ainda
-//printf("%f %f %f\n", rodaGG_aro.dimensoes.x,rodaGG_aro.dimensoes.y,rodaGG_aro.dimensoes.z); //valores corretos disso e do aro
+    float raio = rodaGG_aro.dimensoes.y/2/*-ERRO VISUAL*/;
     auxRotacaoRGG+=VELOCIDADE_RODA;
     if(auxRotacaoRGG==360)
     	auxRotacaoRGG=0;
@@ -139,25 +138,13 @@ void desenhaRodaGigante(){
 				    glScalef(rodaGG_aro.aumento.x,rodaGG_aro.aumento.y,rodaGG_aro.aumento.z);
 				    glCallList(rodaGG_aro.listaVisualizacao);
 			glPopMatrix();
-			
-			//ajusta centro da circunferencia com centro do encaixe do carrinho(funcionando)
-			//glRotatef(-auxRotacaoRGG,1,0,0);
-			//glTranslatef(0,-rodaGG_carro.dimensoes.y/*ERROVISUAL*/+9,0);
-			//desenhaOBJ(rodaGG_carro,0);
-			//desenhaOBJ(pedra_3,0); //testa centro coincidente ou não
-			//glRotatef(auxRotacaoRGG,1,0,0);
-			
 
 		    	for(i=0; i<CARRINHOS; i++){
 		    		glPushMatrix();
-					//não sei pq mas tem um erro q o centro não ta ajustado e esse translate arruma
-					//glRotatef(-auxRotacaoRGG,1,0,0);
 					glTranslatef(0, raio*sin(angulo*i+M_PI/18.0),raio*cos(angulo*i+M_PI/18.0));					
 					glScalef(rodaGG_carro.aumento.x,rodaGG_carro.aumento.y,rodaGG_carro.aumento.z);
 					glRotatef(-auxRotacaoRGG,1,0,0);
 					glCallList(rodaGG_carro.listaVisualizacao);
-					//glScalef(100,1,1);
-					//glCallList(pedra_3.listaVisualizacao);
 		    		glPopMatrix();
 		    	}
 	    glPopMatrix();    
@@ -169,6 +156,6 @@ void rocket(){
 		desenhaOBJ(baseF,0);
 		glTranslatef(baseF.posicao.x,baseF.dimensoes.y/2,baseF.posicao.z);
 		desenhaOBJ(foguetes,auxRotacaoF);
-		auxRotacaoF++;
+		auxRotacaoF+= ROT_ROCKET;
 	glPopMatrix();
 }

@@ -27,7 +27,8 @@
 #define VEL_TORRE 3
 #define XICARAS 6
 #define VEL_XX 4
-#define timer_aux 0.000001
+#define TIMER 0.000001
+#define ROT_ROCKET 1
 
 // Variaveis globais
 Objeto3D	    rodaGG_base,rodaGG_aro,rodaGG_carro, arvore1, arvore2, terreno,pedra_1,pedra_2,pedra_3, fonte, pipoca, pipoca1,

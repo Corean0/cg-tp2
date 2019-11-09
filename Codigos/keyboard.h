@@ -3,6 +3,7 @@ void teclaPressionada(unsigned char key, int x, int y)
 {
     switch(key)
     {
+
         // Teclas para andar com a camera
         case 'S':
         case 's':
@@ -75,7 +76,8 @@ void teclaPressionada(unsigned char key, int x, int y)
         case '3':
 
             if(tela == 1){
-				indicadorCamera.textura = loadTexture("../Imagens/interface_camera3.png");
+		indicadorCamera.textura = loadTexture("../Imagens/interface_camera3.png");
+		pi = 70.266495;
                 modoCamera = 3;
 			}
             break;

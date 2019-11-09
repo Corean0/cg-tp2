@@ -41,20 +41,7 @@ void desenhaMinhaCena()
 		// DIA E NOITE
 	
 		const GLfloat light_ambient[]  = { m, m, m, 1.0f };
-	
-		if(m>=1)
-			timer=-1;
-	
-		if(m<=0)
-			timer=1;
-		
-		m=m+(timer_aux*timer);
-
-		if(timer<0)
-			timer--;
-		else
-			timer++;
-
+		atualizaLuz();
 		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, light_ambient);
 
 		//
@@ -106,13 +93,13 @@ void desenhaMinhaCena()
 
 		carros();
 		chao();
-		//lanchonetes();
+		lanchonetes();
 		desenhaOBJ(fonte,0);
 		pipocas();
 		postes();
 		torre();
-		//arvores();
-		//desenhaRodaGigante();
+		arvores();
+		desenhaRodaGigante();
 		carrossel();
 		bancos();
 		ruas();
@@ -445,4 +432,20 @@ void loading()
 {	
         drawObject(loadingO);
 	glutSwapBuffers();
+}
+
+void atualizaLuz(){
+	
+	if(m>=1)
+		timer=-1;	
+	else if(m<=0)
+		timer=1;
+		
+	m += TIMER*timer;
+
+	if(timer<0)
+		timer--;
+	else
+		timer++;
+
 }
