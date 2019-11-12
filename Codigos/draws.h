@@ -40,7 +40,7 @@ void desenhaMinhaCena()
 
 		// DIA E NOITE
 	
-		const GLfloat light_ambient[]  = { m, m, m, 1.0f };
+		/*const*/ GLfloat light_ambient[]  = { m, m, m, 1.0f };
 		atualizaLuz();
 		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, light_ambient);
 
@@ -51,8 +51,6 @@ void desenhaMinhaCena()
         switch(modoCamera)
         {
             // Camera simples
-            default:
-				break;
 			case 1:	
 				switch(cameraBrinquedos){
 					case 1:
@@ -89,6 +87,9 @@ void desenhaMinhaCena()
 
                 gluLookAt(cursor.x + camera.x,cursor.y + camera.y, cursor.z + camera.z, cursor.x + 0,cursor.y + 0, cursor.z + 0, 0, 1, 0);
                 break;
+            	
+            default:
+				break;
         }
 			
 		if (isLightingOn)
@@ -96,22 +97,22 @@ void desenhaMinhaCena()
 	        	glEnable(GL_LIGHTING);
 		}
 
-		//carros();
+		carros();
 		chao();
-		//lanchonetes();
-		//desenhaOBJ(fonte,0);
-		//pipocas();
-		//postes();
+		lanchonetes();
+		desenhaOBJ(fonte,0);
+		pipocas();
+		postes();
 		torre();
-		//arvores();
+		arvores();
 		desenhaRodaGigante();
 		carrossel();
-		//bancos();
+		bancos();
 		ruas();
 		xicaras_malucas();
-		//bancosCadeira();
+		bancosCadeira();
 		rocket();
-		//meiosFios();
+		meiosFios();
 
 		if (isLightingOn)
 	    {
@@ -137,7 +138,7 @@ void desenhaMinhaCena()
     glutSwapBuffers();
 }
 
-//Desenha os objetos e imagens
+//Desenha os objetos 2D
 void drawObject(spriteObject objeto)
 {
     glEnable(GL_TEXTURE_2D);
@@ -191,7 +192,7 @@ void config3D(){
 
 void desenhaInterface()
 {
-	// Configurar glortho para fazer e depois reconfigurar persperctive
+
 	config2D();
 	drawObject(indicadorCamera);
     if(modoCamera == 1)
@@ -200,6 +201,7 @@ void desenhaInterface()
 
 }
 
+// Desenha objetos 3D
 void desenhaOBJ(Objeto3D objeto, float rotacao)
 {
 	glPushMatrix();
@@ -210,6 +212,7 @@ void desenhaOBJ(Objeto3D objeto, float rotacao)
 	glPopMatrix();
 }
 
+// Desenha objetos 3D em uma posição especifica passada como referência
 void desenhaPosicao(Objeto3D objeto,float centrox, float centroz, float rotacao)
 {
 	glPushMatrix();
@@ -220,7 +223,7 @@ void desenhaPosicao(Objeto3D objeto,float centrox, float centroz, float rotacao)
 
 void chao()
 {
-		// Terreno
+
 		glPushMatrix();
 		for(int random = -QTDECHAO, auxrandom, random1, auxrandom1 ; random <= QTDECHAO ;random++)
 		{
@@ -238,15 +241,10 @@ void chao()
 		glPopMatrix();
 }
 
-
-/*
-LEMBRETE:
-Eixo x: altera cima/baixo, sendo positivo levando mais para baixo
-Eixo z: altera direita/esquerda, sendo positivo levando mais para esquerda
-*/
 void ruas()
 {
 	glPushMatrix();
+
 		// Ajustar erro terreno/rua
 		glTranslatef(0,terreno.dimensoes.y/2,0);
 
@@ -309,6 +307,7 @@ void ruas()
 }
 
 void meiosFios(){
+
 	//Lado esquerdo
 	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*4,terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2,0);
 	desenhaPosicao(meio_fio,terreno_rua.dimensoes.x*5.5,terreno_rua.dimensoes.z/2+meio_fio.dimensoes.z/2+2,0);
