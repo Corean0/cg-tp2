@@ -51,39 +51,38 @@ void desenhaMinhaCena()
         switch(modoCamera)
         {
             // Camera simples
-            default:
-				break;
 			case 1:	
 				switch(cameraBrinquedos){
 					case 1:
 						gluLookAt(-80, 30, 0,-120, 25, 0, 0, 1, 0); // Roda Gigante
-					break;
+						break;
 					case 2:
 						gluLookAt(-30, 30, -10, -60, 28, -40, 0, 1, 0); // Carrosel
-		            break;
+		            	break;
 					case 3:
 						gluLookAt(-108, 25, -50,-108, 23, -55, 0, 1, 0); // Torre que cai
-					break;
+						break;
 					case 4:
 						gluLookAt(-70, 30, -5, -70, 20, 40, 0, 1, 0); // Foguete
-					break;
+						break;
 					case 5:
 						gluLookAt(-110, 30, 30, -110, 26, 40, 0, 1, 0); // Xicara
-					break;
+						break;
 				}
             	break;
 		
             // Camera primeira pessoa
             case 2:
-
                 gluLookAt(cursor.x + 0,cursor.y + 0, cursor.z + 0, cursor.x + camera.x,cursor.y + camera.y, cursor.z + camera.z, 0, 1, 0);
                 break;
 
             // Camera terceira pessoa
             case 3:
-
                 gluLookAt(cursor.x + camera.x,cursor.y + camera.y, cursor.z + camera.z, cursor.x + 0,cursor.y + 0, cursor.z + 0, 0, 1, 0);
                 break;
+                
+            default:
+				break;
         }
 			
 		if (isLightingOn)
