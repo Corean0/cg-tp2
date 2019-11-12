@@ -16,11 +16,11 @@
 [ 3%] (V) Música
 [ 8%] (-) Estacionamento (O nosso deve estar por volta de 5%)
 [10%] (-) Dia/Noite (Temos q fzr evento noturnos para chegar em 10%, no momento ta por volta de 6)
+[ 4%] (V) Git
 ============= IMPLEMENTAÇÕES CRIATIVAS ============
 - Hud (mostra qual a câmera selecionada e na primeira camera mostra o nome do brinquedo)
-- Controle de versão por git (https://github.com/Corean0/cg-tp2.git)
 - Tela de loading para disfarçar tempo de carregamento dos objetos do jogo
-- Cenário bem ambientado com objetos harmonicamente espalhados
+- Cenário bem ambientado com objetos harmonicamente distribuidos
 - Camêras aprimoradas com travas para que não seja possível ver debaixo do chão ou bugs de 
   primeira pessoa
 - Início do jogo alinhado com inicio do parque
