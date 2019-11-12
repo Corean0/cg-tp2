@@ -32,6 +32,7 @@ void setup()
     wallpaper_controles.textura = loadTexture("../Imagens/wallpaper_controles.png");
     loadingO.textura = loadTexture("../Imagens/wallpaper_loading.png");
 	indicadorCamera.textura = loadTexture("../Imagens/interface_camera2.png");
+    indicadorBrinquedo.textura = loadTexture("../Imagens/RodaGigante.png");
 
     float matAmbAndDif[4] = {1.0, 1.0, 1.0, 1.0};    // Vetor cor ambiente e difusa: branca
     float matShine[] = {5};                          // Expoente especular (shininess)
@@ -103,6 +104,11 @@ void setupJogo(){
 	indicadorCamera.dimensoes.y = altura/4;
 	indicadorCamera.posicao.x = indicadorCamera.dimensoes.x/2;
 	indicadorCamera.posicao.y = altura - indicadorCamera.dimensoes.y/2;
+
+    indicadorBrinquedo.dimensoes.x = largura/4;
+	indicadorBrinquedo.dimensoes.y = altura/6;
+	indicadorBrinquedo.posicao.x = (largura*4)/5;
+	indicadorBrinquedo.posicao.y = (altura*6)/7;
 
 
     //Parte 3D

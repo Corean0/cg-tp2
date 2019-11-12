@@ -28,7 +28,7 @@ void desenhaMinhaCena()
     	glFogi(GL_FOG_MODE, GL_LINEAR);    // GL_EXP, GL_EXP2 e GL_LINEAR
     	glFogf(GL_FOG_START, 100);         // Inicio e termino do fog para GL_LINEAR -3.00 ate 3.00
     	glFogf(GL_FOG_END, 200);
-    	glFogf(GL_FOG_DENSITY, 0.01);     // Densidade do fog 0.00 á 3.00
+    	glFogf(GL_FOG_DENSITY, 0.005);     // Densidade do fog 0.00 á 3.00
     	glFogfv(GL_FOG_COLOR, colorFog);
 
         movimentacao();
@@ -51,38 +51,44 @@ void desenhaMinhaCena()
         switch(modoCamera)
         {
             // Camera simples
+            default:
+				break;
 			case 1:	
 				switch(cameraBrinquedos){
 					case 1:
-						gluLookAt(-80, 30, 0,-120, 25, 0, 0, 1, 0); // Roda Gigante
-						break;
+						gluLookAt(-80, 40, 0,-120, 30, 0, 0, 1, 0); // Roda Gigante
+                        indicadorBrinquedo.textura = loadTexture("../Imagens/RodaGigante.png");
+					break;
 					case 2:
-						gluLookAt(-30, 30, -10, -60, 28, -40, 0, 1, 0); // Carrosel
-		            	break;
+						gluLookAt(-30, 30, -10, -60, 28, -40, 0, 1, 0); // Torre que cai
+                        indicadorBrinquedo.textura = loadTexture("../Imagens/DownTower.png");
+		            break;
 					case 3:
-						gluLookAt(-108, 25, -50,-108, 23, -55, 0, 1, 0); // Torre que cai
-						break;
+						gluLookAt(-108, 25, -50,-108, 23, -55, 0, 1, 0); // Carrossel
+                        indicadorBrinquedo.textura = loadTexture("../Imagens/Carrossel.png");
+					break;
 					case 4:
 						gluLookAt(-70, 30, -5, -70, 20, 40, 0, 1, 0); // Foguete
-						break;
+                        indicadorBrinquedo.textura = loadTexture("../Imagens/LegoRocket.png");
+					break;
 					case 5:
 						gluLookAt(-110, 30, 30, -110, 26, 40, 0, 1, 0); // Xicara
-						break;
+                        indicadorBrinquedo.textura = loadTexture("../Imagens/XicaraMaluca.png");
+					break;
 				}
             	break;
 		
             // Camera primeira pessoa
             case 2:
+
                 gluLookAt(cursor.x + 0,cursor.y + 0, cursor.z + 0, cursor.x + camera.x,cursor.y + camera.y, cursor.z + camera.z, 0, 1, 0);
                 break;
 
             // Camera terceira pessoa
             case 3:
+
                 gluLookAt(cursor.x + camera.x,cursor.y + camera.y, cursor.z + camera.z, cursor.x + 0,cursor.y + 0, cursor.z + 0, 0, 1, 0);
                 break;
-                
-            default:
-				break;
         }
 			
 		if (isLightingOn)
@@ -90,22 +96,22 @@ void desenhaMinhaCena()
 	        	glEnable(GL_LIGHTING);
 		}
 
-		carros();
+		//carros();
 		chao();
-		lanchonetes();
-		desenhaOBJ(fonte,0);
-		pipocas();
-		postes();
+		//lanchonetes();
+		//desenhaOBJ(fonte,0);
+		//pipocas();
+		//postes();
 		torre();
-		arvores();
+		//arvores();
 		desenhaRodaGigante();
 		carrossel();
-		bancos();
+		//bancos();
 		ruas();
 		xicaras_malucas();
-		bancosCadeira();
+		//bancosCadeira();
 		rocket();
-		meiosFios();
+		//meiosFios();
 
 		if (isLightingOn)
 	    {
@@ -188,6 +194,8 @@ void desenhaInterface()
 	// Configurar glortho para fazer e depois reconfigurar persperctive
 	config2D();
 	drawObject(indicadorCamera);
+    if(modoCamera == 1)
+        drawObject(indicadorBrinquedo);
 	config3D();
 
 }
