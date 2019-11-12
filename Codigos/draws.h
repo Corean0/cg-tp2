@@ -392,7 +392,7 @@ void arvores()
 	desenhaPosicao(arvore2,-150, -80,0);
 	desenhaPosicao(arvore2,-180, 100,0);
 	desenhaPosicao(arvore2,-100, 40,0);
-	desenhaPosicao(arvore2,0,100,0);
+	desenhaPosicao(arvore2,0,170,0);
 	desenhaPosicao(arvore2,0,-140,0);
 	desenhaPosicao(arvore2,50,100,0);
 	desenhaPosicao(arvore2,-75,120,0);
