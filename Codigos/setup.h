@@ -19,6 +19,7 @@ void setup()
 
 	som1 = carregaMusica("../Sons/awesome.ogg");
 	comecaMusica(som1,0,-1);
+
 	
     // Texturas 2D
     wallpaper_menu.textura = loadTexture("../Imagens/wallpaper_menu.png");
@@ -35,7 +36,7 @@ void setup()
     indicadorBrinquedo.textura = loadTexture("../Imagens/RodaGigante.png");
 
     float matAmbAndDif[4] = {1.0, 1.0, 1.0, 1.0};    // Vetor cor ambiente e difusa: branca
-    float matShine[] = {5};                          // Expoente especular (shininess)
+    float matShine = {5};                          // Expoente especular (shininess)
     int light = 0;
 }
 
