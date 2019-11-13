@@ -3,6 +3,7 @@ void teclaPressionada(unsigned char key, int x, int y)
 {
     switch(key)
     {
+
         // Teclas para andar com a camera
         case 'S':
         case 's':
@@ -28,38 +29,57 @@ void teclaPressionada(unsigned char key, int x, int y)
             keyboard[68] = 1;  
             break;
 
-	case 'Q':
-	case 'q':
+	case 'N':
+        case 'n':
 
-		keyboard[81] = 1;
-		break;
+            if(fogOn==1)
+				fogOn=0;
+			else
+				fogOn=1;
+            break;
 
-	case 'E':
-	case 'e':
-
-		keyboard[69] = 1;
-		break;
+		case 'l':
+    	case 'L':
+        	if(isLightingOn == 0)
+            {
+				isLightingOn = 1;
+			}
+			else
+            {
+				isLightingOn = 0;
+			}
+        break;
 
         // As três cameras
         // Camera perspectiva
         case '1':
 
-            if(tela == 1)
+            if(tela == 1){
+				indicadorCamera.textura = loadTexture("../Imagens/interface_camera1.png");
                 modoCamera = 1;
+				cameraBrinquedos++;
+				if(cameraBrinquedos == 6)
+					cameraBrinquedos=1;
+			}
             break;
 
         // Camera primeira pessoa
         case '2':
 
-            if(tela == 1)
+            if(tela == 1){
+				indicadorCamera.textura = loadTexture("../Imagens/interface_camera2.png");
                 modoCamera = 2;
+			}
             break;
 
         // Camera terceira pessoa
         case '3':
 
-            if(tela == 1)
+            if(tela == 1){
+		indicadorCamera.textura = loadTexture("../Imagens/interface_camera3.png");
+		pi = 70.266495;
                 modoCamera = 3;
+			}
             break;
 
         //ESC
@@ -70,10 +90,11 @@ void teclaPressionada(unsigned char key, int x, int y)
             {
                 exit(0);
             }
-            else if(tela == 3|| tela == 1)
+            else if(tela == 3 || tela == 1 || tela == 2)
             {
                 tela = 0;
-		        glutReshapeWindow(largura,altura);
+				glutSetCursor(GLUT_CURSOR_INHERIT);
+		        	glutReshapeWindow(largura,altura);
             }
 
             else
@@ -94,6 +115,7 @@ void teclaSegurada(unsigned char key, int x, int y)
             keyboard[83] = 0;
             break;
 
+
         case 'W':
         case 'w':
 
@@ -111,18 +133,6 @@ void teclaSegurada(unsigned char key, int x, int y)
 
             keyboard[68] = 0;
             break;
-
-	case 'Q':
-	case 'q':
-
-		keyboard[81] = 0;
-		break;
-
-	case 'E':
-	case 'e':
-
-		keyboard[69] = 0;
-		break;
     }
 }
 
@@ -131,34 +141,25 @@ void movimentacao()
     // Tecla w/W        
     if(keyboard[87] == 1) 
     {
-        cursor.x--;
+        cursor.x -= 0.5;
     }
 
     // Tecla s/S
     if(keyboard[83] == 1)  
     {
-        cursor.x++;
+        cursor.x += 0.5;
     }
 
     // Tecla a/A
     if(keyboard[65] == 1)  
     {
-        cursor.z++;
+        cursor.z += 0.5;
     }
 
     // Tecla d/D
     if(keyboard[68] == 1)  
     {
-        cursor.z--;
+        cursor.z -= 0.5;
     }
 
-	if(keyboard[69] == 1)
-	{
-		cursor.y++;
-	}
-
-	if(keyboard[81] == 1)
-	{
-		cursor.y--;
-	}
 }

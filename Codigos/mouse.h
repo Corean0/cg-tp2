@@ -11,11 +11,22 @@ void mouseMove(int x, int y)
    	// Salvando as alteracoes realizadas na camera do jogador
 	// xMouse e yMouse são valores do ultimo frame do mouse
 	xChange = x - xMouse;
-	yChange = y - yMouse;
+	yChange = -(y - yMouse);
 
    	// Regulando os angulos em coordenadas esfericas 2D -> 3D
-   	pi = pi - yChange/150;
-   	theta = theta + xChange/150;
+	if(tela == 1){		
+   		pi = pi - yChange/150;
+   		theta = theta + xChange/150;
+	}
+
+	// Limitando camera para que não seja possível ver abaixo do mapa ou coisa do tipo
+	if(pi >=72)
+		pi = 72;
+	if(pi <= 69.292908)
+		pi = 69.292908;
+
+	if(modoCamera == 3 && pi >= 70.266495)
+		pi = 70.266495;
 
    	// Limitando o valor do angulo
    	if(pi >= 180)
@@ -67,8 +78,8 @@ void mouseMove(int x, int y)
 			sair_menu.textura = loadTexture("../Imagens/sair_branco.png");
 	}
 
-	// Efeito hover nos creditos
-	if(tela == 3)
+	// Efeito hover nos Creditos e nos Controles
+	if(tela == 3 || tela == 2)
 	{		
 		if(mouse.posicao.x < sair_creditos.posicao.x + sair_creditos.dimensoes.x/2 && mouse.posicao.x > sair_creditos.posicao.x - sair_creditos.dimensoes.x/2 &&
 		   mouse.posicao.y < sair_creditos.posicao.y + sair_creditos.dimensoes.y/2 && mouse.posicao.y > sair_creditos.posicao.y - sair_creditos.dimensoes.y/2)
@@ -96,6 +107,14 @@ void mouseClick(int botao, int estado, int x, int y)
 				   mouse.posicao.y < jogar.posicao.y + jogar.dimensoes.y/2 && mouse.posicao.y > jogar.posicao.y - jogar.dimensoes.y/2)
 				{
 					tela = 1;
+					if(start == 0)
+					{
+						loading();
+						setupJogo();
+    						start++;
+					}
+
+					glutSetCursor(GLUT_CURSOR_NONE);
 					glutReshapeWindow(largura,altura);
 				}
 
@@ -121,8 +140,8 @@ void mouseClick(int botao, int estado, int x, int y)
 				}
 			}
 
-			// Creditos
-			if(tela == 3)
+			// Creditos ou Controles
+			if(tela == 3 || tela == 2)
 			{
 				// Clicando "Sair"
 				if(mouse.posicao.x < sair_creditos.posicao.x + sair_creditos.dimensoes.x/2 && mouse.posicao.x > sair_creditos.posicao.x - sair_creditos.dimensoes.x/2 &&
